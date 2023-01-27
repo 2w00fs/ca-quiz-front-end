@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap')
+
+$color1: #4c4c4c
+$color2: #8e8e8e
+$color3: white
+$background-color: #efefef
+
+$font-family1: 'Open Sans', Arial, sans-serif
+$font-family2: 'Roboto', Arial, sans-serif
+
+$drop-shadow1: 1px 1px 1px rgba(0, 0, 0, 0.2)
+$round-corners-card: 20px
+$round-corners-btn1: 11px
+$round-corners-btn2: 12px
+$round-corners-btn3: 12px
+
+$stroke-btn: 1px
+$stroke-text-field: 1px
+
+
+@mixin card
+    box-shadow: $drop-shadow1
+    background-color: $color3
+    border-radius: $round-corners-card
+    padding: 1.4rem
+
+
+@mixin text1
+    font: 600 $font-family1
+    color: $color1
+
+@mixin text2
+    font: 500 $font-family2
+    color: $color2
+
+@mixin text3
+    font: 500 $font-family2
+    color: $color1
+
+@mixin text4
+    font: 300 $font-family2
+    color: $color1
+
+@mixin text5
+    font: 500 $font-family2
+    color: $color3
+
+
+
+@mixin btn-style-filled
+    background-color: $color1
+    @include text5
+
+@mixin btn-style-no-fill
+    background-color: $color3
+    border: $stroke-btn solid $color1
+    @include text3
+
+
+@mixin btn-small
+    border-radius: $round-corners-btn1
+    padding: 0.15rem
+    font-size: 0.8rem
+
+@mixin btn-medium
+    border-radius: $round-corners-btn2
+    padding: 0.2rem
+    font-size: 1.1rem
+
+@mixin btn-big
+    border-radius: $round-corners-btn3
+    padding: 0.25rem
+    font-size: 1.4rem
+
+
+
+
+
+
+
+body
+    background-color: white
+    margin: 0px
