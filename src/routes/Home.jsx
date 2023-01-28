@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
-import SubjectList from '../SubjectList/SubjectList.jsx'
-import AddSubject from '../AddSubject/AddSubject.jsx'
+import SubjectList from '@/pages/SubjectList/SubjectList.jsx'
+import AddSubject from '@/pages/AddSubject/AddSubject.jsx'
 
 const Home = () => {
     const [subjects, setSubjects] = useState([])

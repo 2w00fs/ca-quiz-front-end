@@ -1,7 +1,7 @@
 import React from 'react'
-import SubjectCard from './SubjectCard/SubjectCard'
-import Title from '../SubComponents/Title/Title.jsx'
-import AddButton from '../SubComponents/AddButton/AddButton.jsx'
+import SubjectCard from '../../components/SubjectCard/SubjectCard'
+import Title from '../../components/Title/Title.jsx'
+import AddButton from '../../components/AddButton/AddButton.jsx'
 import './style/SubjectList.css'
 
 const SubjectList = ({ subjects }) => {

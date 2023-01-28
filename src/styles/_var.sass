@@ -1,21 +1,34 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap')
 
-$color1: #4c4c4c
-$color2: #8e8e8e
-$color3: white
-$background-color: #efefef
+$c-brand-primary: white
+$c-brand-accent: #4c4c4c
 
-$font-family1: 'Open Sans', Arial, sans-serif
-$font-family2: 'Roboto', Arial, sans-serif
+$c-shade-primary: white
+$c-shade-secondary: #efefef
+$c-shade-accent: #4c4c4c
 
-$drop-shadow1: 1px 1px 1px rgba(0, 0, 0, 0.2)
+$c-text-primary: #4c4c4c
+$c-text-secondary: #8e8e8e
+$c-text-accent: white
+
+$font-family-primary: 'Open Sans', Arial, sans-serif
+$font-family-secondary: 'Roboto', Arial, sans-serif
+
+$font-primary: 600 $font-family-primary
+$font-secondary: 500 $font-family-secondary
+$font-tertiary: 300 $font-family-secondary
+
+$drop-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2)
+
+$stroke: 1px
+
+
+
+
 $round-corners-card: 20px
 $round-corners-btn1: 11px
 $round-corners-btn2: 12px
 $round-corners-btn3: 12px
-
-$stroke-btn: 1px
-$stroke-text-field: 1px
 
 
 @mixin card
@@ -25,33 +38,11 @@ $stroke-text-field: 1px
     padding: 1.4rem
 
 
-@mixin text1
-    font: 600 $font-family1
-    color: $color1
-
-@mixin text2
-    font: 500 $font-family2
-    color: $color2
-
-@mixin text3
-    font: 500 $font-family2
-    color: $color1
-
-@mixin text4
-    font: 300 $font-family2
-    color: $color1
-
-@mixin text5
-    font: 500 $font-family2
-    color: $color3
-
-
-
-@mixin btn-style-filled
+@mixin btn-filled
     background-color: $color1
     @include text5
 
-@mixin btn-style-no-fill
+@mixin btn-border
     background-color: $color3
     border: $stroke-btn solid $color1
     @include text3
@@ -72,12 +63,3 @@ $stroke-text-field: 1px
     padding: 0.25rem
     font-size: 1.4rem
 
-
-
-
-
-
-
-body
-    background-color: white
-    margin: 0px

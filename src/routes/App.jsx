@@ -1,9 +1,9 @@
 import { Routes, Route } from "react-router-dom"
-import Nav from "./components/Nav/Nav.jsx"
-import Subject from "./components/Subject/Subject.jsx"
-import Auth from "./components/Auth/Auth.jsx"
-import Quiz from "./components/Quiz/Quiz.jsx"
-import Home from "./components/Home/Home.jsx"
+import Home from "@/routes/Home.jsx"
+import Nav from "@/components/Nav/Nav.jsx"
+import Subject from "@/pages/Subject/Subject.jsx"
+import Auth from "@/routes/Auth.jsx"
+import Quiz from "@/routes/Quiz.jsx"
 
 
 function App() {

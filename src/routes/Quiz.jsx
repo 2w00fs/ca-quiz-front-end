@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
-import QuizHome from '../QuizHome/QuizHome.jsx'
-import TakeQuiz from '../TakeQuiz/TakeQuiz.jsx'
-import EditQuiz from '../EditQuiz/EditQuiz.jsx'
-import EditFlashcard from '../EditFlashcard/EditFlashcard.jsx'
+import QuizHome from '../pages/QuizHome/QuizHome.jsx'
+import TakeQuiz from '../pages/TakeQuiz/TakeQuiz.jsx'
+import EditQuiz from '../pages/EditQuiz/EditQuiz.jsx'
+import EditFlashcard from '../pages/EditFlashcard/EditFlashcard.jsx'
 
 const Quiz = () => {
     const [ quiz, setQuiz ] = useState({})

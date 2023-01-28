@@ -1,8 +1,8 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
-import Login from '../Login/Login.jsx'
-import Logout from '../Logout/Logout.jsx'
-import SignUp from '../SignUp/SignUp.jsx'
+import Login from '@/pages/Login/Login.jsx'
+import Logout from '@/pages/Logout/Logout.jsx'
+import SignUp from '@/pages/SignUp/SignUp.jsx'
 
 const Auth = () => {
     return (
