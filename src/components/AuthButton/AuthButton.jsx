@@ -1,8 +1,11 @@
 import React from 'react'
+import Button from '../Button/Button.jsx'
 
 const AuthButton = () => {
     return (
-        <div>AuthButton</div>
+        <Button type={'secondary'}>
+            Logout
+        </Button>
     )
 }
 

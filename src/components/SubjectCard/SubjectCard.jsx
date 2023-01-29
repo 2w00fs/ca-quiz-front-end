@@ -8,9 +8,7 @@ const SubjectCard = ({ subject }) => {
         <Card>
             <div className={'subject-card-content'}>
                 <h2>{subject.name}</h2>
-                <TextHighlight>
-                    <p>{`${subject.quizCount} ${subject.quizCount > 1 ? 'quizzes' : 'quiz'}`}</p>
-                </TextHighlight>
+                <p>{`${subject.quizCount} ${subject.quizCount > 1 ? 'quizzes' : 'quiz'}`}</p>
             </div>
         </Card>
     )

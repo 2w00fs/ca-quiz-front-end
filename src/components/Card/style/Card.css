@@ -1,7 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Prompt:wght@300;400;500;600&family=Roboto:wght@300;400;500;700&family=Unbounded:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Prompt:wght@300;400;500;600&family=Roboto:wght@300;400;500;700&family=Unbounded:wght@300;400;500&display=swap");
 article {
   background: white;
-  border-radius: 8px;
+  border-radius: 4px;
   padding: 1rem;
-  box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.45);
+  box-shadow: 0px 0.5px 1.5px rgba(0, 0, 0, 0.45);
 }/*# sourceMappingURL=Card.css.map */
