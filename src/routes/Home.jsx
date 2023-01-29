@@ -12,7 +12,8 @@ const Home = () => {
         setSubjects([
             { _id: 3209730987329, name: 'German', quizCount: 3 },
             { _id: 5609737987346, name: 'Biology', quizCount: 4 },
-            { _id: 5050406940550, name: 'Psychology', quizCount: 1 }
+            { _id: 5050406940550, name: 'Psychology', quizCount: 1 },
+            { _id: 8937894798429, name: 'Music', quizCount: 2 }
         ])
     }, [])
 

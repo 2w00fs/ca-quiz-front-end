@@ -1,1 +1,1 @@
-{"version":3,"sources":["../../../styles/base.sass","SubjectList.css","SubjectList.sass"],"names":[],"mappings":"AAKA;EACI,yBAAA;EACA,WAAA;ACJJ;;ACDA;EACI,yBAAA;EACA,aAAA;ADIJ","file":"SubjectList.css"}
+{"version":3,"sources":["../../../styles/_var.sass","SubjectList.sass","SubjectList.css"],"names":[],"mappings":"AAAQ,mMAAA;ACER;EACI,YAAA;EACA,gBAAA;ACAJ","file":"SubjectList.css"}

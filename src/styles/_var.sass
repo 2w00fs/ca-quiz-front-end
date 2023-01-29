@@ -1,65 +1,29 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Prompt:wght@300;400;500;600&family=Roboto:wght@300;400;500;700&family=Unbounded:wght@500&display=swap')
 
-$c-brand-primary: white
-$c-brand-accent: #4c4c4c
+$c-brand-primary: #00eb7d
+$c-brand-secondary: #cfffe2
+$c-brand-background: #f0f2f1
 
 $c-shade-primary: white
-$c-shade-secondary: #efefef
-$c-shade-accent: #4c4c4c
+$c-shade-secondary: #515151
 
-$c-text-primary: #4c4c4c
-$c-text-secondary: #8e8e8e
+$c-text-primary: #05140b
+$c-text-secondary: #383838
 $c-text-accent: white
 
-$font-family-primary: 'Open Sans', Arial, sans-serif
-$font-family-secondary: 'Roboto', Arial, sans-serif
+$font-family-logo: 'Unbounded', 'Prompt', sans-serif
+$font-family-primary: 'Prompt', 'Open Sans', sans-serif
+$font-family-secondary: 'Open Sans', Arial, sans-serif
+$font-family-tertiary: 'Roboto', Arial, sans-serif
 
-$font-primary: 600 $font-family-primary
-$font-secondary: 500 $font-family-secondary
-$font-tertiary: 300 $font-family-secondary
-
-$drop-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2)
-
-$stroke: 1px
+$font-weight-primary: 400
+$font-weight-secondary: 500
+$font-weight-tertiary: 300
 
 
+$drop-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.45)
+$round-corners: 8px
+$stroke: 0.8px
+$grid-gap: 1.4rem
 
-
-$round-corners-card: 20px
-$round-corners-btn1: 11px
-$round-corners-btn2: 12px
-$round-corners-btn3: 12px
-
-
-@mixin card
-    box-shadow: $drop-shadow1
-    background-color: $color3
-    border-radius: $round-corners-card
-    padding: 1.4rem
-
-
-@mixin btn-filled
-    background-color: $color1
-    @include text5
-
-@mixin btn-border
-    background-color: $color3
-    border: $stroke-btn solid $color1
-    @include text3
-
-
-@mixin btn-small
-    border-radius: $round-corners-btn1
-    padding: 0.15rem
-    font-size: 0.8rem
-
-@mixin btn-medium
-    border-radius: $round-corners-btn2
-    padding: 0.2rem
-    font-size: 1.1rem
-
-@mixin btn-big
-    border-radius: $round-corners-btn3
-    padding: 0.25rem
-    font-size: 1.4rem
-
+$content-container-padding: 1.5rem
