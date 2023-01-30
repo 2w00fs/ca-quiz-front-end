@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Prompt:wght@300;400;500;600&family=Roboto:wght@300;400;500;700&family=Unbounded:wght@300;400;500&display=swap");
-.subject-card-tag {
+.quiz-card-tag {
   background: #EFEEFF;
   padding: 0.35rem 1rem;
   font-family: "Roboto", "Arial", sans-serif;
@@ -8,7 +8,7 @@
   font-size: 0.8rem;
 }
 
-.subject-card-content {
+.quiz-card-content {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -19,7 +19,7 @@
   margin-top: 0.5rem;
   padding: 0 2.4rem;
 }
-.subject-card-content h2 {
+.quiz-card-content h2 {
   font-family: "Open Sans", "Roboto", sans-serif;
   font-weight: 600;
   color: #232323;
@@ -27,7 +27,7 @@
   margin-top: 0;
   margin-bottom: 0.75rem;
 }
-.subject-card-content .quiz-count-container {
+.quiz-card-content .flashcard-count-container {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -37,7 +37,7 @@
   font-size: 0.77rem;
   margin: 0;
 }
-.subject-card-content img {
+.quiz-card-content img {
   width: 1.2rem;
   margin-right: 0.4rem;
-}/*# sourceMappingURL=SubjectCard.css.map */
+}/*# sourceMappingURL=QuizCard.css.map */

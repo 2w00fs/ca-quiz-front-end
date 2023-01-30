@@ -2,6 +2,8 @@
 article {
   background: white;
   border-radius: 4px;
-  padding: 1rem;
   box-shadow: 0px 0.5px 1.5px rgba(0, 0, 0, 0.45);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }/*# sourceMappingURL=Card.css.map */

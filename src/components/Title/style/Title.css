@@ -1,18 +1,19 @@
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Prompt:wght@300;400;500;600&family=Roboto:wght@300;400;500;700&family=Unbounded:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Prompt:wght@300;400;500;600&family=Roboto:wght@300;400;500;700&family=Unbounded:wght@300;400;500&display=swap");
 h3 {
-  font-family: "Open Sans", Arial, sans-serif;
+  font-family: "Open Sans", "Roboto", sans-serif;
   font-weight: 600;
-  color: #05140b;
+  color: #232323;
   font-size: 1rem;
   margin: 0;
 }
 
 h1 {
   margin-top: 0.15rem;
-  font-family: "Open Sans", Arial, sans-serif;
-  font-weight: 600;
-  color: #05140b;
+  font-family: "Prompt", "Open Sans", sans-serif;
+  font-weight: 400;
+  color: #232323;
   font-size: 1.7rem;
+  margin-bottom: 1.45rem;
 }
 
 .title {
@@ -21,5 +22,5 @@ h1 {
   justify-content: flex-start;
   align-items: flex-start;
   padding-left: 1.5rem;
-  margin-top: 2.9rem;
+  margin-top: 2rem;
 }/*# sourceMappingURL=Title.css.map */

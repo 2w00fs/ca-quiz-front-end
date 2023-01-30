@@ -15,7 +15,7 @@ const SubjectList = ({ subjects }) => {
 
     return (
         <main>
-            <Title subheading='Home' heading='SUBJECTS' />
+            <Title subheading='Subjects' heading='HOME' />
             <CardsContainer>
                 {getSubjectList(subjects)}
             </CardsContainer>

@@ -1,18 +1,16 @@
 @use '../../../styles/_var'
+@use '../../../styles/_mixin'
 
 h3
-    font-family: var.$font-family-secondary
-    font-weight: 600
-    color: var.$c-text-primary
+    @include mixin.text-secondary
     font-size: 1rem
     margin: 0
 
 h1
     margin-top: 0.15rem
-    font-family: var.$font-family-secondary
-    font-weight: 600
-    color: var.$c-text-primary
+    @include mixin.text-primary
     font-size: 1.7rem
+    margin-bottom: 1.45rem
 
 .title
     display: flex
@@ -20,4 +18,4 @@ h1
     justify-content: flex-start
     align-items: flex-start
     padding-left: var.$content-container-padding
-    margin-top: 2.9rem
+    margin-top: 2rem
