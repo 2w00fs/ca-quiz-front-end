@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, Outlet } from 'react-router-dom'
 import SubjectList from '@/pages/SubjectList/SubjectList.jsx'
 import AddSubject from '@/pages/AddSubject/AddSubject.jsx'
 import Subject from '@/pages/Subject/Subject'
@@ -18,13 +18,7 @@ const Home = () => {
         ])
     }, [])
 
-    return (
-        <Routes>
-            <Route path='/' element={<SubjectList subjects={subjects} />} />
-            <Route path='/subject/:id' element={<Subject />} />
-            <Route path='/subject/create' element={<AddSubject subjects={setSubjects} setSubjects={setSubjects} />} />
-        </Routes>
-    )
+    return <Outlet context={{ subjects, setSubjects }}/>
 }
 
 export default Home

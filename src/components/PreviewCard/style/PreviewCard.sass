@@ -1,40 +1,39 @@
 @use '../../../styles/_var'
 @use '../../../styles/_mixin'
 
-.subject-card-tag
-    background: var.$c-brand-primary-lightest
-    padding: 0.35rem 1rem
-    @include mixin.text-tertiary
+.preview-card-tag
+    padding: 0.8rem 1.1rem
+    @include mixin.text-4
     font-size: 0.8rem
 
 
-.subject-card-content
+.preview-card-content
     width: 100%
     display: flex
     flex-direction: column
     align-items: flex-start
     justify-content: center
     min-height: 10rem
-    margin-bottom: 2.3rem
-    margin-top: 0.5rem
+    margin-bottom: 2.9rem
+    margin-top: 0rem
     padding: 0 2.4rem
 
     h2
-        @include mixin.text-secondary
+        @include mixin.text-2
         font-size: 1.6rem
         margin-top: 0
         margin-bottom: 0.75rem
 
-    .quiz-count-container
+    .count-container
         display: flex
         flex-direction: row
         align-items: center
-        @include mixin.text-thin
+        @include mixin.text-4
         font-size: 0.77rem
         margin: 0
     
     img
-        width: 1.2rem
+        width: 1.3rem
         margin-right: 0.4rem
     
 

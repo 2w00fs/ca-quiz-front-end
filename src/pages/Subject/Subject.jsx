@@ -3,7 +3,8 @@ import { useParams } from 'react-router-dom'
 import Title from '@/components/Title/Title.jsx'
 import CardsContainer from '@/components/CardsContainer/CardsContainer.jsx'
 import AddButton from '@/components/AddButton/AddButton.jsx'
-import QuizCard from '@/components/QuizCard/QuizCard.jsx'
+import PreviewCard from '@/components/PreviewCard/PreviewCard.jsx'
+import cardsLogo from '../../assets/cards.svg'
 
 const Subject = () => {
     const [subject, setSubject] = useState({})
@@ -25,7 +26,16 @@ const Subject = () => {
     }, [])
 
     const getQuizList = quizzes => {
-        let quizList = quizzes.map(quiz => <QuizCard key={quiz._id} quiz={quiz} />)
+        let quizList = quizzes.map(quiz => {
+            if (!quiz) {
+                return
+            }
+            let heading = quiz.name
+            let text = `${quiz.flashcardCount} ${quiz.flashcardCount > 1 ? 'flashcard' : 'flashcards'}`
+            let logo = cardsLogo
+            let tag = 'Quiz'
+            return <PreviewCard key={quiz._id} heading={heading} text={text} logo={logo} tag={tag} />
+        })
         quizList.push(<AddButton key={'quiz-add-button'} />)
         return quizList
     }

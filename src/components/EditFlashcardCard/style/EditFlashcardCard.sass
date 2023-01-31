@@ -1,0 +1,26 @@
+@use '../../../styles/_var'
+@use '../../../styles/_mixin'
+
+.edit-flashcard-card-content
+    display: flex
+    flex-direction: column
+    align-items: center
+    padding: 1rem 1.8rem 2rem
+
+    h2
+        @include mixin.text-3
+        font-size: 1rem
+        margin-bottom: 1.2rem
+
+    a
+        align-self: flex-start
+        margin-top: 0.4rem
+    
+    .answers
+        align-self: flex-start
+        margin-top: 0.4rem
+
+        p
+            margin: 0.85rem 0
+            @include mixin.text-thin
+            font-size: 0.9rem

@@ -4,9 +4,9 @@
 .card-deck
     display: flex
     position: relative
-    margin-top: 2.3rem
+    margin-top: 3.3rem
     height: 280px
-    margin-bottom: 2rem
+    margin-bottom: 3rem
 
 .card-in-deck
     position: absolute
@@ -14,6 +14,7 @@
     height: 270px
     background: var.$c-shade-primary
     box-shadow: var.$drop-shadow
+    border-radius: var.$round-corners
 
 .card-in-deck:nth-child(1)
     left: 10px
@@ -41,11 +42,11 @@
     display: flex
     justify-content: center
     align-items: center
-    @include mixin.text-tertiary
+    @include mixin.text-3
     font-size: 1.3rem
 
     p
-        margin: 2rem
+        margin: 2.2rem
 
 
 .main-quiz-home
@@ -57,7 +58,7 @@
     display: flex
     flex-direction: row
     justify-content: space-between
-    align-items: center
+    align-items: flex-end
 
 .quiz-home-bottom
     display: flex
@@ -66,3 +67,6 @@
 
 .card-deck
     margin-left: var.$content-container-padding
+
+.quiz-home-delete
+    margin-bottom: 1rem

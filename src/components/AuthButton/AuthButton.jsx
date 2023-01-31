@@ -3,7 +3,7 @@ import Button from '../Button/Button.jsx'
 
 const AuthButton = () => {
     return (
-        <Button type={'secondary'}>
+        <Button type={2} size={1}>
             Logout
         </Button>
     )

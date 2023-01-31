@@ -1,43 +1,42 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Prompt:wght@300;400;500;600&family=Roboto:wght@300;400;500;700&family=Unbounded:wght@300;400;500&display=swap");
-.subject-card-tag {
-  background: #EFEEFF;
-  padding: 0.35rem 1rem;
+.preview-card-tag {
+  padding: 0.8rem 1.1rem;
   font-family: "Roboto", "Arial", sans-serif;
   font-weight: 500;
-  color: #232323;
+  color: #5B5B5B;
   font-size: 0.8rem;
 }
 
-.subject-card-content {
+.preview-card-content {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
   min-height: 10rem;
-  margin-bottom: 2.3rem;
-  margin-top: 0.5rem;
+  margin-bottom: 2.9rem;
+  margin-top: 0rem;
   padding: 0 2.4rem;
 }
-.subject-card-content h2 {
+.preview-card-content h2 {
   font-family: "Open Sans", "Roboto", sans-serif;
   font-weight: 600;
-  color: #232323;
+  color: #282828;
   font-size: 1.6rem;
   margin-top: 0;
   margin-bottom: 0.75rem;
 }
-.subject-card-content .quiz-count-container {
+.preview-card-content .count-container {
   display: flex;
   flex-direction: row;
   align-items: center;
   font-family: "Roboto", "Arial", sans-serif;
-  font-weight: 300;
-  color: #232323;
+  font-weight: 500;
+  color: #5B5B5B;
   font-size: 0.77rem;
   margin: 0;
 }
-.subject-card-content img {
-  width: 1.2rem;
+.preview-card-content img {
+  width: 1.3rem;
   margin-right: 0.4rem;
-}/*# sourceMappingURL=SubjectCard.css.map */
+}/*# sourceMappingURL=PreviewCard.css.map */

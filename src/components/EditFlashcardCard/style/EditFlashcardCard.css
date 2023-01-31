@@ -1,0 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Prompt:wght@300;400;500;600&family=Roboto:wght@300;400;500;700&family=Unbounded:wght@300;400;500&display=swap");
+.edit-flashcard-card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 1.8rem 2rem;
+}
+.edit-flashcard-card-content h2 {
+  font-family: "Roboto", "Arial", sans-serif;
+  font-weight: 500;
+  color: #282828;
+  font-size: 1rem;
+  margin-bottom: 1.2rem;
+}
+.edit-flashcard-card-content a {
+  align-self: flex-start;
+  margin-top: 0.4rem;
+}
+.edit-flashcard-card-content .answers {
+  align-self: flex-start;
+  margin-top: 0.4rem;
+}
+.edit-flashcard-card-content .answers p {
+  margin: 0.85rem 0;
+  font-family: "Roboto", "Arial", sans-serif;
+  font-weight: 300;
+  color: #282828;
+  font-size: 0.9rem;
+}/*# sourceMappingURL=EditFlashcardCard.css.map */

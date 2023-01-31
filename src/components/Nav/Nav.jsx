@@ -12,7 +12,7 @@ const Nav = () => {
                 <nav className='nav'>
                     <ul>
                         <li><Link>Subjects</Link></li>
-                        <li><Button type={'primary'}>Create</Button></li>
+                        <li><Link>Create</Link></li>
                     </ul>
                 </nav>
             </div>

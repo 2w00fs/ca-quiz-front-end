@@ -1,14 +1,26 @@
 import React from 'react'
-import SubjectCard from '../../components/SubjectCard/SubjectCard'
+import PreviewCard from '@/components/PreviewCard/PreviewCard.jsx'
 import Title from '../../components/Title/Title.jsx'
 import AddButton from '../../components/AddButton/AddButton.jsx'
 import CardsContainer from '@/components/CardsContainer/CardsContainer.jsx'
 import './style/SubjectList.css'
+import quizLogo from '../../assets/quiz-logo.svg'
+import { useOutletContext } from 'react-router-dom'
 
-const SubjectList = ({ subjects }) => {
+const SubjectList = () => {
+    const { subjects } = useOutletContext()
 
     const getSubjectList = subjects => {
-        let subjectList = [subjects.map(subject => <SubjectCard key={subject._id} subject={subject} />)]
+        let subjectList = subjects.map(subject => {
+            if (!subject) {
+                return
+            }
+            let heading = subject.name
+            let text = `${subject.quizCount} ${subject.quizCount > 1 ? 'quizzes' : 'quiz'}`
+            let logo = quizLogo
+            let tag = 'Subject'
+            return <PreviewCard key={subject._id} heading={heading} text={text} logo={logo} tag={tag} />
+        })
         subjectList.push(<AddButton />)
         return subjectList
     }
