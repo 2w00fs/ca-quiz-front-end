@@ -1,0 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Poppins:wght@300;400;500&family=Prompt:wght@300;400;500;600&family=Roboto:wght@300;400;500;700&family=Unbounded:wght@300;400;500&display=swap");
+.back-button {
+  position: absolute;
+}
+.back-button p {
+  font-family: "Roboto", "Arial", sans-serif;
+  font-weight: 500;
+  color: #282828;
+  color: #282828;
+}
+.back-button .back-arrow {
+  font-family: "Poppins", "Arial";
+  font-weight: 400;
+  font-size: 1rem;
+}/*# sourceMappingURL=BackButton.css.map */

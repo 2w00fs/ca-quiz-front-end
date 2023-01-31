@@ -1,0 +1,19 @@
+@use '../../../styles/_var'
+@use '../../../styles/_mixin'
+
+.text-area
+    outline: none
+    resize: none
+    overflow-y: hidden
+    background: white
+    border: var.$stroke solid white
+    border-radius: var.$round-corners
+
+.text-area-wrapper
+    border: var.$stroke solid var.$c-shade-secondary
+    border-radius: var.$round-corners
+    padding: 0.4rem 0.5rem 0.1rem
+    margin: 0.4rem 0
+
+.text-area-wrapper:hover
+    cursor: text
