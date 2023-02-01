@@ -3,7 +3,7 @@ import './style/Card.css'
 
 const Card = ({ children, className }) => {
     return (
-        <article className={className}>
+        <article className={'card' + `${className ? ' ' + className : ''}` }>
             {children}
         </article>
     )
