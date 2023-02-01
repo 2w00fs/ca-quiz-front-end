@@ -1,0 +1,23 @@
+@use '../../../styles/_var'
+@use '../../../styles/_mixin'
+
+.single-answer-front-wrapper
+    padding: 0.6rem 1.8rem
+    display: flex
+    flex-direction: column
+
+    .page-number
+        @include mixin.text-4
+        font-size: 0.9rem
+        margin-bottom: 0.8rem
+
+    .question
+        margin: 3.1rem 0 3.4rem
+        @include mixin.text-2
+        font-size: 1.3rem
+    
+    .click-to-flip
+        @include mixin.text-4
+        font-size: 0.9rem
+        align-self: center
+        

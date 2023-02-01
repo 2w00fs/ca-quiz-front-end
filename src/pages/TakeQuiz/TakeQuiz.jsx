@@ -4,6 +4,7 @@ import MultipleChoiceFlashcard from '@/components/MultipleChoiceFlashcard/Multip
 import Title from '@/components/Title/Title.jsx'
 import Card from '@/components/Card/Card.jsx'
 import './style/TakeQuiz.css'
+import SingleAnswerFlashcardFront from '@/components/SingleAnswerFlashcardFront/SingleAnswerFlashcardFront.jsx'
 
 const TakeQuiz = () => {
     const { quiz, setQuiz } = useOutletContext()
@@ -24,7 +25,8 @@ const TakeQuiz = () => {
                     <Card className='left-arrow arrow'>
                         <div>{'<'}</div>
                     </Card>
-                    <MultipleChoiceFlashcard flashcard={quiz.flashcards[count]} setResults={setResults} pageNumber={count + 1} totalPages={quiz.flashcards.length} />
+                    {/* <MultipleChoiceFlashcard flashcard={quiz.flashcards[count]} setResults={setResults} pageNumber={count + 1} totalPages={quiz.flashcards.length} /> */}
+                    <SingleAnswerFlashcardFront flashcard={quiz.flashcards[count]} pageNumber={count + 1} totalPages={quiz.flashcards.length} />
                     <Card className='right-arrow arrow'>
                         <div>{'>'}</div>
                     </Card>
