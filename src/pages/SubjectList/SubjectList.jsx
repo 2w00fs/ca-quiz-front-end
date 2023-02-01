@@ -26,7 +26,7 @@ const SubjectList = () => {
     }
 
     return (
-        <main>
+        <main className='main-subject-list'>
             <Title subheading='Subjects' heading='HOME' />
             <CardsContainer>
                 {getSubjectList(subjects)}
