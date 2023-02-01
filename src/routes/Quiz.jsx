@@ -21,8 +21,7 @@ const Quiz = () => {
                     answers: [
                         { text: 'Excuse me', isCorrectOption: false },
                         { text: "I'm sorry", isCorrectOption: true },
-                        { text: 'Goodbye', isCorrectOption: false },
-                        { text: 'Hello', isCorrectOption: false },
+                        { text: 'Goodbye', isCorrectOption: false }
                     ]
                 },
                 { 

@@ -36,7 +36,7 @@ const EditFlashcard = () => {
     return (
         <>
             <BackButton className={'edit-flashcard-back-button'}>Quiz</BackButton>
-            <main>
+            <main className='main-edit-flashcard'>
                 <Title subheading='Edit Flashcard' heading={quiz.name ? quiz.name.toUpperCase() : ''} />
                 <EditFlashcardMultipleChoice flashcard={getFlashcardById()} setFlashcardById={setFlashcardById} />
             </main>

@@ -2,20 +2,99 @@
 @use '../../../styles/_mixin'
 
 .edit-flashcard-multiple-choice-container
-    padding: 1.2rem 1.75rem
-    .answers
-        display: flex
-        flex-direction: column
+    width: 100%
+    box-sizing: border-box
+    padding: 1.3rem 1.8rem
+    display: flex
+    flex-direction: column
+    align-items: flex-start
+
+    .question
+        width: 100%
+        margin-bottom: 1.5rem
         h4
             @include mixin.text-2
+            margin: 0 0 0.9rem
+        textarea
+            @include mixin.text-3
+            font-size: 1.1rem
+
+    .answers
+        width: 100%
+        margin-top: 1.3rem
+        display: flex
+        flex-direction: column
+
+        h4
+            @include mixin.text-2
+            margin: 0 0 0.6rem
+
         textarea
             @include mixin.text-4
             font-size: 0.88rem
 
-    .question
-        h4
-            @include mixin.text-2
-            margin: 0
-        textarea
-            @include mixin.text-3
-            font-size: 1.1rem
+
+    .answer-container
+        display: flex
+        flex-direction: row
+        align-items: center
+
+        .letter
+            padding-right: 0.7rem
+    
+    .edit-flashcard-submit
+        align-items: flex-start
+        margin-top: 0.6rem
+        
+
+.add-field-button
+    @include mixin.text-button-1
+    background: var.$c-brand-primary
+    align-self: flex-end
+    margin-top: 1rem
+
+    p
+        font-size: 1.1rem
+
+.remove-field-button
+    margin-left: 0.9rem
+    background: var.$c-brand-primary-light
+
+    p
+        font-size: 1.7rem
+
+.flashcard-field-button
+    flex: 0 0 auto
+    width: 16px
+    height: 16px
+    display: flex
+    justify-content: center
+    align-items: center
+    padding: 0rem
+    border-radius: 2.5px
+
+.single-answer-prompt-container
+    @include mixin.text-thin
+    font-size: 0.95rem
+    display: flex
+    flex-direction: column
+    align-items: flex-start
+    gap: 0.8rem
+    margin-bottom: 1.3rem
+
+    p
+        margin: 2rem 0 0.2rem
+    
+    span
+        display: flex
+        flex-direction: row
+        gap: 0.8rem
+    
+    input
+        border: red
+
+.is-correct-input
+    margin: 0 0.9rem 0 0
+
+.flashcard-field-button:hover
+    cursor: pointer

@@ -6,13 +6,8 @@ const TextArea = ({ value, onChange}) => {
 
     useEffect(() => {
         let padding = window.getComputedStyle(textAreaRef.current, null).getPropertyValue('padding-bottom')
-        console.log(padding)
-        // textAreaRef.current.style.paddingTop = '0rem'
-        // textAreaRef.current.style.paddingTop = '0rem'
         textAreaRef.current.style.height = "auto"
         textAreaRef.current.style.height = textAreaRef.current.scrollHeight + 'px'
-        // textAreaRef.current.style.paddingBottom = '0.5rem'
-        // textAreaRef.current.style.paddingTop = '0.5rem'
     }, [value])
 
     const onClick = event => {
