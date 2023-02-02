@@ -1,0 +1,33 @@
+@use '../../../styles/_var'
+@use '../../../styles/_mixin'
+
+.single-answer-input-card
+    width: 100%
+
+    .content-wrapper
+        padding: 0.6rem 1.8rem
+        width: 100%
+        box-sizing: border-box
+
+        .page-number
+            @include mixin.text-4
+            font-size: 0.9rem
+            margin-bottom: 1.4rem
+
+        .question
+            margin: 1rem 0 1.8rem
+            @include mixin.text-2
+            font-size: 1.3rem
+
+        .answer-label
+            @include mixin.text-4
+            font-size: 0.9rem
+            margin-bottom: 0.8rem
+            margin-top: 1.9rem
+        
+        .text-area-wrapper
+            margin-bottom: 2.5rem
+
+            .text-area
+                @include mixin.text-4
+                font-size: 0.9rem

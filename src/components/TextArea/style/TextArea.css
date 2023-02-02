@@ -6,6 +6,7 @@
   background: white;
   border: 0.9px solid white;
   border-radius: 5px;
+  width: 100%;
 }
 
 .text-area-wrapper {
