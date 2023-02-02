@@ -29,7 +29,6 @@ const EditFlashcardMultipleChoice = ({ flashcard, setFlashcardById }) => {
 
     const questionChangeHandler = event => {
         event.preventDefault()
-        console.log(event.target)
         setQuestion(event.target.value)
     }
 
@@ -69,7 +68,7 @@ const EditFlashcardMultipleChoice = ({ flashcard, setFlashcardById }) => {
     function onChangeHandlerIsCorrectBtn(event) {
         let answerList = [...answers]
         let btns = event.currentTarget.parentNode.parentNode.parentNode.getElementsByClassName("is-correct-input")
-        for (let i = 0; i < btns.length; i++) {
+        for (let i = 0; i < answerList.length; i++) {
             answerList[i].isCorrectOption = false
         }
         for (let i = 0; i < btns.length; i++) {

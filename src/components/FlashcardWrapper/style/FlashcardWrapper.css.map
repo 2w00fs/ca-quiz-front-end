@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../styles/_var.sass","FlashcardWrapper.sass","FlashcardWrapper.css"],"names":[],"mappings":"AAAQ,2OAAA;ACGR;EACI,WAAA;EACA,aAAA;EACA,mBAAA;EACA,mBAAA;EACA,SAAA;ACDJ;ADGI;EACI,sBAAA;EACA,iBAAA;EACA,gBAAA;EACA,cAAA;EACA,aAAA;EACA,cAAA;EACA,aAAA;EACA,uBAAA;EACA,mBAAA;EACA,cAAA;ACDR;ADGI;EACI,eAAA;ACDR;ADGI;EACI,WAAA;ACDR","file":"FlashcardWrapper.css"}

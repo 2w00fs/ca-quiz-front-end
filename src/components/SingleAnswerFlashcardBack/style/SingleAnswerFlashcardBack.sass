@@ -1,48 +1,48 @@
 @use '../../../styles/_var'
 @use '../../../styles/_mixin'
 
-.single-answer-back-card
+.single-answer-back-wrapper
+    padding: 0.8rem 2.1rem
     width: 100%
+    box-sizing: border-box
 
-    .content-wrapper
-        padding: 0.8rem 2.1rem
-        width: 100%
-        box-sizing: border-box
+    .page-number
+        @include mixin.text-4
+        font-size: 0.9rem
+        margin-bottom: 0.8rem
+    
+    .answer-label
+        @include mixin.text-3
+        font-size: 0.9rem
+        margin-bottom: 0.5rem
+        margin-top: 2.3rem
 
-        .page-number
-            @include mixin.text-4
-            font-size: 0.9rem
+    .answer-text
+        @include mixin.text-2
+        font-size: 1.4rem
+        margin: 0 0rem 2.1rem
+        align-self: center
+    
+    .form-wrapper
+        display: flex
+        flex-direction: column
+        @include mixin.text-thin
+        margin-bottom: 1.2rem
+
+        p
+            margin: 0
+
+        .is-correct-prompt
             margin-bottom: 0.8rem
-        
-        .answer-label
-            @include mixin.text-3
-            font-size: 0.9rem
-            margin-bottom: 0.5rem
-            margin-top: 2.3rem
 
-        .answer-text
-            @include mixin.text-2
-            font-size: 1.4rem
-            margin: 0 0rem 2.1rem
-            align-self: center
-        
-        .form-wrapper
+        .answer-wrapper
             display: flex
-            flex-direction: column
-            @include mixin.text-thin
-            margin-bottom: 1.2rem
+            flex-direction: row
+            gap: 0.9rem
+            margin-bottom: 0.5rem
 
-            p
+            input
                 margin: 0
-
-            .is-correct-prompt
-                margin-bottom: 0.8rem
-
-            .answer-wrapper
-                display: flex
-                flex-direction: row
-                gap: 0.9rem
-                margin-bottom: 0.5rem
-
-                input
-                    margin: 0
+            
+.single-answer-back-wrapper:hover
+    cursor: pointer

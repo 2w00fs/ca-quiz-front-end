@@ -1,0 +1,11 @@
+@use '../../../styles/_var'
+@use '../../../styles/_mixin'
+
+.error-message
+    background: var.$c-background-error-message
+    border: var.$stroke solid var.$c-border-error-message
+    @include mixin.text-4
+    font-size: 0.8rem
+    padding: 0.2rem
+    align-self: flex-start
+    border-radius: var.$round-corners
