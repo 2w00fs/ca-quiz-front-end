@@ -5,6 +5,8 @@
     padding: 0.6rem 1.8rem
     display: flex
     flex-direction: column
+    width: 100%
+    box-sizing: border-box
 
     .page-number
         @include mixin.text-4
@@ -19,6 +21,10 @@
     .click-to-flip
         @include mixin.text-4
         font-size: 0.9rem
+        align-self: center
+    
+    .error-message
+        margin: 0.3rem 0 1.2rem
         align-self: center
 
 .single-answer-front-wrapper:hover

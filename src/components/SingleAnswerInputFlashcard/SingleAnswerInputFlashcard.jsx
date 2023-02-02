@@ -25,7 +25,7 @@ const SingleAnswerInputFlashcard = ({ flashcard, results, setResults, count, set
     }
 
     return (
-        <FlashcardWrapper setIsError={setIsError} count={count} setCount={setCount} results={results} maxCount={maxCount}>
+        <FlashcardWrapper quiz={quiz} setIsError={setIsError} count={count} setCount={setCount} results={results} maxCount={maxCount}>
             <div className='single-answer-input-wrapper'>
                 <p className='page-number'>{count + 1}/{maxCount + 1}</p>
                 <h2 className='question'>{flashcard.question}</h2>

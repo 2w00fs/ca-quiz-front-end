@@ -19,10 +19,9 @@ const Quiz = () => {
                     _id: 40943805890843,
                     question: "What does 'es tut meir leid' mean in German?",
                     answers: [
-                        { text: 'Excuse me', isCorrectOption: false },
-                        { text: "I'm sorry", isCorrectOption: true },
-                        { text: 'Goodbye', isCorrectOption: false }
-                    ]
+                        { text: 'Excuse me', isCorrectOption: false }
+                    ],
+                    takeInputText: true
                 },
                 { 
                     _id: 40943805890843,
@@ -32,7 +31,16 @@ const Quiz = () => {
                         { text: "I'm sorry", isCorrectOption: true },
                         { text: 'Goodbye', isCorrectOption: false },
                         { text: 'Hello', isCorrectOption: false },
-                    ]
+                    ],
+                    takeInputText: false
+                },
+                { 
+                    _id: 40943805890843,
+                    question: "What does 'es tut meir leid' mean in German?",
+                    answers: [
+                        { text: 'Excuse me', isCorrectOption: false }
+                    ],
+                    takeInputText: false
                 },
                 { 
                     _id: 40943805890843,
@@ -42,17 +50,8 @@ const Quiz = () => {
                         { text: "I'm sorry", isCorrectOption: true },
                         { text: 'Goodbye', isCorrectOption: false },
                         { text: 'Hello', isCorrectOption: false },
-                    ]
-                },
-                { 
-                    _id: 40943805890843,
-                    question: "What does 'es tut meir leid' mean in German?",
-                    answers: [
-                        { text: 'Excuse me', isCorrectOption: false },
-                        { text: "I'm sorry", isCorrectOption: true },
-                        { text: 'Goodbye', isCorrectOption: false },
-                        { text: 'Hello', isCorrectOption: false },
-                    ]
+                    ],
+                    takeInputText: false
                 }
             ]
         })

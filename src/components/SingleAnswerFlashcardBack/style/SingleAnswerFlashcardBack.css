@@ -3,6 +3,9 @@
   padding: 0.8rem 2.1rem;
   width: 100%;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 .single-answer-back-wrapper .page-number {
   font-family: "Roboto", "Arial", sans-serif;
@@ -25,7 +28,9 @@
   color: #282828;
   font-size: 1.4rem;
   margin: 0 0rem 2.1rem;
-  align-self: center;
+}
+.single-answer-back-wrapper .error-message {
+  margin-bottom: 1.2rem;
 }
 .single-answer-back-wrapper .form-wrapper {
   display: flex;

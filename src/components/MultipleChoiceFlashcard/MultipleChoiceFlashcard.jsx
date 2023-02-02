@@ -5,9 +5,7 @@ import Line from '@/components/Line/Line.jsx'
 import FlashcardWrapper from '@/components/FlashcardWrapper/FlashcardWrapper.jsx'
 import ErrorMessage from '@/components/ErrorMessage/ErrorMessage.jsx'
 
-const MultipleChoiceFlashcard = ({ flashcard, results, setResults, count, setCount, maxCount }) => {
-    const [ isError, setIsError ] = useState(false)
-
+const MultipleChoiceFlashcard = ({ flashcard, results, setResults, count, maxCount, isError }) => {
     const getAnswers = () => {
         let answers = flashcard.answers.map((answer, index) => {
             return (
@@ -31,8 +29,8 @@ const MultipleChoiceFlashcard = ({ flashcard, results, setResults, count, setCou
     }
 
     return (
-        <FlashcardWrapper setIsError={setIsError} count={count} setCount={setCount} results={results} maxCount={maxCount}>
-            <div className='multiple-choice-wrapper'>
+        <Card className='multiple-choice-flashcard'>
+            <div className='content-wrapper'>
                 <p className='page-number'>{count + 1}/{maxCount + 1}</p>
                 <h2 className='question'>{flashcard.question}</h2>
                 <Line />
@@ -41,7 +39,7 @@ const MultipleChoiceFlashcard = ({ flashcard, results, setResults, count, setCou
                     <ErrorMessage isError={isError} message={"You haven't selected an answer"} />
                 </form>
             </div>
-        </FlashcardWrapper>
+        </Card>
     )
 }
 

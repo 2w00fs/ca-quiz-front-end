@@ -1,12 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react'
-import FlashcardWrapper from '@/components/FlashcardWrapper/FlashcardWrapper.jsx'
 import SingleAnswerFlashcardBack from '@/components/SingleAnswerFlashcardBack/SingleAnswerFlashcardBack.jsx'
 import SingleAnswerFlashcardFront from '@/components/SingleAnswerFlashcardFront/SingleAnswerFlashcardFront.jsx'
+import Card from '@/components/Card/Card.jsx'
+import './style/SingleAnswerHonestyFlashcard.css'
 
-const SingleAnswerFlashcardHonesty = ({ flashcard, results, setResults, count, setCount, maxCount }) => {
-    const [ isError, setIsError ] = useState(false)
-    const [ isFlipped, setIsFlipped ] = useState(results[count] ? true : false)
-
+const SingleAnswerHonestyFlashcard = ({ flashcard, results, setResults, count, maxCount, isError, isFlipped, setIsFlipped }) => {
     useEffect(() => {
         if (results[count]) {
             setIsFlipped(true)
@@ -18,14 +16,14 @@ const SingleAnswerFlashcardHonesty = ({ flashcard, results, setResults, count, s
     }
 
     return (
-        <FlashcardWrapper cardClickHandler={cardClickHandler} setIsError={setIsError} count={count} setCount={setCount} setIsFlipped={setIsFlipped} results={results} maxCount={maxCount}>
+        <Card className='single-answer-honesty-flashcard' onClick={cardClickHandler}>
             {!isFlipped ? (
                 <SingleAnswerFlashcardFront {...{flashcard, count, maxCount, isError}} />
             ) : (
                 <SingleAnswerFlashcardBack {...{flashcard, results, setResults, count, maxCount, isError}} />
             )}
-        </FlashcardWrapper>
+        </Card>
     )
 }
 
-export default SingleAnswerFlashcardHonesty
+export default SingleAnswerHonestyFlashcard

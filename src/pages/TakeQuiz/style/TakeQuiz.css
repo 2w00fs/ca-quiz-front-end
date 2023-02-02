@@ -16,14 +16,14 @@
   margin-bottom: 2.5rem;
   margin-left: 5.8rem;
 }
-.take-quiz .inner-content-wrapper {
+.take-quiz .outer-content-wrapper .inner-content-wrapper {
   width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 2rem;
 }
-.take-quiz .inner-content-wrapper .arrow {
+.take-quiz .outer-content-wrapper .inner-content-wrapper .arrow {
   font-family: "Poppins";
   font-size: 2.6rem;
   font-weight: 300;
@@ -34,4 +34,11 @@
   justify-content: center;
   align-items: center;
   flex: 0 0 auto;
+}
+.take-quiz .outer-content-wrapper .inner-content-wrapper .arrow:hover {
+  cursor: pointer;
+}
+.take-quiz .outer-content-wrapper .submit-button {
+  align-self: center;
+  margin-top: 2rem;
 }/*# sourceMappingURL=TakeQuiz.css.map */

@@ -3,7 +3,7 @@ import './style/FlashcardWrapper.css'
 import Card from '@/components/Card/Card.jsx'
 import Button from '@/components/Button/Button.jsx'
 
-const FlashcardWrapper = ({ results, cardClickHandler, setIsError, count, maxCount, setCount, setIsFlipped, children }) => {
+const FlashcardWrapper = ({ quiz, results, cardClickHandler, setIsError, count, maxCount, setCount, setIsFlipped, children }) => {
     const rightArrowClickHandler = event => {
         if (results[count] === null) {
             setIsError(true)
@@ -38,7 +38,7 @@ const FlashcardWrapper = ({ results, cardClickHandler, setIsError, count, maxCou
                     <div>{'>'}</div>
                 </Card>
             </div>
-            {count === maxCount ? <Button type='1' size='1'>Submit</Button> : null}
+            {count === maxCount ? <Button path='../result' state={{quiz, results}} type='1' size='1'>Submit</Button> : null}
         </div>
     )
 }

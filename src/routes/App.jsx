@@ -13,6 +13,7 @@ import Logout from '@/pages/Logout/Logout.jsx'
 import SignUp from '@/pages/SignUp/SignUp.jsx'
 import SubjectList from '@/pages/SubjectList/SubjectList.jsx'
 import AddSubject from '@/pages/AddSubject/AddSubject.jsx'
+import QuizResult from "@/pages/QuizResult/QuizResult.jsx"
 
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
                 <Route path='quiz/:quizId' element={<Quiz />}>
                     <Route index element={<QuizHome />} />
                     <Route path='take' element={<TakeQuiz />} />
+                    <Route path='result' element={<QuizResult />} />
                     <Route path='edit' element={<EditQuiz />} />
                     <Route path='flashcard/:flashcardId/edit' element={<EditFlashcard />} />
                 </Route>

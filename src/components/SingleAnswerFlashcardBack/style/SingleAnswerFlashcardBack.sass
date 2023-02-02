@@ -5,6 +5,9 @@
     padding: 0.8rem 2.1rem
     width: 100%
     box-sizing: border-box
+    display: flex
+    flex-direction: column
+    align-items: flex-start
 
     .page-number
         @include mixin.text-4
@@ -21,7 +24,9 @@
         @include mixin.text-2
         font-size: 1.4rem
         margin: 0 0rem 2.1rem
-        align-self: center
+    
+    .error-message
+        margin-bottom: 1.2rem
     
     .form-wrapper
         display: flex
