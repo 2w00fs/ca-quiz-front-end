@@ -30,24 +30,8 @@ const MultipleChoiceFlashcard = ({ flashcard, results, setResults, count, setCou
         setResults(updatedResults)
     }
 
-    const rightArrowClickHandler = event => {
-        if (!results[count]) {
-            setIsError(true)
-            return
-        }
-        if (count + 1 > maxCount) return
-        setIsError(false)
-        setCount(count + 1)
-    }
-
-    const leftArrowClickHandler = event => {
-        if (count - 1 < 0) return
-        setIsError(false)
-        setCount(count - 1)
-    }
-
     return (
-        <FlashcardWrapper leftArrowClickHandler={leftArrowClickHandler} rightArrowClickHandler={rightArrowClickHandler}>
+        <FlashcardWrapper setIsError={setIsError} count={count} setCount={setCount} results={results} maxCount={maxCount}>
             <div className='multiple-choice-wrapper'>
                 <p className='page-number'>{count + 1}/{maxCount + 1}</p>
                 <h2 className='question'>{flashcard.question}</h2>

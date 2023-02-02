@@ -2,11 +2,20 @@
 .take-quiz-flashcard-wrapper {
   width: 100%;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.take-quiz-flashcard-wrapper .button {
+  margin-top: 2.5rem;
+}
+.take-quiz-flashcard-wrapper .inner-wrapper {
+  width: 100%;
+  display: flex;
   flex-direction: row;
   align-items: center;
   gap: 2rem;
 }
-.take-quiz-flashcard-wrapper .arrow {
+.take-quiz-flashcard-wrapper .inner-wrapper .arrow {
   font-family: "Poppins";
   font-size: 2.6rem;
   font-weight: 300;
@@ -18,9 +27,9 @@
   align-items: center;
   flex: 0 0 auto;
 }
-.take-quiz-flashcard-wrapper .arrow:hover {
+.take-quiz-flashcard-wrapper .inner-wrapper .arrow:hover {
   cursor: pointer;
 }
-.take-quiz-flashcard-wrapper .flashcard {
+.take-quiz-flashcard-wrapper .inner-wrapper .flashcard {
   width: 100%;
 }/*# sourceMappingURL=FlashcardWrapper.css.map */

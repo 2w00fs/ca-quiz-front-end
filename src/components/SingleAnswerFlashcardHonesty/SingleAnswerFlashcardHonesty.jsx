@@ -13,33 +13,12 @@ const SingleAnswerFlashcardHonesty = ({ flashcard, results, setResults, count, s
         }
     }, [count])
 
-    const rightArrowClickHandler = event => {
-        if (results[count] === null) {
-            setIsError(true)
-            return
-        }
-
-        if (count + 1 > maxCount) return
-
-        setIsFlipped(false)
-        setIsError(false)
-        setCount(count + 1)
-    }
-
-    const leftArrowClickHandler = event => {
-        if (count - 1 < 0) return
-
-        setIsFlipped(false)
-        setIsError(false)
-        setCount(count - 1)
-    }
-
     const cardClickHandler = () => {
         setIsFlipped(!isFlipped)
     }
 
     return (
-        <FlashcardWrapper cardClickHandler={cardClickHandler} leftArrowClickHandler={leftArrowClickHandler} rightArrowClickHandler={rightArrowClickHandler}>
+        <FlashcardWrapper cardClickHandler={cardClickHandler} setIsError={setIsError} count={count} setCount={setCount} setIsFlipped={setIsFlipped} results={results} maxCount={maxCount}>
             {!isFlipped ? (
                 <SingleAnswerFlashcardFront {...{flashcard, count, maxCount, isError}} />
             ) : (
