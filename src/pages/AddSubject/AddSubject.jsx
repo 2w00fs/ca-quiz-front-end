@@ -8,13 +8,15 @@ import './style/AddSubject.css'
 const AddSubject = () => {
     const [ subjectName, setSubjectName ] = useState('')
 
+    const changeHandler = event => setSubjectName(event.target.value)
+
     return (
         <main className='add-subject'>
             <div className='outer-content-wrapper'>
                 <Title subheading='Add New' heading='SUBJECT' />
                 <Card className='add-subject-form'>
                     <h3 className='subject-name'>Subject Name</h3>
-                    <TextArea />
+                    <TextArea value={subjectName} onChange={changeHandler} />
                     <Button type='1' size='1'>Create</Button>
                 </Card>
             </div>

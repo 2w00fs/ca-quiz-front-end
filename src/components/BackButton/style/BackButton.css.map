@@ -1,1 +1,1 @@
-{"version":3,"sources":["../../../styles/_var.sass","BackButton.sass","BackButton.css","../../../styles/_mixin.sass"],"names":[],"mappings":"AAAQ,2OAAA;ACGR;EACI,kBAAA;ACDJ;ADII;EEYA,0CAAA;EACA,gBAAA;EACA,cHRa;ECJT,cDIS;AEJjB;ADEI;EACI,+BAAA;EACA,gBAAA;EACA,eAAA;ACAR","file":"BackButton.css"}
+{"version":3,"sources":["../../../styles/_var.sass","BackButton.sass","BackButton.css"],"names":[],"mappings":"AAAQ,2OAAA;ACIJ;EACI,sBAAA;EACA,gBAAA;EACA,eAAA;EACA,qBAAA;ACFR","file":"BackButton.css"}

@@ -1,9 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Poppins:wght@300;400;500&family=Prompt:wght@300;400;500;600&family=Roboto:wght@300;400;500;700&family=Unbounded:wght@300;400;500&display=swap");
 .cards-container {
-  padding: 1.5rem;
   display: grid;
   grid-gap: 1.4rem;
-  margin-top: 1.2rem;
 }
 
 .max-columns-3 {

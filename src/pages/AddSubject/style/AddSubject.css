@@ -28,4 +28,10 @@
 }
 .add-subject .outer-content-wrapper .add-subject-form .text-area-wrapper {
   margin-bottom: 1.8rem;
+}
+.add-subject .outer-content-wrapper .add-subject-form .text-area-wrapper .text-area {
+  font-family: "Roboto", "Arial", sans-serif;
+  font-weight: 500;
+  color: #282828;
+  font-size: 1.1rem;
 }/*# sourceMappingURL=AddSubject.css.map */

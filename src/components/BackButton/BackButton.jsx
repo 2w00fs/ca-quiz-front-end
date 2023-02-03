@@ -1,11 +1,12 @@
 import React from 'react'
 import Button from '@/components/Button/Button.jsx'
+import './style/BackButton.css'
 
-const BackButton = ({ className, children }) => {
+const BackButton = ({ path, children }) => {
     return (
-        <Button className={className} type='2' size='1'>
+        <Button path={path} className='back-button' type='2' size='1'>
             <div className='back-arrow'>{'<'}</div>
-            <p>{children}</p>
+            <div>{children}</div>
         </Button>
     )
 }
