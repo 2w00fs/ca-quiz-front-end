@@ -1,13 +1,12 @@
 import React, { useState } from 'react'
 import Card from '@/components/Card/Card.jsx'
-import Textarea from 'react-expanding-textarea'
-import './style/EditFlashcardMultipleChoice.css'
+import './style/EditFlashcardForm.css'
 import Button from '@/components/Button/Button.jsx'
 import TextArea from '@/components/TextArea/TextArea.jsx'
 import Line from '@/components/Line/Line.jsx'
 
 
-const EditFlashcardMultipleChoice = ({ flashcard, setFlashcardById }) => {
+const EditFlashcardForm = ({ flashcard, setFlashcardById }) => {
     const [ question, setQuestion ] = useState(flashcard.question)
     const [ answers, setAnswers ] = useState([...flashcard.answers])
 
@@ -81,38 +80,36 @@ const EditFlashcardMultipleChoice = ({ flashcard, setFlashcardById }) => {
     }
 
     return (
-        <Card>
-            <div className='edit-flashcard-multiple-choice-container'>
-                <form className='question'>
-                    <h4>Question</h4>
-                    <TextArea value={question} onChange={questionChangeHandler} rows='1' />
-                </form>
-                <Line />
-                <form className='answers'>
-                    <h4>{answers.length > 1 ? 'Answers' : 'Answer'}</h4>
-                    {answers.length > 1 ? <p className='correct-answer-prompt'>Select the correct answer:</p> : null}
-                    {getAnswers()}
-                </form>
-                {answers.length > 3 ? null : <div onClick={handleClickAddField} className='flashcard-field-button add-field-button'><p>+</p></div>}
-                {
-                    answers.length > 1 ? null : (
-                        <form className='single-answer-prompt-container'>
-                            <p>Which type of single-answer question?</p>
-                            <span>
-                                <input checked type="radio" id='textInput' name='singleAnswerPrompt' value='User inputs exact text' />
-                                <label htmlFor="textInput">User inputs exact text</label>
-                            </span>
-                            <span>
-                                <input type="radio" id='honestySystem' name='singleAnswerPrompt' value='Honesty system' />
-                                <label htmlFor="honestySystem">Honesty System</label>
-                            </span>
-                        </form>
-                    )
-                }
-                <Button className='edit-flashcard-submit' type='1' size='1'>Submit</Button>
-            </div>
+        <Card className='edit-flashcard-form'>
+            <form className='question'>
+                <h4>Question</h4>
+                <TextArea value={question} onChange={questionChangeHandler} rows='1' />
+            </form>
+            <Line />
+            <form className='answers'>
+                <h4>{answers.length > 1 ? 'Answers' : 'Answer'}</h4>
+                {answers.length > 1 ? <p className='correct-answer-prompt'>Select the correct answer:</p> : null}
+                {getAnswers()}
+            </form>
+            {answers.length > 3 ? null : <div onClick={handleClickAddField} className='flashcard-field-button add-field-button'><p>+</p></div>}
+            {
+                answers.length > 1 ? null : (
+                    <form className='single-answer-prompt-container'>
+                        <p>Which type of single-answer question?</p>
+                        <span>
+                            <input checked type="radio" id='textInput' name='singleAnswerPrompt' value='User inputs exact text' />
+                            <label htmlFor="textInput">User inputs exact text</label>
+                        </span>
+                        <span>
+                            <input type="radio" id='honestySystem' name='singleAnswerPrompt' value='Honesty system' />
+                            <label htmlFor="honestySystem">Honesty System</label>
+                        </span>
+                    </form>
+                )
+            }
+            <Button className='edit-flashcard-submit' type='1' size='1'>Submit</Button>
         </Card>
     )
 }
 
-export default EditFlashcardMultipleChoice
+export default EditFlashcardForm

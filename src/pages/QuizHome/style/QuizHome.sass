@@ -1,72 +1,79 @@
 @use '../../../styles/_var'
 @use '../../../styles/_mixin'
 
-.card-deck
-    display: flex
-    position: relative
-    margin-top: 3.3rem
-    height: 280px
-    margin-bottom: 3rem
-
-.card-in-deck
-    position: absolute
-    width: 385px
-    height: 270px
-    background: var.$c-shade-primary
-    box-shadow: var.$drop-shadow
-    border-radius: var.$round-corners
-
-.card-in-deck:nth-child(1)
-    left: 10px
-    top: -10px
-
-.card-in-deck:nth-child(2)
-    left: 8px
-    top: -8px
-
-.card-in-deck:nth-child(3)
-    left: 6px
-    top: -6px
-
-.card-in-deck:nth-child(4)
-    left: 4px
-    top: -4px
-
-.card-in-deck:nth-child(5)
-    left: 2px
-    top: -2px
-
-.top-card-in-deck
-    left: 0px
-    top: 0px
-    display: flex
-    justify-content: center
-    align-items: center
-    @include mixin.text-3
-    font-size: 1.3rem
-
-    p
-        margin: 2.2rem
-
-
-.main-quiz-home
+.quiz-home
+    width: 100%
     display: flex
     flex-direction: column
-    width: 28rem
+    align-items: center
 
-.quiz-home-top
-    display: flex
-    flex-direction: row
-    justify-content: space-between
-    align-items: flex-end
+    .back-button
+        position: absolute
+        align-self: flex-start
+        margin: 1.5rem 2rem
 
-.quiz-home-bottom
-    display: flex
-    flex-direction: row
-    padding-left: var.$content-container-padding
+    .outer-content-wrapper
+        padding: var.$content-container-padding-top var.$content-container-padding-side
+        box-sizing: border-box
+        display: flex
+        flex-direction: column
+        align-items: space-between
+        width: 100%
+        max-width: 30rem
 
-.card-deck
-    margin-left: var.$content-container-padding
+        .top-content-wrapper
+            display: flex
+            flex-direction: row
+            justify-content: space-between
+            align-items: flex-end
 
-.quiz-home-delete
-    margin-bottom: 1rem
+        .card-deck
+            display: flex
+            position: relative
+            margin-top: 3.3rem
+            height: 280px
+            margin-bottom: 3rem
+
+        .card-in-deck
+            position: absolute
+            width: 385px
+            height: 270px
+            background: var.$c-shade-primary
+            box-shadow: var.$drop-shadow
+            border-radius: var.$round-corners
+
+        .card-in-deck:nth-child(1)
+            left: 10px
+            top: -10px
+
+        .card-in-deck:nth-child(2)
+            left: 8px
+            top: -8px
+
+        .card-in-deck:nth-child(3)
+            left: 6px
+            top: -6px
+
+        .card-in-deck:nth-child(4)
+            left: 4px
+            top: -4px
+
+        .card-in-deck:nth-child(5)
+            left: 2px
+            top: -2px
+
+        .top-card-in-deck
+            left: 0px
+            top: 0px
+            display: flex
+            justify-content: center
+            align-items: center
+            @include mixin.text-3
+            font-size: 1.3rem
+
+            p
+                margin: 2.2rem
+
+        .bottom-content-wrapper
+            display: flex
+            flex-direction: row

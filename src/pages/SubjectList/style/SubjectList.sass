@@ -1,5 +1,22 @@
 @use '../../../styles/_var'
     
-.main-subject-list
-    width: 100vw
-    max-width: 55rem
+.subject-list
+    width: 100%
+    display: flex
+    flex-direction: column
+    align-items: center
+
+    .outer-content-wrapper
+        padding: var.$content-container-padding-top var.$content-container-padding-side
+        box-sizing: border-box
+        display: flex
+        flex-direction: column
+        align-items: flex-start
+        width: 100%
+        max-width: 53rem
+
+        .title
+            margin-bottom: 2rem
+        
+        .cards-container
+            width: 100%

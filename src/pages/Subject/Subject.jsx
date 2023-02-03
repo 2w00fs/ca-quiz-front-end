@@ -5,6 +5,8 @@ import CardsContainer from '@/components/CardsContainer/CardsContainer.jsx'
 import AddButton from '@/components/AddButton/AddButton.jsx'
 import PreviewCard from '@/components/PreviewCard/PreviewCard.jsx'
 import cardsLogo from '../../assets/cards.svg'
+import BackButton from '@/components/BackButton/BackButton.jsx'
+import './style/Subject.css'
 
 const Subject = () => {
     const [subject, setSubject] = useState({})
@@ -41,11 +43,14 @@ const Subject = () => {
     }
 
     return (
-        <main>
-            <Title subheading='Quiz List' heading={subject.name ? subject.name.toUpperCase() : ''} />
-            <CardsContainer>
-                {getQuizList(subject.quizzes || [])}
-            </CardsContainer>
+        <main className='subject'>
+            <BackButton>Subject List</BackButton>
+            <div className='outer-content-wrapper'>
+                <Title subheading='Quiz List' heading={subject.name ? subject.name.toUpperCase() : ''} />
+                <CardsContainer>
+                    {getQuizList(subject.quizzes || [])}
+                </CardsContainer>
+            </div>
         </main>
     )
 }

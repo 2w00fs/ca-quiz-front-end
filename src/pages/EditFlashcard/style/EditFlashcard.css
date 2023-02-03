@@ -1,8 +1,24 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Poppins:wght@300;400;500&family=Prompt:wght@300;400;500;600&family=Roboto:wght@300;400;500;700&family=Unbounded:wght@300;400;500&display=swap");
-.edit-flashcard-back-button {
-  postion: absolute;
+.edit-flashcard {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-
-.main-edit-flashcard {
-  width: 21rem;
+.edit-flashcard .back-button {
+  position: absolute;
+  align-self: flex-start;
+  margin: 1.5rem 2rem;
+}
+.edit-flashcard .outer-content-wrapper {
+  padding: 1rem 1.5rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 24rem;
+}
+.edit-flashcard .outer-content-wrapper .title {
+  margin-bottom: 2rem;
 }/*# sourceMappingURL=EditFlashcard.css.map */

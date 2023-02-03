@@ -4,6 +4,7 @@ import Button from '@/components/Button/Button.jsx'
 import cardDeck from '../../assets/card-deck.svg'
 import './style/QuizHome.css'
 import { useOutletContext } from 'react-router-dom'
+import BackButton from '@/components/BackButton/BackButton.jsx'
 
 const QuizHome = () => {
     const { quiz, setQuiz } = useOutletContext()
@@ -18,17 +19,20 @@ const QuizHome = () => {
     }
 
     return (
-        <main className='main-quiz-home'>
-            <div className='quiz-home-top'>
-                <Title subheading='Home' heading={quiz.name ? quiz.name.toUpperCase() : ''} />
-                <Button type='2' size='1'>Delete</Button>
-            </div>
-            <div className={'card-deck'}>
-                {generateCardDeck()}
-            </div>
-            <div className='quiz-home-bottom'>
-                <Button type='1' size='1'>Take Quiz</Button>
-                <Button type='2' size='1'>Update</Button>
+        <main className='quiz-home'>
+            <BackButton>Subject</BackButton>
+            <div className='outer-content-wrapper'>
+                <div className='top-content-wrapper'>
+                    <Title subheading='Home' heading={quiz.name ? quiz.name.toUpperCase() : ''} />
+                    <Button type='2' size='1'>Delete</Button>
+                </div>
+                <div className={'card-deck'}>
+                    {generateCardDeck()}
+                </div>
+                <div className='bottom-content-wrapper'>
+                    <Button type='1' size='1'>Take Quiz</Button>
+                    <Button type='2' size='1'>Update</Button>
+                </div>
             </div>
         </main>
     )

@@ -3,7 +3,7 @@ import './style/EditFlashcard.css'
 import Title from '@/components/Title/Title.jsx'
 import BackButton from '@/components/BackButton/BackButton.jsx'
 import { useOutletContext, useParams } from 'react-router-dom'
-import EditFlashcardMultipleChoice from '@/components/EditFlashcardMultipleChoice/EditFlashcardMultipleChoice.jsx'
+import EditFlashcardForm from '@/components/EditFlashcardForm/EditFlashcardForm.jsx'
 
 const EditFlashcard = () => {
     const { quiz, setQuiz } = useOutletContext()
@@ -34,13 +34,13 @@ const EditFlashcard = () => {
     }
 
     return (
-        <>
+        <main className='edit-flashcard'>
             <BackButton className={'edit-flashcard-back-button'}>Quiz</BackButton>
-            <main className='main-edit-flashcard'>
+            <div className='outer-content-wrapper'>
                 <Title subheading='Edit Flashcard' heading={quiz.name ? quiz.name.toUpperCase() : ''} />
-                <EditFlashcardMultipleChoice flashcard={getFlashcardById()} setFlashcardById={setFlashcardById} />
-            </main>
-        </>
+                <EditFlashcardForm flashcard={getFlashcardById()} setFlashcardById={setFlashcardById} />
+            </div>
+        </main>
     )
 }
 

@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Poppins:wght@300;400;500&family=Prompt:wght@300;400;500;600&family=Roboto:wght@300;400;500;700&family=Unbounded:wght@300;400;500&display=swap");
-.edit-flashcard-multiple-choice-container {
+.edit-flashcard-form {
   width: 100%;
   box-sizing: border-box;
   padding: 1.3rem 1.8rem;
@@ -7,49 +7,49 @@
   flex-direction: column;
   align-items: flex-start;
 }
-.edit-flashcard-multiple-choice-container .question {
+.edit-flashcard-form .question {
   width: 100%;
   margin-bottom: 1.5rem;
 }
-.edit-flashcard-multiple-choice-container .question h4 {
+.edit-flashcard-form .question h4 {
   font-family: "Open Sans", "Roboto", sans-serif;
   font-weight: 600;
   color: #282828;
   margin: 0 0 0.9rem;
 }
-.edit-flashcard-multiple-choice-container .question textarea {
+.edit-flashcard-form .question textarea {
   font-family: "Roboto", "Arial", sans-serif;
   font-weight: 500;
   color: #282828;
   font-size: 1.1rem;
 }
-.edit-flashcard-multiple-choice-container .answers {
+.edit-flashcard-form .answers {
   width: 100%;
   margin-top: 1.3rem;
   display: flex;
   flex-direction: column;
 }
-.edit-flashcard-multiple-choice-container .answers h4 {
+.edit-flashcard-form .answers h4 {
   font-family: "Open Sans", "Roboto", sans-serif;
   font-weight: 600;
   color: #282828;
   margin: 0 0 0.6rem;
 }
-.edit-flashcard-multiple-choice-container .answers textarea {
+.edit-flashcard-form .answers textarea {
   font-family: "Roboto", "Arial", sans-serif;
   font-weight: 500;
   color: #5B5B5B;
   font-size: 0.88rem;
 }
-.edit-flashcard-multiple-choice-container .answer-container {
+.edit-flashcard-form .answer-container {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
-.edit-flashcard-multiple-choice-container .answer-container .letter {
+.edit-flashcard-form .answer-container .letter {
   padding-right: 0.7rem;
 }
-.edit-flashcard-multiple-choice-container .edit-flashcard-submit {
+.edit-flashcard-form .edit-flashcard-submit {
   align-items: flex-start;
   margin-top: 0.6rem;
 }
@@ -114,4 +114,4 @@
 
 .flashcard-field-button:hover {
   cursor: pointer;
-}/*# sourceMappingURL=EditFlashcardMultipleChoice.css.map */
+}/*# sourceMappingURL=EditFlashcardForm.css.map */

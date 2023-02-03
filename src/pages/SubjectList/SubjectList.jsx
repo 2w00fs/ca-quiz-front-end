@@ -26,11 +26,13 @@ const SubjectList = () => {
     }
 
     return (
-        <main className='main-subject-list'>
-            <Title subheading='Subjects' heading='HOME' />
-            <CardsContainer>
-                {getSubjectList(subjects)}
-            </CardsContainer>
+        <main className='subject-list'>
+            <div className='outer-content-wrapper'>
+                <Title subheading='Subjects' heading='HOME' />
+                <CardsContainer>
+                    {getSubjectList(subjects)}
+                </CardsContainer>
+            </div>
         </main>
     )
 }
