@@ -12,7 +12,7 @@ const SingleAnswerFlashcardBack = ({ flashcard, results, setResults, count, maxC
         updatedResults[count] = {
             answerType: 2,
             flashcardIndex: count,
-            response: event.target.value
+            isCorrect: event.target.value === 'yes' ? true : false
         }
         setResults(updatedResults)
     }
@@ -26,11 +26,11 @@ const SingleAnswerFlashcardBack = ({ flashcard, results, setResults, count, maxC
                 <form className='form-wrapper'>
                     <p className='is-correct-prompt'> Were you correct?</p>
                     <span className='answer-wrapper'>
-                        <input type="radio" name='honestyForm' value={'yes'} checked={results[count] && results[count].response === 'yes' ? true : false} onClick={clickHandler} />
+                        <input type="radio" name='honestyForm' value={'yes'} checked={results[count] && results[count].isCorrect ? true : false} onClick={clickHandler} />
                         <p className='yes'>Yes</p>
                     </span>
                     <span className='answer-wrapper'>
-                        <input type="radio" name='honestyForm' value={'no'} checked={results[count] && results[count].response === 'no' ? true : false} onClick={clickHandler} />
+                        <input type="radio" name='honestyForm' value={'no'} checked={results[count] && !results[count].isCorrect ? true : false} onClick={clickHandler} />
                         <p className='no'>No</p>
                     </span>
                 </form>

@@ -25,8 +25,8 @@ const SingleAnswerInputFlashcard = ({ flashcard, results, setResults, count, set
     }
 
     return (
-        <FlashcardWrapper quiz={quiz} setIsError={setIsError} count={count} setCount={setCount} results={results} maxCount={maxCount}>
-            <div className='single-answer-input-wrapper'>
+        <Card className='single-answer-input-flashcard'>
+            <div className='content-wrapper'>
                 <p className='page-number'>{count + 1}/{maxCount + 1}</p>
                 <h2 className='question'>{flashcard.question}</h2>
                 <Line />
@@ -36,7 +36,7 @@ const SingleAnswerInputFlashcard = ({ flashcard, results, setResults, count, set
                     <ErrorMessage isError={isError} message={"You haven't answered the question"} />
                 </form>
             </div>
-        </FlashcardWrapper>
+        </Card>
     )
 }
 

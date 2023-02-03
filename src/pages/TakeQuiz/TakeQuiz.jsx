@@ -29,7 +29,7 @@ const TakeQuiz = () => {
     const generateFlashcard = () => {
         if (quiz.flashcards[count].answers.length > 1) {
             return <MultipleChoiceFlashcard flashcard={quiz.flashcards[count]} results={results} setResults={setResults} count={count} maxCount={quiz.flashcards.length - 1} isError={isError} />
-        } else if (quiz.flashcards[count].takesTextInput === true) {
+        } else if (quiz.flashcards[count].takeInputText === true) {
             return <SingleAnswerInputFlashcard flashcard={quiz.flashcards[count]} results={results} setResults={setResults} count={count} maxCount={quiz.flashcards.length - 1} isError={isError} />
         } else {
             return <SingleAnswerHonestyFlashcard flashcard={quiz.flashcards[count]} results={results} setResults={setResults} count={count} maxCount={quiz.flashcards.length - 1} isError={isError} isFlipped={isFlipped} setIsFlipped={setIsFlipped} />

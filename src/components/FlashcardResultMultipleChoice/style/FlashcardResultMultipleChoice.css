@@ -1,1 +1,73 @@
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Poppins:wght@300;400;500&family=Prompt:wght@300;400;500;600&family=Roboto:wght@300;400;500;700&family=Unbounded:wght@300;400;500&display=swap");/*# sourceMappingURL=FlashcardResultMultipleChoice.css.map */
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Poppins:wght@300;400;500&family=Prompt:wght@300;400;500;600&family=Roboto:wght@300;400;500;700&family=Unbounded:wght@300;400;500&display=swap");
+.flashcard-result-multiple-choice {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0.8rem 1.9rem;
+  display: flex;
+  flex-direction: column;
+  font-family: "Roboto", "Arial", sans-serif;
+  font-weight: 300;
+  color: #282828;
+  font-size: 0.8rem;
+}
+.flashcard-result-multiple-choice .question {
+  font-family: "Roboto", "Arial", sans-serif;
+  font-weight: 500;
+  color: #282828;
+  font-size: 1rem;
+}
+.flashcard-result-multiple-choice .line {
+  margin: 0.6rem 0;
+}
+.flashcard-result-multiple-choice .answer-wrapper {
+  margin-bottom: 1rem;
+}
+.flashcard-result-multiple-choice .answer-wrapper .correct {
+  color: #2fad35;
+  font-weight: 400;
+}
+.flashcard-result-multiple-choice .answer-wrapper .incorrect {
+  color: #d12a2a;
+  font-weight: 400;
+}
+.flashcard-result-multiple-choice .answer-wrapper .correct-answer-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1.5rem;
+}
+.flashcard-result-multiple-choice .answer-wrapper .correct-answer-wrapper .label {
+  margin: 0.4rem 0rem 0.3rem;
+}
+.flashcard-result-multiple-choice .answer-wrapper .correct-answer-wrapper .correct-answer {
+  font-family: "Roboto", "Arial", sans-serif;
+  font-weight: 500;
+  color: #282828;
+  margin: 0 0 1.4rem;
+}
+.flashcard-result-multiple-choice .answer-wrapper .honesty-wrapper {
+  margin-top: 2rem;
+}
+.flashcard-result-multiple-choice .answer-wrapper .honesty-wrapper .is-correct-prompt {
+  margin-bottom: 0.7rem;
+}
+.flashcard-result-multiple-choice .answer-wrapper .honesty-wrapper .bold {
+  font-weight: 600;
+}
+.flashcard-result-multiple-choice .answer-wrapper .honesty-wrapper .yes, .flashcard-result-multiple-choice .answer-wrapper .honesty-wrapper .no {
+  margin: 0 0 0.4rem;
+}
+.flashcard-result-multiple-choice .answer-wrapper .user-input-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin: 0rem;
+}
+.flashcard-result-multiple-choice .answer-wrapper .user-input-wrapper p {
+  margin: 0;
+}
+.flashcard-result-multiple-choice .answer-wrapper .user-input-wrapper .label {
+  font-family: "Roboto", "Arial", sans-serif;
+  font-weight: 300;
+  color: #282828;
+  font-size: 0.8rem;
+  margin: 0.4rem 0rem 0.3rem;
+}/*# sourceMappingURL=FlashcardResultMultipleChoice.css.map */

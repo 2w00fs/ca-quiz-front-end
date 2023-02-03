@@ -1,8 +1,13 @@
 @use '../../../styles/_var'
 
-.cards-container-cols-max3
+.cards-container
     padding: var.$content-container-padding
     display: grid
-    grid-template-columns: repeat(3, minmax(100px, 1fr))
     grid-gap: var.$grid-gap
     margin-top: 1.2rem
+
+.max-columns-3
+    grid-template-columns: repeat(3, minmax(100px, 1fr))
+
+.max-columns-2
+    grid-template-columns: repeat(2, minmax(130px, 1fr))

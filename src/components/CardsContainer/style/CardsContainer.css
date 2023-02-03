@@ -1,8 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Poppins:wght@300;400;500&family=Prompt:wght@300;400;500;600&family=Roboto:wght@300;400;500;700&family=Unbounded:wght@300;400;500&display=swap");
-.cards-container-cols-max3 {
+.cards-container {
   padding: 1.5rem;
   display: grid;
-  grid-template-columns: repeat(3, minmax(100px, 1fr));
   grid-gap: 1.4rem;
   margin-top: 1.2rem;
+}
+
+.max-columns-3 {
+  grid-template-columns: repeat(3, minmax(100px, 1fr));
+}
+
+.max-columns-2 {
+  grid-template-columns: repeat(2, minmax(130px, 1fr));
 }/*# sourceMappingURL=CardsContainer.css.map */

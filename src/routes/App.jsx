@@ -17,6 +17,12 @@ import QuizResult from "@/pages/QuizResult/QuizResult.jsx"
 
 
 function App() {
+    // const updateFlashcardLoader = async (category, content) => {
+    //     // fetch from api
+    //     redirect(flashcard/:flashcardId/update)
+    //   }
+
+
     return (
         <>
             <Nav />
@@ -37,6 +43,7 @@ function App() {
                     <Route path='result' element={<QuizResult />} />
                     <Route path='edit' element={<EditQuiz />} />
                     <Route path='flashcard/:flashcardId/edit' element={<EditFlashcard />} />
+                    {/* <Route path='flashcard/:flashcardId/update' loader={updateFlashcardLoader} /> */}
                 </Route>
             </Routes>
         </>
