@@ -7,6 +7,7 @@ import './style/TakeQuiz.css'
 import SingleAnswerHonestyFlashcard from '@/components/SingleAnswerHonestyFlashcard/SingleAnswerHonestyFlashcard.jsx'
 import SingleAnswerInputFlashcard from '@/components/SingleAnswerInputFlashcard/SingleAnswerInputFlashcard.jsx'
 import Button from '@/components/Button/Button.jsx'
+import BackButton from '@/components/BackButton/BackButton.jsx'
 
 const TakeQuiz = () => {
     const { quiz } = useOutletContext()
@@ -59,6 +60,7 @@ const TakeQuiz = () => {
 
     return (
         <main className='take-quiz'>
+            <BackButton>Quiz Home</BackButton>
             <div className='outer-content-wrapper'>
                 <Title heading={quiz.name} subheading={'Take Quiz'} />
                 <div className='inner-content-wrapper'>

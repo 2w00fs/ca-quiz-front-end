@@ -4,6 +4,7 @@ import CardsContainer from '@/components/CardsContainer/CardsContainer.jsx'
 import FlashcardResultMultipleChoice from '@/components/FlashcardResultMultipleChoice/FlashcardResultMultipleChoice.jsx'
 import './style/QuizResult.css'
 import Title from '@/components/Title/Title.jsx'
+import BackButton from '@/components/BackButton/BackButton.jsx'
 
 const QuizResult = () => {
     const { quiz, results } = useLocation().state
@@ -15,6 +16,7 @@ const QuizResult = () => {
 
     return (
         <main className='quiz-result'>
+            <BackButton>Subject</BackButton>
             <div className='outer-content-wrapper'>
                 <Title subheading='Quiz Results' heading={quiz.name} />
                 <CardsContainer>
