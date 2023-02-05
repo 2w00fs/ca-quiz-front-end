@@ -3,6 +3,7 @@
   width: 100%;
   box-sizing: border-box;
   display: flex;
+  margin: 0;
 }
 .link-card .card {
   width: 100%;

@@ -4,18 +4,23 @@ import './style/EditFlashcardForm.css'
 import Button from '@/components/Button/Button.jsx'
 import TextArea from '@/components/TextArea/TextArea.jsx'
 import Line from '@/components/Line/Line.jsx'
+import { useNavigate, useParams } from 'react-router-dom'
+import ErrorMessage from '@/components/ErrorMessage/ErrorMessage.jsx'
 
 
-const EditFlashcardForm = ({ flashcard, setFlashcardById }) => {
+const EditFlashcardForm = ({ flashcard, setQuiz }) => {
     const [ question, setQuestion ] = useState(flashcard.question)
-    const [ answers, setAnswers ] = useState([...flashcard.answerOptions])
+    const [ answerOptions, setAnswerOptions ] = useState([...flashcard.answerOptions])
+    const [ takesTextInput, setTakesTextInput ] = useState(flashcard.takesTextInput)
+    const [ errorMessage, setErrorMessage ] = useState(null)
 
-    console.log(flashcard)
+    const { quizId, flashcardId } = useParams()
+
+    const nav = useNavigate()
 
     const answerChangeHandler = event => {
         event.preventDefault()
-        console.log(answers)
-        let updatedAnswers = [...answers]
+        let updatedAnswerOptions = [...answerOptions]
         let answerElements = event.target.parentNode.parentNode.parentNode.getElementsByTagName("textarea")
         let index
         for (let i in answerElements) {
@@ -24,8 +29,8 @@ const EditFlashcardForm = ({ flashcard, setFlashcardById }) => {
                 break
             }
         }
-        updatedAnswers[index].text = event.target.value
-        setAnswers(updatedAnswers)
+        updatedAnswerOptions[index].text = event.target.value
+        setAnswerOptions(updatedAnswerOptions)
     }
 
     const questionChangeHandler = event => {
@@ -33,13 +38,13 @@ const EditFlashcardForm = ({ flashcard, setFlashcardById }) => {
         setQuestion(event.target.value)
     }
 
-    const getAnswers = () => {
+    const getAnswerOptions = () => {
         let answerList = []
-        for (let index in answers) {
+        for (let index in answerOptions) {
             answerList.push(
                 <div className='answer-container'>
-                    {answers.length === 1 ? null : <input checked={answers[index].isCorrectOption} className='is-correct-input' type="radio" onChange={onChangeHandlerIsCorrectBtn} />}
-                    <TextArea value={answers[index].text} onChange={answerChangeHandler} rows='1' />
+                    {answerOptions.length === 1 ? null : <input checked={answerOptions[index].isCorrectOption} className='is-correct-input' type="radio" onChange={onChangeHandlerIsCorrectBtn} />}
+                    <TextArea value={answerOptions[index].text} onChange={answerChangeHandler} rows='1' />
                     <div className='flashcard-field-button remove-field-button' onClick={handleClickRemoveField}><p>-</p></div>
                 </div>
             )
@@ -48,12 +53,12 @@ const EditFlashcardForm = ({ flashcard, setFlashcardById }) => {
     }
 
     function handleClickRemoveField(event) {
-        let answerList = [...answers]
+        let answerList = [...answerOptions]
         let btns = event.currentTarget.parentNode.parentNode.parentNode.getElementsByClassName("remove-field-button")
         for (let i in btns) {
             if (btns[i] === event.currentTarget) {
                 answerList.splice(i, 1)
-                setAnswers(answerList)
+                setAnswerOptions(answerList)
                 return
             }
         }
@@ -61,13 +66,13 @@ const EditFlashcardForm = ({ flashcard, setFlashcardById }) => {
 
     function handleClickAddField(event) {
         console.log('here')
-        let answerList = [...answers]
+        let answerList = [...answerOptions]
         answerList.push({text: '', isCorrectOption: false})
-        setAnswers(answerList)
+        setAnswerOptions(answerList)
     }
 
     function onChangeHandlerIsCorrectBtn(event) {
-        let answerList = [...answers]
+        let answerList = [...answerOptions]
         let btns = event.currentTarget.parentNode.parentNode.parentNode.getElementsByClassName("is-correct-input")
         for (let i = 0; i < answerList.length; i++) {
             answerList[i].isCorrectOption = false
@@ -75,11 +80,50 @@ const EditFlashcardForm = ({ flashcard, setFlashcardById }) => {
         for (let i = 0; i < btns.length; i++) {
             if (btns[i] === event.currentTarget) {
                 answerList[i].isCorrectOption = event.currentTarget.checked
-                setAnswers(answerList)
+                setAnswerOptions(answerList)
                 return
             }
         }
     }
+
+    const singleAnswerTypeInputChange = (event) => {
+        if (event.target.value === 'true') {
+            setTakesTextInput(true)
+        } else {
+            setTakesTextInput(false)
+        }
+    }
+
+
+    const submitHandler = async (event) => {
+        event.preventDefault()
+        let token = localStorage.getItem('jwtToken')
+        let res = await fetch(import.meta.env.VITE_API_URL + `quiz/${quizId}/flashcard/${flashcardId}`, {
+            method: 'PUT',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify({ question: question, answerOptions: answerOptions, takesTextInput: takesTextInput })
+        })
+        let json = await res.json()
+        if (res.status === 200) {
+            if (!json.flashcards.find(flashcard => flashcard._id === flashcardId)) {
+                setQuiz(json)
+                nav(`/quiz/${quizId}/edit`)
+            } else {
+                setErrorMessage('Unable to update flashcard')
+            }
+        } else if (res.status === 500) {
+            setErrorMessage('Unable to update flashcard')
+        } else if (res.status === 401) {
+            nav('/auth/login')
+        } else if (res.status === 404) {
+            setErrorMessage('Quiz or flashcard not found')
+        }
+    }
+
 
     return (
         <Card className='edit-flashcard-form'>
@@ -89,27 +133,28 @@ const EditFlashcardForm = ({ flashcard, setFlashcardById }) => {
             </form>
             <Line />
             <form className='answers'>
-                <h4>{answers.length > 1 ? 'Answers' : 'Answer'}</h4>
-                {answers.length > 1 ? <p className='correct-answer-prompt'>Select the correct answer:</p> : null}
-                {getAnswers()}
+                <h4>{answerOptions.length > 1 ? 'Answers' : 'Answer'}</h4>
+                {answerOptions.length > 1 ? <p className='correct-answer-prompt'>Select the correct answer:</p> : null}
+                {getAnswerOptions()}
             </form>
-            {answers.length > 3 ? null : <div onClick={handleClickAddField} className='flashcard-field-button add-field-button'><p>+</p></div>}
+            {answerOptions.length > 3 ? null : <div onClick={handleClickAddField} className='flashcard-field-button add-field-button'><p>+</p></div>}
             {
-                answers.length > 1 ? null : (
+                answerOptions.length > 1 ? null : (
                     <form className='single-answer-prompt-container'>
                         <p>Which type of single-answer question?</p>
                         <span>
-                            <input checked type="radio" id='textInput' name='singleAnswerPrompt' value='User inputs exact text' />
+                            <input checked={takesTextInput} onChange={singleAnswerTypeInputChange} className='single-answer-type-input' type="radio" id='textInput' name='singleAnswerPrompt' value={true} />
                             <label htmlFor="textInput">User inputs exact text</label>
                         </span>
                         <span>
-                            <input type="radio" id='honestySystem' name='singleAnswerPrompt' value='Honesty system' />
+                            <input checked={!takesTextInput} onChange={singleAnswerTypeInputChange} className='single-answer-type-input' type="radio" id='honestySystem' name='singleAnswerPrompt' value={false} />
                             <label htmlFor="honestySystem">Honesty System</label>
                         </span>
                     </form>
                 )
             }
-            <Button className='edit-flashcard-submit' type='1' size='1'>Submit</Button>
+            <ErrorMessage message={errorMessage} />
+            <Button onClick={submitHandler} className='edit-flashcard-submit' type='1' size='1'>Submit</Button>
         </Card>
     )
 }

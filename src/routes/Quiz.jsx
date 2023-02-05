@@ -27,9 +27,9 @@ const Quiz = () => {
             } else if (res.status === 401) {
                 // localStorage.clear()
                 // nav('/auth/login')
-            } else if (res.status === 500) (
+            } else if (res.status === 500) {
                 console.log('Internal server error')
-            )
+            }
         }
         getQuiz()
     }, [])

@@ -1,4 +1,5 @@
 @use '../../../styles/_var'
+@use '../../../styles/_mixin'
 
 .add-button-container
     display: flex
@@ -6,12 +7,28 @@
     align-items: center
     justify-content: center
 
-.add-subject-button
-    display: flex
-    border-radius: 50%
-    width: 6rem
-    padding-bottom: 6rem
-    justify-content: center
-    align-items: center
-    overflow: hidden
-    background-image: url('../../../assets/add-button.svg')
+    .add-subject-button
+        display: flex
+        border-radius: 50%
+        width: 6rem
+        padding-bottom: 6rem
+        justify-content: center
+        align-items: center
+        overflow: hidden
+        background-image: url('../../../assets/add-button.svg')
+
+.add-card
+    .card
+        display: flex
+        flex-direction: column
+        align-items: center
+        justify-content: center
+        padding: 3.3rem 0
+
+        .text
+            @include mixin.text-4
+            font-size: 1rem
+
+        img
+            width: 6rem
+            margin: 1.4rem

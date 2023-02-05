@@ -17,8 +17,8 @@ const EditQuiz = () => {
         if (!flashcards) {
             return []
         }
-        let flashcardList = flashcards.map(flashcard => <FlashcardDetails key={flashcard._id} flashcard={flashcard} />)
-        flashcardList.push(<AddButton />)
+        let flashcardList = flashcards.map(flashcard => <FlashcardDetails key={flashcard._id} quiz={quiz} setQuiz={setQuiz} flashcard={flashcard} />)
+        flashcardList.push(<AddButton key='addFlashcard' isEmpty={!Boolean(flashcardList.length)} text='Add Flashcard' />)
         return flashcardList
     }
 

@@ -17,18 +17,6 @@ const EditFlashcard = () => {
         }
     }
 
-    const setFlashcardById = (flashcardId, updatedFlashcard, quiz) => {
-        quiz.flashcards.forEeach((flashcard, index) => {
-            if (flashcard._id === flashcardId) {
-                let flashcardList = [...quiz.flashcards]
-                flashcardList[index] = updatedFlashcard
-                setQuiz({...quiz, flashcards: flashcardList})
-                return
-            }
-        })
-        setQuiz({...quiz, flashcards: [...quiz.flashcards, updatedFlashcard]})
-    }
-
     if (!quiz.flashcards) {
         return <div></div>
     }
@@ -38,7 +26,7 @@ const EditFlashcard = () => {
             <BackButton className={'edit-flashcard-back-button'}>Quiz</BackButton>
             <div className='outer-content-wrapper'>
                 <Title subheading='Edit Flashcard' heading={quiz.name ? quiz.name.toUpperCase() : ''} />
-                <EditFlashcardForm flashcard={getFlashcardById()} setFlashcardById={setFlashcardById} />
+                <EditFlashcardForm flashcard={getFlashcardById()} setQuiz={setQuiz} />
             </div>
         </main>
     )

@@ -25,13 +25,13 @@ const Subject = () => {
             })
             let json = await res.json()
             if (res.status === 200) {
-                setSubject(json)
+                setSubject({ _id: json.subject._id, name: json.subject.name, quizzes: json.quizzes })
             } else if (res.status === 401) {
                 // localStorage.clear()
                 // nav('/auth/login')
-            } else if (res.status === 500) (
+            } else if (res.status === 500) {
                 console.log('Internal server error')
-            )
+            }
         }
         getSubject()
     }, [])
@@ -47,7 +47,7 @@ const Subject = () => {
             let tag = 'Quiz'
             return <PreviewCard path={`../quiz/${quiz._id}`} key={quiz._id} heading={heading} text={text} logo={logo} tag={tag} />
         })
-        quizList.push(<AddButton key={'quiz-add-button'} />)
+        quizList.push(<AddButton key={'quiz-add-button'} isEmpty={!Boolean(quizList.length)} text='Add Quiz' />)
         return quizList
     }
 
@@ -55,7 +55,7 @@ const Subject = () => {
         <main className='subject'>
             <BackButton>Subject List</BackButton>
             <div className='outer-content-wrapper'>
-                <Title subheading='Quiz List' heading={subject.name ? subject.name.toUpperCase() : ''} />
+                <Title subheading='Quizzes' heading={subject.name ? subject.name.toUpperCase() : ''} />
                 <CardsContainer>
                     {getQuizList(subject.quizzes || [])}
                 </CardsContainer>
