@@ -8,7 +8,9 @@ import Line from '@/components/Line/Line.jsx'
 
 const EditFlashcardForm = ({ flashcard, setFlashcardById }) => {
     const [ question, setQuestion ] = useState(flashcard.question)
-    const [ answers, setAnswers ] = useState([...flashcard.answers])
+    const [ answers, setAnswers ] = useState([...flashcard.answerOptions])
+
+    console.log(flashcard)
 
     const answerChangeHandler = event => {
         event.preventDefault()

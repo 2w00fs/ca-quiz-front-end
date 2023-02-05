@@ -10,21 +10,30 @@ import './style/Subject.css'
 
 const Subject = () => {
     const [subject, setSubject] = useState({})
-    // const { subjectId } = useParams()
+    const { subjectId } = useParams()
 
     useEffect(() => {
-        // fetch subject by id
-        // setSubject(subject)
-        setSubject({
-            _id: 320843903290,
-            name: 'German',
-            quizzes: [
-                { _id: 3498753498743, name: 'Quiz One', flashcardCount: 14 },
-                { _id: 4897342387903, name: 'Quiz Two', flashcardCount: 17 },
-                { _id: 4389745094089, name: 'Quiz Three', flashcardCount: 8 },
-                { _id: 8590834809843, name: 'Quiz Four', flashcardCount: 32 }
-            ]
-        })
+        const getSubject = async () => {
+            let token = localStorage.getItem('jwtToken')
+            let res = await fetch(import.meta.env.VITE_API_URL + `subject/${subjectId}`, {
+                method: 'GET',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                }
+            })
+            let json = await res.json()
+            if (res.status === 200) {
+                setSubject(json)
+            } else if (res.status === 401) {
+                // localStorage.clear()
+                // nav('/auth/login')
+            } else if (res.status === 500) (
+                console.log('Internal server error')
+            )
+        }
+        getSubject()
     }, [])
 
     const getQuizList = quizzes => {
@@ -33,10 +42,10 @@ const Subject = () => {
                 return
             }
             let heading = quiz.name
-            let text = `${quiz.flashcardCount} ${quiz.flashcardCount > 1 ? 'flashcard' : 'flashcards'}`
+            let text = `${quiz.flashcardCount} ${quiz.flashcardCount > 1 ? 'flashcards' : 'flashcard'}`
             let logo = cardsLogo
             let tag = 'Quiz'
-            return <PreviewCard key={quiz._id} heading={heading} text={text} logo={logo} tag={tag} />
+            return <PreviewCard path={`../quiz/${quiz._id}`} key={quiz._id} heading={heading} text={text} logo={logo} tag={tag} />
         })
         quizList.push(<AddButton key={'quiz-add-button'} />)
         return quizList

@@ -7,7 +7,7 @@ import ErrorMessage from '@/components/ErrorMessage/ErrorMessage.jsx'
 
 const MultipleChoiceFlashcard = ({ flashcard, results, setResults, count, maxCount, isError }) => {
     const getAnswers = () => {
-        let answers = flashcard.answers.map((answer, index) => {
+        let answers = flashcard.answerOptions.map((answer, index) => {
             return (
                 <span className='answer-wrapper'>
                     <input checked={results[count] && results[count].selectedAnswerIndex === index ? true : false} onChange={onChangeInput} type="radio" name='multipleChoiceAnswers' value={index} />

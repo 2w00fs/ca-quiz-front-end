@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Routes, Route, Outlet } from 'react-router-dom'
+import { Routes, Route, Outlet, useParams } from 'react-router-dom'
 import QuizHome from '../pages/QuizHome/QuizHome.jsx'
 import TakeQuiz from '../pages/TakeQuiz/TakeQuiz.jsx'
 import EditQuiz from '../pages/EditQuiz/EditQuiz.jsx'
@@ -8,53 +8,30 @@ import EditFlashcard from '../pages/EditFlashcard/EditFlashcard.jsx'
 const Quiz = () => {
     const [ quiz, setQuiz ] = useState({})
 
+    const { quizId } = useParams()
+
     useEffect(() => {
-        // fetchQuiz()
-        // setQuiz(quiz)
-        setQuiz({
-            _id: 389327438328,
-            name: 'Quiz One',
-            flashcards: [
-                { 
-                    _id: 40943805890843,
-                    question: "What does 'es tut mir leid' mean in German?",
-                    answers: [
-                        { text: "I'm sorry", isCorrectOption: true }
-                    ],
-                    takeInputText: true
-                },
-                { 
-                    _id: 40943805890843,
-                    question: "What does 'es tut mir leid' mean in German?",
-                    answers: [
-                        { text: 'Excuse me', isCorrectOption: false },
-                        { text: "I'm sorry", isCorrectOption: true },
-                        { text: 'Goodbye', isCorrectOption: false },
-                        { text: 'Hello', isCorrectOption: false },
-                    ],
-                    takeInputText: false
-                },
-                { 
-                    _id: 40943805890843,
-                    question: "What does 'es tut mir leid' mean in German?",
-                    answers: [
-                        { text: "I'm sorry", isCorrectOption: true }
-                    ],
-                    takeInputText: false
-                },
-                { 
-                    _id: 40943805890843,
-                    question: "What does 'es tut mir leid' mean in German?",
-                    answers: [
-                        { text: 'Excuse me', isCorrectOption: false },
-                        { text: "I'm sorry", isCorrectOption: true },
-                        { text: 'Goodbye', isCorrectOption: false },
-                        { text: 'Hello', isCorrectOption: false },
-                    ],
-                    takeInputText: false
+        const getQuiz = async () => {
+            let token = localStorage.getItem('jwtToken')
+            let res = await fetch(import.meta.env.VITE_API_URL + `quiz/${quizId}`, {
+                method: 'GET',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
                 }
-            ]
-        })
+            })
+            let json = await res.json()
+            if (res.status === 200) {
+                setQuiz(json)
+            } else if (res.status === 401) {
+                // localStorage.clear()
+                // nav('/auth/login')
+            } else if (res.status === 500) (
+                console.log('Internal server error')
+            )
+        }
+        getQuiz()
     }, [])
 
     return <Outlet context={{ quiz, setQuiz }}/>

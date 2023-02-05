@@ -1,0 +1,42 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Poppins:wght@300;400;500&family=Prompt:wght@300;400;500;600&family=Roboto:wght@300;400;500;700&family=Unbounded:wght@300;400;500&display=swap");
+.login {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.login .outer-content-wrapper {
+  width: 100%;
+  max-width: 30rem;
+  padding: 1.5rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+.login .outer-content-wrapper .title {
+  margin-bottom: 2.2rem;
+}
+.login .outer-content-wrapper .create-user-form {
+  padding: 2.2rem 3.2rem;
+}
+.login .outer-content-wrapper .create-user-form .username-label, .login .outer-content-wrapper .create-user-form .password-label {
+  font-family: "Open Sans", "Roboto", sans-serif;
+  font-weight: 600;
+  color: #282828;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+.login .outer-content-wrapper .create-user-form input {
+  border: 0.9px solid #b2b2b2;
+  border-radius: 5px;
+  padding: 0.5rem;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+.login .outer-content-wrapper .error-message {
+  margin-bottom: 1.5rem;
+}/*# sourceMappingURL=Login.css.map */

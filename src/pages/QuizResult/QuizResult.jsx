@@ -1,7 +1,7 @@
 import React from 'react'
 import { useLocation } from 'react-router-dom'
 import CardsContainer from '@/components/CardsContainer/CardsContainer.jsx'
-import FlashcardResultMultipleChoice from '@/components/FlashcardResultMultipleChoice/FlashcardResultMultipleChoice.jsx'
+import FlashcardResult from '@/components/FlashcardResult/FlashcardResult.jsx'
 import './style/QuizResult.css'
 import Title from '@/components/Title/Title.jsx'
 import BackButton from '@/components/BackButton/BackButton.jsx'
@@ -11,7 +11,7 @@ const QuizResult = () => {
 
     console.log(results)
 
-    const getResultCards = () => results.map((result, index) => <FlashcardResultMultipleChoice quiz={quiz} result={result} />)
+    const getResultCards = () => results.map((result, index) => <FlashcardResult quiz={quiz} result={result} />)
     
 
     return (

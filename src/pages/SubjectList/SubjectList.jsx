@@ -19,9 +19,9 @@ const SubjectList = () => {
             let text = `${subject.quizCount} ${subject.quizCount > 1 ? 'quizzes' : 'quiz'}`
             let logo = quizLogo
             let tag = 'Subject'
-            return <PreviewCard key={subject._id} heading={heading} text={text} logo={logo} tag={tag} />
+            return <PreviewCard path={`subject/${subject._id}`} key={subject._id} heading={heading} text={text} logo={logo} tag={tag} />
         })
-        subjectList.push(<AddButton />)
+        subjectList.push(<AddButton path='../subject/create' />)
         return subjectList
     }
 

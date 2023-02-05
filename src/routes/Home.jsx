@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Routes, Route, Outlet } from 'react-router-dom'
+import { Routes, Route, Outlet, useNavigate } from 'react-router-dom'
 import SubjectList from '@/pages/SubjectList/SubjectList.jsx'
 import AddSubject from '@/pages/AddSubject/AddSubject.jsx'
 import Subject from '@/pages/Subject/Subject'
@@ -7,15 +7,30 @@ import Subject from '@/pages/Subject/Subject'
 const Home = () => {
     const [subjects, setSubjects] = useState([])
 
+    const nav = useNavigate()
+
     useEffect(() => {
-        // fetch all subjects
-        // setSubjects(subjects)
-        setSubjects([
-            { _id: 3209730987329, name: 'German', quizCount: 3 },
-            { _id: 5609737987346, name: 'Biology', quizCount: 4 },
-            { _id: 5050406940550, name: 'Psychology', quizCount: 1 },
-            { _id: 8937894798429, name: 'Music', quizCount: 2 }
-        ])
+        const getSubjects = async () => {
+            let token = localStorage.getItem('jwtToken')
+            let res = await fetch(import.meta.env.VITE_API_URL + `subject`, {
+                method: 'GET',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                }
+            })
+            let json = await res.json()
+            if (res.status === 200) {
+                setSubjects(json)
+            } else if (res.status === 401) {
+                // localStorage.clear()
+                // nav('/auth/login')
+            } else if (res.status === 500) (
+                console.log('Internal server error')
+            )
+        }
+        getSubjects()
     }, [])
 
     return <Outlet context={{ subjects, setSubjects }}/>

@@ -9,7 +9,6 @@ import TakeQuiz from '../pages/TakeQuiz/TakeQuiz.jsx'
 import EditQuiz from '../pages/EditQuiz/EditQuiz.jsx'
 import EditFlashcard from '../pages/EditFlashcard/EditFlashcard.jsx'
 import Login from '@/pages/Login/Login.jsx'
-import Logout from '@/pages/Logout/Logout.jsx'
 import SignUp from '@/pages/SignUp/SignUp.jsx'
 import SubjectList from '@/pages/SubjectList/SubjectList.jsx'
 import AddSubject from '@/pages/AddSubject/AddSubject.jsx'
@@ -29,11 +28,10 @@ function App() {
             <Routes>
                 <Route path='/' element={<Home />}>
                     <Route index element={<SubjectList />} />
-                    <Route path='subject/create' element={<AddSubject />} />
+                    <Route path='subject/add' element={<AddSubject />} />
                 </Route>
-                <Route path='auth' element={<Auth />}>
+                <Route path='auth'>
                     <Route path='login' element={<Login />} />
-                    <Route path='logout' element={<Logout />} />
                     <Route path='signup' element={<SignUp />} />
                 </Route>
                 <Route path='subject/:subjectId' element={<Subject />} />

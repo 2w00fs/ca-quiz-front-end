@@ -1,10 +1,10 @@
 import React from 'react'
 import './style/ErrorMessage.css'
 
-const ErrorMessage = ({ isError, message }) => {
+const ErrorMessage = ({ message }) => {
     return (
         <>
-            {isError ? <div className='error-message'>{message}</div> : null}
+            {message ? <div className='error-message'>{message}</div> : null}
         </>
     )
 }

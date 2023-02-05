@@ -3,11 +3,13 @@ import Title from '@/components/Title/Title.jsx'
 import Button from '@/components/Button/Button.jsx'
 import cardDeck from '../../assets/card-deck.svg'
 import './style/QuizHome.css'
-import { useOutletContext } from 'react-router-dom'
+import { useOutletContext, useParams } from 'react-router-dom'
 import BackButton from '@/components/BackButton/BackButton.jsx'
 
 const QuizHome = () => {
     const { quiz, setQuiz } = useOutletContext()
+
+    const { quizId } = useParams()
 
     const generateCardDeck = () => {
         let cardArray = []
@@ -30,8 +32,8 @@ const QuizHome = () => {
                     {generateCardDeck()}
                 </div>
                 <div className='bottom-content-wrapper'>
-                    <Button type='1' size='1'>Take Quiz</Button>
-                    <Button type='2' size='1'>Update</Button>
+                    <Button path='./take' type='1' size='1'>Take Quiz</Button>
+                    <Button path='./edit' type='2' size='1'>Update</Button>
                 </div>
             </div>
         </main>

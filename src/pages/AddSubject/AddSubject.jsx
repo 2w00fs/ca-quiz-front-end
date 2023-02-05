@@ -10,6 +10,23 @@ const AddSubject = () => {
 
     const changeHandler = event => setSubjectName(event.target.value)
 
+    const submitHandler = () => {
+        fetch(import.meta.env.VITE_API_URL + `subject/`, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ name: subjectName })
+        })
+        .then(res => res.json())
+        .then(json => {
+            let { subject, quizzes } = json
+            console.log(subject, quizzes)
+            setSubject({ ...subject, quizzes })
+        })
+    }
+
     return (
         <main className='add-subject'>
             <div className='outer-content-wrapper'>

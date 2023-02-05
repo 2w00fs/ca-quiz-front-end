@@ -1,9 +1,9 @@
 import React, { useRef, useState } from 'react'
-import './style/FlashcardResultMultipleChoice.css'
+import './style/FlashcardResult.css'
 import Card from '@/components/Card/Card.jsx'
 import Line from '@/components/Line/Line.jsx'
 
-const FlashcardResultMultipleChoice = ({ quiz, result }) => {
+const FlashcardResult = ({ quiz, result }) => {
     const letters = ['a', 'b', 'c', 'd']
 
     let isCorrectRef = useRef(null)
@@ -23,7 +23,7 @@ const FlashcardResultMultipleChoice = ({ quiz, result }) => {
     const getMultipleChoiceAnswers = () => {
         return (
             <>
-                {quiz.flashcards[result.flashcardIndex].answers.map((answer, index) => {
+                {quiz.flashcards[result.flashcardIndex].answerOptions.map((answer, index) => {
                     if (answer.isCorrectOption === true) {
                         correctAnswerRef.current = answer.text
                     }
@@ -42,7 +42,7 @@ const FlashcardResultMultipleChoice = ({ quiz, result }) => {
     }
 
     const getSingleAnswerInput = () => {
-        correctAnswerRef.current = quiz.flashcards[result.flashcardIndex].answers[0].text
+        correctAnswerRef.current = quiz.flashcards[result.flashcardIndex].answerOptions[0].text
         if (correctAnswerRef.current === result.userInput) {
             isCorrectRef.current = true
         } else {
@@ -60,11 +60,11 @@ const FlashcardResultMultipleChoice = ({ quiz, result }) => {
     }
 
     const getSingleAnswerHonesty = () => {
-        correctAnswerRef.current = quiz.flashcards[result.flashcardIndex].answers[0].text
+        correctAnswerRef.current = quiz.flashcards[result.flashcardIndex].answerOptions[0].text
         isCorrectRef.current = result.isCorrect
         return (
             <>
-                <p className={'answer' + `${isCorrectRef.current ? ' correct' : ' incorrect'}`}>{quiz.flashcards[result.flashcardIndex].answers[0].text}</p>
+                <p className={'answer' + `${isCorrectRef.current ? ' correct' : ' incorrect'}`}>{quiz.flashcards[result.flashcardIndex].answerOptions[0].text}</p>
                 <div className='honesty-wrapper'>
                     <p className='is-correct-prompt'> Were you correct?</p>
                     <p className={'yes' + `${isCorrectRef.current ? ' bold' : ''}`}>Yes</p>
@@ -97,4 +97,4 @@ const FlashcardResultMultipleChoice = ({ quiz, result }) => {
     )
 }
 
-export default FlashcardResultMultipleChoice
+export default FlashcardResult

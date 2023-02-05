@@ -10,10 +10,10 @@ const Nav = () => {
             <div className={'left-header'}>
                 <div className='logo'>CA Quiz</div>
                 <nav className='nav'>
-                    <ul>
-                        <li><Link>Subjects</Link></li>
-                        <li><Link>Create</Link></li>
-                    </ul>
+                    {localStorage.getItem('jwtToken') ? (<ul>
+                        <li><Link to='./'>Subjects</Link></li>
+                        <li><Link to='./subject/create'>Create</Link></li>
+                    </ul>) : null}
                 </nav>
             </div>
             <div className={'right-header'}>
