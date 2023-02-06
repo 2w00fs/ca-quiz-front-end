@@ -49,13 +49,13 @@ const Login = () => {
         <main className='login'>
             <div className='outer-content-wrapper'>
                 <Title subheading='User' heading='LOGIN' />
-                <Card className='create-user-form'>
+                <Card className='login-form'>
                     <h3 className='username-label'>Username</h3>
-                    <input type='text' value={username} onChange={usernameChangeHandler} />
+                    <input className='username-input' type='text' value={username} onChange={usernameChangeHandler} />
                     <h3 className='password-label'>Password</h3>
-                    <input type='password' value={password} onChange={passwordChangeHandler} />
+                    <input className='password-input' type='password' value={password} onChange={passwordChangeHandler} />
                     <ErrorMessage message={error} />
-                    <Button onClick={loginHandler} type='1' size='1'>Login</Button>
+                    <Button className='login-submit-button' onClick={loginHandler} type='1' size='1'>Login</Button>
                 </Card>
             </div>
         </main>

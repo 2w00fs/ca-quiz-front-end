@@ -16,17 +16,17 @@
 .login .outer-content-wrapper .title {
   margin-bottom: 2.2rem;
 }
-.login .outer-content-wrapper .create-user-form {
+.login .outer-content-wrapper .login-form {
   padding: 2.2rem 3.2rem;
 }
-.login .outer-content-wrapper .create-user-form .username-label, .login .outer-content-wrapper .create-user-form .password-label {
+.login .outer-content-wrapper .login-form .username-label, .login .outer-content-wrapper .login-form .password-label {
   font-family: "Open Sans", "Roboto", sans-serif;
   font-weight: 600;
   color: #282828;
   font-size: 1rem;
   margin-bottom: 0.5rem;
 }
-.login .outer-content-wrapper .create-user-form input {
+.login .outer-content-wrapper .login-form input {
   border: 0.9px solid #b2b2b2;
   border-radius: 5px;
   padding: 0.5rem;

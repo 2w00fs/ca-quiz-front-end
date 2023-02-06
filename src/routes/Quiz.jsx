@@ -25,8 +25,8 @@ const Quiz = () => {
             if (res.status === 200) {
                 setQuiz(json)
             } else if (res.status === 401) {
-                // localStorage.clear()
-                // nav('/auth/login')
+                localStorage.clear()
+                nav('/auth/login')
             } else if (res.status === 500) {
                 console.log('Internal server error')
             }

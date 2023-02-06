@@ -31,8 +31,8 @@ const Subject = () => {
             if (res.status === 200) {
                 setSubject({ _id: json.subject._id, name: json.subject.name, quizzes: json.quizzes })
             } else if (res.status === 401) {
-                // localStorage.clear()
-                // nav('/auth/login')
+                localStorage.clear()
+                nav('/auth/login')
             } else if (res.status === 500) {
                 console.log('Internal server error')
             }
