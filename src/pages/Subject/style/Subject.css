@@ -32,7 +32,18 @@
 .subject .outer-content-wrapper .top-wrapper .button-wrapper {
   display: flex;
   flex-direction: row;
+  gap: 0.8rem;
 }
 .subject .outer-content-wrapper .cards-container {
   width: 100%;
+}
+
+@media screen and (max-width: 1200px) {
+  .subject .back-button {
+    position: relative;
+    margin-bottom: 0;
+  }
+  .subject .title {
+    margin-top: 0;
+  }
 }/*# sourceMappingURL=Subject.css.map */

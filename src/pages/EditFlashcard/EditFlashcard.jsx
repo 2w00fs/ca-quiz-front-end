@@ -7,7 +7,7 @@ import EditFlashcardForm from '@/components/EditFlashcardForm/EditFlashcardForm.
 
 const EditFlashcard = () => {
     const { quiz, setQuiz } = useOutletContext()
-    const { flashcardId } = useParams()
+    const { flashcardId, quizId } = useParams()
 
     const getFlashcardById = () => {
         for (let flashcard of quiz.flashcards) {
@@ -23,7 +23,7 @@ const EditFlashcard = () => {
 
     return (
         <main className='edit-flashcard'>
-            <BackButton className={'edit-flashcard-back-button'}>Quiz</BackButton>
+            <BackButton path={`/quiz/${quizId}/edit`} className={'edit-flashcard-back-button'}>Quiz</BackButton>
             <div className='outer-content-wrapper'>
                 <Title subheading='Edit Flashcard' heading={quiz.name ? quiz.name.toUpperCase() : ''} />
                 <EditFlashcardForm flashcard={getFlashcardById()} setQuiz={setQuiz} />

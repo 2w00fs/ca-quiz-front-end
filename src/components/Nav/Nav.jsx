@@ -6,10 +6,10 @@ import './style/Nav.css'
 
 const Nav = () => {
     return (
-        <header>
+        <header className='nav'>
             <div className={'left-header'}>
                 <div className='logo'>CA Quiz</div>
-                <nav className='nav'>
+                <nav>
                     <ul>
                         <li><Link to='/'>Subjects</Link></li>
                         <li><Link to='/subject/add'>Create</Link></li>

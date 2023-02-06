@@ -9,3 +9,19 @@
 
 .max-columns-2
     grid-template-columns: repeat(2, minmax(130px, 1fr))
+
+
+@media screen and (min-width: 480px) and (max-width: 700px) 
+    .cards-container
+        display: grid
+
+    .max-columns-3
+        grid-template-columns: repeat(2, minmax(100px, 1fr))
+
+@media screen and (max-width: 480px)
+    .cards-container
+        display: grid
+        grid-gap: 0.8rem
+
+    .max-columns-3
+        grid-template-columns: repeat(2, minmax(100px, 1fr))

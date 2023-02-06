@@ -24,11 +24,11 @@ const AuthButton = () => {
     const generateAuthButton = () => {
         let url = window.location.href
         if (url.includes('login')) {
-            return <Button onClick={signup} type={2} size={1}>Sign Up</Button>
+            return <Button className='auth-button' onClick={signup} type={2} size={1}>Sign Up</Button>
         } else if (url.includes('signup')) {
-            return <Button onClick={login} type={2} size={1}>Login</Button>
+            return <Button className='auth-button' onClick={login} type={2} size={1}>Login</Button>
         } else {
-            return <Button onClick={logout} type={2} size={1}>Logout</Button>
+            return <Button className='auth-button' onClick={logout} type={2} size={1}>Logout</Button>
         }
     }
 

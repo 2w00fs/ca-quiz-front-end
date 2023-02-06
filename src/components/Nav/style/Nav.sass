@@ -10,28 +10,44 @@ header
     justify-content: space-between
     border: var.$stroke solid var.$c-shade-secondary
 
-.left-header, .right-header
-    display: flex
-    flex-direction: row
-    align-items: center
+    .left-header, .right-header
+        display: flex
+        flex-direction: row
+        align-items: center
 
-nav
-    display: flex
-    flex-direction: row
+    nav
+        display: flex
+        flex-direction: row
 
-ul
-    display: flex
-    flex-direction: row
-    align-items: center
-    margin: 0
-    list-style: none
+    ul
+        display: flex
+        flex-direction: row
+        align-items: center
+        margin: 0
+        list-style: none
 
-.logo
-    @include mixin.text-logo
-    margin-left: 2rem
-    margin-right: 4rem
+    .logo
+        @include mixin.text-logo
+        margin-left: 2rem
+        margin-right: 4rem
 
-a
-    text-decoration: none
-    @include mixin.text-2
-    margin-right: 1.5rem
+    a
+        text-decoration: none
+        @include mixin.text-2
+        margin-right: 1.5rem
+
+
+@media screen and (max-width: 550px)
+    header
+        .logo
+            margin-right: 1rem
+        
+        a
+            margin-right: 0.5rem
+            font-size: 0.8rem
+        
+        .auth-button
+            font-size: 0.8rem
+        
+        ul
+            padding-left: 1.5rem

@@ -21,4 +21,15 @@
 }
 .edit-flashcard .outer-content-wrapper .title {
   margin-bottom: 2rem;
+}
+
+@media screen and (max-width: 550px) {
+  .edit-flashcard .back-button {
+    position: relative;
+    margin-bottom: 0;
+    margin-left: 1rem;
+  }
+  .edit-flashcard .title {
+    margin-top: 0;
+  }
 }/*# sourceMappingURL=EditFlashcard.css.map */

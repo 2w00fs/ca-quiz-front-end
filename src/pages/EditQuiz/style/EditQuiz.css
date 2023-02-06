@@ -32,4 +32,15 @@
 }
 .edit-quiz .outer-content-wrapper .title {
   margin-bottom: 2rem;
+}
+
+@media screen and (max-width: 1200px) {
+  .edit-quiz .back-button {
+    position: relative;
+    margin-bottom: 0;
+    margin-left: 1rem;
+  }
+  .edit-quiz .title {
+    margin-top: 0;
+  }
 }/*# sourceMappingURL=EditQuiz.css.map */

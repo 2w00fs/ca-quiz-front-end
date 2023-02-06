@@ -65,6 +65,9 @@
             @include mixin.text-3
             font-size: 1.3rem
             
+            p
+                margin: 2.5rem
+            
             .add-cards-wrapper
                 display: flex
                 flex-direction: column
@@ -76,3 +79,14 @@
         .bottom-content-wrapper
             display: flex
             flex-direction: row
+            gap: 1rem
+
+
+@media screen and (max-width: 750px)
+    .quiz-home
+        .back-button
+            position: relative
+            margin-bottom: 0
+            margin-left: 1rem
+        .title
+            margin-top: 0

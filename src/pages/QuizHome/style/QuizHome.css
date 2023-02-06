@@ -65,6 +65,9 @@
   color: #282828;
   font-size: 1.3rem;
 }
+.quiz-home .outer-content-wrapper .top-card-in-deck p {
+  margin: 2.5rem;
+}
 .quiz-home .outer-content-wrapper .top-card-in-deck .add-cards-wrapper {
   display: flex;
   flex-direction: column;
@@ -76,4 +79,16 @@
 .quiz-home .outer-content-wrapper .bottom-content-wrapper {
   display: flex;
   flex-direction: row;
+  gap: 1rem;
+}
+
+@media screen and (max-width: 750px) {
+  .quiz-home .back-button {
+    position: relative;
+    margin-bottom: 0;
+    margin-left: 1rem;
+  }
+  .quiz-home .title {
+    margin-top: 0;
+  }
 }/*# sourceMappingURL=QuizHome.css.map */
