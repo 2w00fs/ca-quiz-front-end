@@ -25,7 +25,6 @@ const FlashcardDetails = ({ quiz, setQuiz, flashcard }) => {
                     'Authorization': `Bearer ${token}`
                 }
             })
-            let json = await res.json()
             if (res.status === 200) {
                 let flashcardList = [...quiz.flashcards]
                 for (let i in flashcardList) {
@@ -52,7 +51,7 @@ const FlashcardDetails = ({ quiz, setQuiz, flashcard }) => {
                 <h2 className='question'>{flashcard.question}</h2>
                 <Line />
                 <div className={'answers'}>
-                    {flashcard.answerOptions.map((answer, index) => <p key='answer._id'>{`${flashcard.answerOptions.length > 1 ? letters[index] + '. ' : ''}${answer.text}`}</p>)}
+                    {flashcard.answerOptions.map((answer, index) => <p key={answer._id}>{`${flashcard.answerOptions.length > 1 ? letters[index] + '. ' : ''}${answer.text}`}</p>)}
                 </div>
                 <Button onClick={createDeleteHandler(flashcard._id)} type='2' size='2'>Delete</Button>
             </div>

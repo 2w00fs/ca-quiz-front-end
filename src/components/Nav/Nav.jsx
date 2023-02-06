@@ -11,8 +11,8 @@ const Nav = () => {
                 <div className='logo'>CA Quiz</div>
                 <nav className='nav'>
                     {localStorage.getItem('jwtToken') ? (<ul>
-                        <li><Link to='./'>Subjects</Link></li>
-                        <li><Link to='./subject/create'>Create</Link></li>
+                        <li><Link to='/'>Subjects</Link></li>
+                        <li><Link to='/subject/add'>Create</Link></li>
                     </ul>) : null}
                 </nav>
             </div>

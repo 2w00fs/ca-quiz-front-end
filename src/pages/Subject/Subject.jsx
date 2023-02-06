@@ -132,7 +132,7 @@ const Subject = () => {
 
     return (
         <main className='subject'>
-            <BackButton>Subject List</BackButton>
+            <BackButton path='/'>Subject List</BackButton>
             <div className='outer-content-wrapper'>
                 <div className='top-wrapper'>
                     <Title subheading='Quizzes' initial={subject.name ? subject.name : ''} heading={subject.name ? subject.name.toUpperCase() : ''} inEditMode={inEditMode} setInEditMode={setInEditMode} updateName={updateName} formLabel={'Subject Name'} />

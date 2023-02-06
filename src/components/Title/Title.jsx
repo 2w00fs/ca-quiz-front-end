@@ -19,7 +19,6 @@ const Title = ({ initial, subheading, heading, inEditMode, setInEditMode, update
     }, [initial])
 
     const onChangeHandler = (event) => {
-        console.log(event)
         setValue(event.target.value)
     }
 

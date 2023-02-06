@@ -22,12 +22,38 @@ const EditQuiz = () => {
         }
     }, [])
 
+    const addFlashcard = async (event) => {
+        event.preventDefault()
+        let token = localStorage.getItem('jwtToken')
+        let res = await fetch(import.meta.env.VITE_API_URL + `quiz/${quizId}/flashcard/`, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify({ question: '', answerOptions: [{ text: '', isCorrectOption: true }], takesTextInput: false })
+        })
+        let json = await res.json()
+        if (res.status === 201) {
+            setQuiz(json)
+            console.log(json.flashcards[json.flashcards.length - 1]._id)
+            nav(`/quiz/${quizId}/flashcard/${json.flashcards[json.flashcards.length - 1]._id}/edit`)
+        } else if (res.status === 500) {
+            console.log('Unable to delete flashcard')
+        } else if (res.status === 401) {
+            nav('/auth/login')
+        } else if (res.status === 404) {
+            console.log('Quiz or flashcard not found')
+        }
+    }
+
     const getFlashcards = flashcards => {
         if (!flashcards) {
             return []
         }
         let flashcardList = flashcards.map(flashcard => <FlashcardDetails key={flashcard._id} quiz={quiz} setQuiz={setQuiz} flashcard={flashcard} />)
-        flashcardList.push(<AddButton key='addFlashcard' isEmpty={!Boolean(flashcardList.length)} text='Add Flashcard' />)
+        flashcardList.push(<AddButton onClick={addFlashcard} key='addFlashcard' isEmpty={!Boolean(flashcardList.length)} text='Add Flashcard' />)
         return flashcardList
     }
 
@@ -82,7 +108,7 @@ const EditQuiz = () => {
 
     return (
         <main className='edit-quiz'>
-            <BackButton>Quiz Home</BackButton>
+            <BackButton path={`/quiz/${quizId}`}>Quiz Home</BackButton>
             <div className='outer-content-wrapper'>
             <div className='top-wrapper'>
                     <Title subheading='Edit Quiz' initial={quiz.name ? quiz.name : ''} heading={quiz.name ? quiz.name.toUpperCase() : ''} inEditMode={inEditMode} setInEditMode={setInEditMode} updateName={updateName} formLabel={'Quiz Name'} />
