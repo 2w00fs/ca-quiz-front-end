@@ -45,7 +45,7 @@ const EditFlashcardForm = ({ flashcard, setQuiz }) => {
                 <div className='answer-container'>
                     {answerOptions.length === 1 ? null : <input checked={answerOptions[index].isCorrectOption} className='is-correct-input' type="radio" onChange={onChangeHandlerIsCorrectBtn} />}
                     <TextArea value={answerOptions[index].text} onChange={answerChangeHandler} rows='1' />
-                    <div className='flashcard-field-button remove-field-button' onClick={handleClickRemoveField}><p>-</p></div>
+                    {answerOptions.length === 1 ? null : <div className='flashcard-field-button remove-field-button' onClick={handleClickRemoveField}><p>-</p></div>}
                 </div>
             )
         }
@@ -96,6 +96,16 @@ const EditFlashcardForm = ({ flashcard, setQuiz }) => {
 
 
     const submitHandler = async (event) => {
+        if (!question || answerOptions.find(answerOption => answerOption.text === '')) {
+            setErrorMessage('Question and answers cannot be blank')
+            return
+        }
+
+        if (!answerOptions.find(answerOption => answerOption.isCorrectOption === true)) {
+            setErrorMessage('A correct answer needs to be selected')
+            return
+        }
+
         event.preventDefault()
         let token = localStorage.getItem('jwtToken')
         let res = await fetch(import.meta.env.VITE_API_URL + `quiz/${quizId}/flashcard/${flashcardId}`, {

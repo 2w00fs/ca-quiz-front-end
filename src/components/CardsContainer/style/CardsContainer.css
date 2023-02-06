@@ -6,10 +6,8 @@
 
 .max-columns-3 {
   grid-template-columns: repeat(3, minmax(100px, 1fr));
-  grid-template-rows: repeat(auto, minmax(100px, 1fr));
 }
 
 .max-columns-2 {
   grid-template-columns: repeat(2, minmax(130px, 1fr));
-  grid-template-rows: repeat(auto, minmax(100px, 1fr));
 }/*# sourceMappingURL=CardsContainer.css.map */

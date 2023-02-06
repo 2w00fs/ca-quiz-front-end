@@ -46,7 +46,7 @@ const SubjectList = () => {
             let tag = 'Subject'
             return <PreviewCard path={`subject/${subject._id}`} key={subject._id} heading={heading} text={text} logo={logo} tag={tag} />
         })
-        subjectList.push(<AddButton onClick={addSubject} isEmpty={!Boolean(subjectList.length)} text='Add Subject' />)
+        subjectList.push(<AddButton path='/subject/add' isEmpty={!Boolean(subjectList.length)} text='Add Subject' />)
         return subjectList
     }
 

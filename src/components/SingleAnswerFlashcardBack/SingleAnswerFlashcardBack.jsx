@@ -3,7 +3,7 @@ import './style/SingleAnswerFlashcardBack.css'
 import Card from '@/components/Card/Card.jsx'
 import ErrorMessage from '@/components/ErrorMessage/ErrorMessage.jsx'
 
-const SingleAnswerFlashcardBack = ({ flashcard, results, setResults, count, maxCount, isError }) => {
+const SingleAnswerFlashcardBack = ({ flashcard, results, setResults, count, maxCount, errorMessage }) => {
 
     const clickHandler = event => {
         event.stopPropagation()
@@ -34,7 +34,7 @@ const SingleAnswerFlashcardBack = ({ flashcard, results, setResults, count, maxC
                         <p className='no'>No</p>
                     </span>
                 </form>
-                <ErrorMessage isError={isError} message={"You haven't given an answer"} />
+                <ErrorMessage message={errorMessage} />
             </div>
         </>
     )

@@ -28,6 +28,7 @@ const Title = ({ initial, subheading, heading, inEditMode, setInEditMode, update
             updateName(value)
             setInEditMode(false)
         } else {
+            setValue(initial)
             setInEditMode(false)
         }
     }

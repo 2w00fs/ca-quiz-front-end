@@ -2,8 +2,10 @@
 .edit-flashcard-card-content {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   padding: 1rem 1.8rem 2rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 .edit-flashcard-card-content h2 {
   font-family: "Roboto", "Arial", sans-serif;

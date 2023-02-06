@@ -21,12 +21,6 @@
         width: 100%
         max-width: 30rem
 
-        .top-content-wrapper
-            display: flex
-            flex-direction: row
-            justify-content: space-between
-            align-items: flex-end
-
         .card-deck
             display: flex
             position: relative
@@ -70,9 +64,14 @@
             align-items: center
             @include mixin.text-3
             font-size: 1.3rem
+            
+            .add-cards-wrapper
+                display: flex
+                flex-direction: column
+                align-items: center
 
-            p
-                margin: 2.2rem
+                .button
+                    margin: 0
 
         .bottom-content-wrapper
             display: flex

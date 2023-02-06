@@ -4,7 +4,7 @@ import SingleAnswerFlashcardFront from '@/components/SingleAnswerFlashcardFront/
 import Card from '@/components/Card/Card.jsx'
 import './style/SingleAnswerHonestyFlashcard.css'
 
-const SingleAnswerHonestyFlashcard = ({ flashcard, results, setResults, count, maxCount, isError, isFlipped, setIsFlipped }) => {
+const SingleAnswerHonestyFlashcard = ({ flashcard, results, setResults, count, maxCount, errorMessage, isFlipped, setIsFlipped }) => {
     useEffect(() => {
         if (results[count]) {
             setIsFlipped(true)
@@ -18,9 +18,9 @@ const SingleAnswerHonestyFlashcard = ({ flashcard, results, setResults, count, m
     return (
         <Card className='single-answer-honesty-flashcard' onClick={cardClickHandler}>
             {!isFlipped ? (
-                <SingleAnswerFlashcardFront {...{flashcard, count, maxCount, isError}} />
+                <SingleAnswerFlashcardFront {...{flashcard, count, maxCount, errorMessage}} />
             ) : (
-                <SingleAnswerFlashcardBack {...{flashcard, results, setResults, count, maxCount, isError}} />
+                <SingleAnswerFlashcardBack {...{flashcard, results, setResults, count, maxCount, errorMessage}} />
             )}
         </Card>
     )

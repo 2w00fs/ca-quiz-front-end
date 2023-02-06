@@ -6,9 +6,7 @@ import TextArea from '@/components/TextArea/TextArea.jsx'
 import FlashcardWrapper from '@/components/FlashcardWrapper/FlashcardWrapper.jsx'
 import ErrorMessage from '@/components/ErrorMessage/ErrorMessage.jsx'
 
-const SingleAnswerInputFlashcard = ({ flashcard, results, setResults, count, setCount, maxCount }) => {
-    const [ isError, setIsError ] = useState(false)
-
+const SingleAnswerInputFlashcard = ({ flashcard, results, setResults, count, setCount, maxCount, errorMessage }) => {
     const onChange = (event) => {
         event.preventDefault()
         let updatedResults = [...results]
@@ -33,7 +31,7 @@ const SingleAnswerInputFlashcard = ({ flashcard, results, setResults, count, set
                 <p className='answer-label'>Answer</p>
                 <form className='answer-wrapper'>
                     <TextArea value={results[count] && results[count].userInput ? results[count].userInput : ''} onChange={onChange}/>
-                    <ErrorMessage isError={isError} message={"You haven't answered the question"} />
+                    <ErrorMessage message={errorMessage} />
                 </form>
             </div>
         </Card>

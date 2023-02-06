@@ -13,8 +13,8 @@ const AddButton = ({ onClick, path, text, isEmpty }) => {
                     </div>
                 ) : (
                     <LinkCard onClick={onClick} className='add-card' path={path}>
+                        <img src="/src/assets/add-button-dark.svg" alt="" />
                         <h3 className='text'>{text}</h3>
-                        <img src="/src/assets/add-button.svg" alt="" />
                     </LinkCard>
                 )
             }

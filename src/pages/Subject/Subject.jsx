@@ -17,10 +17,6 @@ const Subject = () => {
     const nav = useNavigate()
 
     useEffect(() => {
-        if (location.state && location.state.inEditMode) {
-            setInEditMode(true)
-        }
-
         const getSubject = async () => {
             let token = localStorage.getItem('jwtToken')
             let res = await fetch(import.meta.env.VITE_API_URL + `subject/${subjectId}`, {

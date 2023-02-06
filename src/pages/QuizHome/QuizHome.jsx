@@ -16,7 +16,15 @@ const QuizHome = () => {
         for (let i = 0; i < 5; i++) {
             cardArray.push(<div className='card-in-deck'></div>)
         }
-        cardArray.push(<div className='card-in-deck top-card-in-deck'><p>{quiz.flashcards && quiz.flashcards[0] && quiz.flashcards[0].question ? quiz.flashcards[0].question : ''}</p></div>)
+        cardArray.push(
+        <div className='card-in-deck top-card-in-deck'>
+            {quiz.flashcards && quiz.flashcards[0] && quiz.flashcards[0].question ? (
+                <p>{quiz.flashcards[0].question}</p>
+            ) : (
+                <p>The quiz is empty.</p>
+            )
+            }
+        </div>)
         return cardArray
     }
 
@@ -26,18 +34,19 @@ const QuizHome = () => {
 
     return (
         <main className='quiz-home'>
-            <BackButton>Subject</BackButton>
+            <BackButton path={`/subject/${quiz.subjectId}`} >Subject</BackButton>
             <div className='outer-content-wrapper'>
-                <div className='top-content-wrapper'>
-                    <Title subheading='Home' heading={quiz.name ? quiz.name.toUpperCase() : ''} />
-                    <Button type='2' size='1'>Delete</Button>
-                </div>
+                <Title subheading='Home' heading={quiz.name ? quiz.name.toUpperCase() : ''} />
                 <div className={'card-deck'}>
                     {generateCardDeck()}
                 </div>
                 <div className='bottom-content-wrapper'>
-                    <Button path='./take' type='1' size='1'>Take Quiz</Button>
-                    <Button path='./edit' type='2' size='1'>Update</Button>
+                    {quiz.flashcards.length !== 0 ? (
+                        <>
+                            <Button path='./take' type='1' size='1'>Take Quiz</Button>
+                            <Button path='./edit' type='2' size='1'>Update</Button>
+                        </>
+                    ) : <Button path='./edit' size='1' type='1'>Add Cards</Button>}
                 </div>
             </div>
         </main>

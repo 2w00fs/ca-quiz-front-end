@@ -19,12 +19,6 @@
   width: 100%;
   max-width: 30rem;
 }
-.quiz-home .outer-content-wrapper .top-content-wrapper {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-end;
-}
 .quiz-home .outer-content-wrapper .card-deck {
   display: flex;
   position: relative;
@@ -71,8 +65,13 @@
   color: #282828;
   font-size: 1.3rem;
 }
-.quiz-home .outer-content-wrapper .top-card-in-deck p {
-  margin: 2.2rem;
+.quiz-home .outer-content-wrapper .top-card-in-deck .add-cards-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.quiz-home .outer-content-wrapper .top-card-in-deck .add-cards-wrapper .button {
+  margin: 0;
 }
 .quiz-home .outer-content-wrapper .bottom-content-wrapper {
   display: flex;

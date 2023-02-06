@@ -19,6 +19,7 @@
   font-weight: 600;
   color: #282828;
   font-size: 1.3rem;
+  align-self: center;
 }
 .single-answer-front-wrapper .click-to-flip {
   font-family: "Roboto", "Arial", sans-serif;

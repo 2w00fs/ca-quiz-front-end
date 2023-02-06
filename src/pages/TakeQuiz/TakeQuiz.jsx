@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { redirect, useOutletContext } from 'react-router-dom'
+import { redirect, useOutletContext, useParams } from 'react-router-dom'
 import MultipleChoiceFlashcard from '@/components/MultipleChoiceFlashcard/MultipleChoiceFlashcard.jsx'
 import Title from '@/components/Title/Title.jsx'
 import Card from '@/components/Card/Card.jsx'
@@ -15,7 +15,8 @@ const TakeQuiz = () => {
     const [ results, setResults ] = useState([])
     const [ count, setCount ] = useState(0)
     const [ isFlipped, setIsFlipped ] = useState(false)
-    const [ isError, setIsError ] = useState(false)
+    const [ errorMessage, setErrorMessage ] = useState('')
+    const { quizId } = useParams()
 
     useEffect(() => {
         if (quiz.flashcards) {
@@ -29,24 +30,24 @@ const TakeQuiz = () => {
 
     const generateFlashcard = () => {
         if (quiz.flashcards[count].answerOptions.length > 1) {
-            return <MultipleChoiceFlashcard flashcard={quiz.flashcards[count]} results={results} setResults={setResults} count={count} maxCount={quiz.flashcards.length - 1} isError={isError} />
+            return <MultipleChoiceFlashcard flashcard={quiz.flashcards[count]} results={results} setResults={setResults} count={count} maxCount={quiz.flashcards.length - 1} errorMessage={errorMessage} />
         } else if (quiz.flashcards[count].takesTextInput === true) {
-            return <SingleAnswerInputFlashcard flashcard={quiz.flashcards[count]} results={results} setResults={setResults} count={count} maxCount={quiz.flashcards.length - 1} isError={isError} />
+            return <SingleAnswerInputFlashcard flashcard={quiz.flashcards[count]} results={results} setResults={setResults} count={count} maxCount={quiz.flashcards.length - 1} errorMessage={errorMessage} />
         } else {
-            return <SingleAnswerHonestyFlashcard flashcard={quiz.flashcards[count]} results={results} setResults={setResults} count={count} maxCount={quiz.flashcards.length - 1} isError={isError} isFlipped={isFlipped} setIsFlipped={setIsFlipped} />
+            return <SingleAnswerHonestyFlashcard flashcard={quiz.flashcards[count]} results={results} setResults={setResults} count={count} maxCount={quiz.flashcards.length - 1} errorMessage={errorMessage} isFlipped={isFlipped} setIsFlipped={setIsFlipped} />
         }
     }
 
     const rightArrowClickHandler = event => {
         if (results[count] === null) {
-            setIsError(true)
+            setErrorMessage("You haven't selected an answer")
             return
         }
 
         if (count + 1 > quiz.flashcards.length - 1) return
 
         if (setIsFlipped) setIsFlipped(false)
-        setIsError(false)
+        setErrorMessage('')
         setCount(count + 1)
     }
 
@@ -54,15 +55,13 @@ const TakeQuiz = () => {
         if (count - 1 < 0) return
 
         if (setIsFlipped) setIsFlipped(false)
-        setIsError(false)
+        setErrorMessage('')
         setCount(count - 1)
     }
 
-    console.log(quiz)
-
     return (
         <main className='take-quiz'>
-            <BackButton>Quiz Home</BackButton>
+            <BackButton path={`/quiz/${quizId}`}>Quiz Home</BackButton>
             <div className='outer-content-wrapper'>
                 <Title heading={quiz.name} subheading={'Take Quiz'} />
                 <div className='inner-content-wrapper'>
