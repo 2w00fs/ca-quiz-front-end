@@ -6,7 +6,8 @@ import TextArea from '@/components/TextArea/TextArea.jsx'
 import Line from '@/components/Line/Line.jsx'
 import { useNavigate, useParams } from 'react-router-dom'
 import ErrorMessage from '@/components/ErrorMessage/ErrorMessage.jsx'
-import { apiurl } from 'config.jsx'
+import {apiurl} from "../../../config.jsx";
+
 
 const EditFlashcardForm = ({ flashcard, setQuiz }) => {
     const [ question, setQuestion ] = useState(flashcard.question)

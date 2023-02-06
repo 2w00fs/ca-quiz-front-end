@@ -6,7 +6,8 @@ import Button from '@/components/Button/Button.jsx'
 import './style/AddSubject.css'
 import ErrorMessage from '@/components/ErrorMessage/ErrorMessage.jsx'
 import { useNavigate, useOutletContext } from 'react-router-dom'
-import { apiurl } from 'config.jsx'
+import {apiurl} from "../../../config.jsx";
+
 
 const AddSubject = () => {
     const [ subjectName, setSubjectName ] = useState('')
