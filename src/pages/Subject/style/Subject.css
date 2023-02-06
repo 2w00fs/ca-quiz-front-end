@@ -19,8 +19,19 @@
   width: 100%;
   max-width: 53rem;
 }
-.subject .outer-content-wrapper .title {
+.subject .outer-content-wrapper .top-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.subject .outer-content-wrapper .top-wrapper .title {
   margin-bottom: 2rem;
+}
+.subject .outer-content-wrapper .top-wrapper .button-wrapper {
+  display: flex;
+  flex-direction: row;
 }
 .subject .outer-content-wrapper .cards-container {
   width: 100%;

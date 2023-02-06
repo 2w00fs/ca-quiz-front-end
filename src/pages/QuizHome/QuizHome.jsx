@@ -16,8 +16,12 @@ const QuizHome = () => {
         for (let i = 0; i < 5; i++) {
             cardArray.push(<div className='card-in-deck'></div>)
         }
-        cardArray.push(<div className='card-in-deck top-card-in-deck'><p>{quiz.flashcards ? quiz.flashcards[0].question : ''}</p></div>)
+        cardArray.push(<div className='card-in-deck top-card-in-deck'><p>{quiz.flashcards && quiz.flashcards[0] && quiz.flashcards[0].question ? quiz.flashcards[0].question : ''}</p></div>)
         return cardArray
+    }
+
+    if (!quiz.name && !quiz._id) {
+        return <div></div>
     }
 
     return (

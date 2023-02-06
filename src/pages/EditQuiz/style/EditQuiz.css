@@ -16,6 +16,20 @@
   max-width: 55rem;
   box-sizing: border-box;
 }
+.edit-quiz .outer-content-wrapper .top-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.edit-quiz .outer-content-wrapper .top-wrapper .title {
+  margin-bottom: 2rem;
+}
+.edit-quiz .outer-content-wrapper .top-wrapper .button-wrapper {
+  display: flex;
+  flex-direction: row;
+}
 .edit-quiz .outer-content-wrapper .title {
   margin-bottom: 2rem;
 }/*# sourceMappingURL=EditQuiz.css.map */

@@ -3,17 +3,16 @@ import { Link } from 'react-router-dom'
 import LinkCard from '@/components/LinkCard/LinkCard.jsx'
 import './style/AddButton.css'
 
-const AddButton = ({ path, text, isEmpty }) => {
-    console.log(isEmpty)
+const AddButton = ({ onClick, path, text, isEmpty }) => {
     return (
         <>
             {
                 !isEmpty ? (
-                    <div className={'add-button-container'}>
+                    <div onClick={onClick} className={'add-button-container'}>
                         <Link to={path} className={'add-subject-button'} />
                     </div>
                 ) : (
-                    <LinkCard className='add-card' path={path}>
+                    <LinkCard onClick={onClick} className='add-card' path={path}>
                         <h3 className='text'>{text}</h3>
                         <img src="/src/assets/add-button.svg" alt="" />
                     </LinkCard>
