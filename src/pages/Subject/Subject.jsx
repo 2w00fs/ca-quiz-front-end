@@ -8,6 +8,7 @@ import cardsLogo from '../../assets/cards.svg'
 import BackButton from '@/components/BackButton/BackButton.jsx'
 import './style/Subject.css'
 import Button from '@/components/Button/Button.jsx'
+import {apiurl} from "../../../config.jsx";
 
 const Subject = () => {
     const [ subject, setSubject ] = useState({})
@@ -19,7 +20,7 @@ const Subject = () => {
     useEffect(() => {
         const getSubject = async () => {
             let token = localStorage.getItem('jwtToken')
-            let res = await fetch(import.meta.env.VITE_API_URL + `subject/${subjectId}`, {
+            let res = await fetch(apiurl + `subject/${subjectId}`, {
                 method: 'GET',
                 headers: {
                     'Accept': 'application/json',
@@ -43,7 +44,7 @@ const Subject = () => {
     const addQuiz = async (event) => {
         event.preventDefault()
         let token = localStorage.getItem('jwtToken')
-        let res = await fetch(import.meta.env.VITE_API_URL + `subject/${subject._id}/quiz`, {
+        let res = await fetch(apiurl + `subject/${subject._id}/quiz`, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -80,7 +81,7 @@ const Subject = () => {
 
     const updateName = async (name) => {
         let token = localStorage.getItem('jwtToken')
-        let res = await fetch(import.meta.env.VITE_API_URL + `subject/${subjectId}`, {
+        let res = await fetch(apiurl + `subject/${subjectId}`, {
             method: 'PUT',
             headers: {
                 'Accept': 'application/json',
@@ -108,7 +109,7 @@ const Subject = () => {
     const deleteClickHandler = async (event) => {
         event.preventDefault()
         let token = localStorage.getItem('jwtToken')
-        let res = await fetch(import.meta.env.VITE_API_URL + `subject/${subjectId}`, {
+        let res = await fetch(apiurlL + `subject/${subjectId}`, {
             method: 'DELETE',
             headers: {
                 'Accept': 'application/json',

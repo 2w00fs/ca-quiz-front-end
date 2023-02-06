@@ -8,6 +8,7 @@ import './style/EditQuiz.css'
 import { useLocation, useNavigate, useOutletContext, useParams } from 'react-router-dom'
 import BackButton from '@/components/BackButton/BackButton.jsx'
 import Button from '@/components/Button/Button.jsx'
+import {apiurl} from "../../../config.jsx";
 
 const EditQuiz = () => {
     const { quiz, setQuiz } = useOutletContext()
@@ -25,7 +26,7 @@ const EditQuiz = () => {
     const addFlashcard = async (event) => {
         event.preventDefault()
         let token = localStorage.getItem('jwtToken')
-        let res = await fetch(import.meta.env.VITE_API_URL + `quiz/${quizId}/flashcard/`, {
+        let res = await fetch(apiurl + `quiz/${quizId}/flashcard/`, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -59,7 +60,7 @@ const EditQuiz = () => {
 
     const updateName = async (name) => {
         let token = localStorage.getItem('jwtToken')
-        let res = await fetch(import.meta.env.VITE_API_URL + `quiz/${quizId}`, {
+        let res = await fetch(apiurl + `quiz/${quizId}`, {
             method: 'PUT',
             headers: {
                 'Accept': 'application/json',
@@ -88,7 +89,7 @@ const EditQuiz = () => {
         let subjectId = quiz.subjectId
         event.preventDefault()
         let token = localStorage.getItem('jwtToken')
-        let res = await fetch(import.meta.env.VITE_API_URL + `quiz/${quizId}`, {
+        let res = await fetch(apiurl + `quiz/${quizId}`, {
             method: 'DELETE',
             headers: {
                 'Accept': 'application/json',

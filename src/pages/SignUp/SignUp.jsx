@@ -6,6 +6,7 @@ import Button from '@/components/Button/Button.jsx'
 import './style/SignUp.css'
 import { redirect, useNavigate } from 'react-router-dom'
 import ErrorMessage from '@/components/ErrorMessage/ErrorMessage.jsx'
+import {apiurl} from "../../../config.jsx";
 
 const SignUp = () => {
     const [ username, setUsername ] = useState('')
@@ -23,7 +24,7 @@ const SignUp = () => {
     }
     
     const createHandler = async () => {
-        let res = await fetch(import.meta.env.VITE_API_URL + `auth/signup`, {
+        let res = await fetch(apiurl + `auth/signup`, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',

@@ -6,7 +6,7 @@ import TextArea from '@/components/TextArea/TextArea.jsx'
 import Line from '@/components/Line/Line.jsx'
 import { useNavigate, useParams } from 'react-router-dom'
 import ErrorMessage from '@/components/ErrorMessage/ErrorMessage.jsx'
-
+import { apiurl } from 'config.jsx'
 
 const EditFlashcardForm = ({ flashcard, setQuiz }) => {
     const [ question, setQuestion ] = useState(flashcard.question)
@@ -108,7 +108,7 @@ const EditFlashcardForm = ({ flashcard, setQuiz }) => {
 
         event.preventDefault()
         let token = localStorage.getItem('jwtToken')
-        let res = await fetch(import.meta.env.VITE_API_URL + `quiz/${quizId}/flashcard/${flashcardId}`, {
+        let res = await fetch(apiurl + `quiz/${quizId}/flashcard/${flashcardId}`, {
             method: 'PUT',
             headers: {
                 'Accept': 'application/json',
