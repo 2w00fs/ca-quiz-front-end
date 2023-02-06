@@ -6,6 +6,7 @@ import CardsContainer from '@/components/CardsContainer/CardsContainer.jsx'
 import './style/SubjectList.css'
 import quizLogo from '../../assets/quiz-logo.svg'
 import { useNavigate, useOutletContext } from 'react-router-dom'
+import {apiurl} from "../../../config.jsx";
 
 const SubjectList = () => {
     const { subjects } = useOutletContext()
@@ -15,7 +16,7 @@ const SubjectList = () => {
     const addSubject = async (event) => {
         event.preventDefault()
         let token = localStorage.getItem('jwtToken')
-        let res = await fetch(import.meta.env.VITE_API_URL + `subject/`, {
+        let res = await fetch(apiurl + `subject/`, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
