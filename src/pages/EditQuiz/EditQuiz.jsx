@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import PreviewCard from '@/components/PreviewCard/PreviewCard.jsx'
-import Title from '../../components/Title/Title.jsx'
 import AddButton from '../../components/AddButton/AddButton.jsx'
 import CardsContainer from '@/components/CardsContainer/CardsContainer.jsx'
 import FlashcardDetails from '@/components/FlashcardDetails/FlashcardDetails.jsx'
 import './style/EditQuiz.css'
 import { useLocation, useNavigate, useOutletContext, useParams } from 'react-router-dom'
-import BackButton from '@/components/BackButton/BackButton.jsx'
+import ContentHeader from '@/components/ContentHeader/ContentHeader.jsx'
 import Button from '@/components/Button/Button.jsx'
+
 
 const EditQuiz = () => {
     const { quiz, setQuiz } = useOutletContext()
@@ -49,12 +48,11 @@ const EditQuiz = () => {
     }
 
     const getFlashcards = flashcards => {
-        if (!flashcards) {
-            return []
+        if (flashcards.length === 0) {
+            return <AddButton onClick={addFlashcard} text='Add Flashcard' />
+        } else {
+            return flashcards.map(flashcard => <FlashcardDetails key={flashcard._id} quiz={quiz} setQuiz={setQuiz} flashcard={flashcard} />)
         }
-        let flashcardList = flashcards.map(flashcard => <FlashcardDetails key={flashcard._id} quiz={quiz} setQuiz={setQuiz} flashcard={flashcard} />)
-        flashcardList.push(<AddButton onClick={addFlashcard} key='addFlashcard' isEmpty={!Boolean(flashcardList.length)} text='Add Flashcard' />)
-        return flashcardList
     }
 
     const updateName = async (name) => {
@@ -84,7 +82,7 @@ const EditQuiz = () => {
         setInEditMode(true)
     }
 
-    const deleteClickHandler = async (event) => {
+    const deleteHandler = async (event) => {
         let subjectId = quiz.subjectId
         event.preventDefault()
         let token = localStorage.getItem('jwtToken')
@@ -106,19 +104,24 @@ const EditQuiz = () => {
         }
     }
 
+    const generateContentHeader = () => {
+        if (!quiz.name) return null
+        let resource = quiz
+        let heading = quiz.name.toUpperCase()
+        let subheading = 'Edit Quiz'
+        let links = [
+            { text: 'Subject', path: `/subject/${quiz.subjectId}` },
+            { text: 'Quiz Home', path: `/quiz/${quizId}` }
+        ]
+        let childResourceType = 'quiz'
+        let addChildHandler = addFlashcard
+        return <ContentHeader {...{resource, heading, subheading, links, childResourceType, addChildHandler, updateName, deleteHandler}} />
+    }
+
     return (
         <main className='edit-quiz'>
-            <BackButton path={`/quiz/${quizId}`}>Quiz Home</BackButton>
-            <div className='outer-content-wrapper'>
-            <div className='top-wrapper'>
-                    <Title subheading='Edit Quiz' initial={quiz.name ? quiz.name : ''} heading={quiz.name ? quiz.name.toUpperCase() : ''} inEditMode={inEditMode} setInEditMode={setInEditMode} updateName={updateName} formLabel={'Quiz Name'} />
-                    {!inEditMode ? (
-                        <div className='button-wrapper'>
-                            <Button type='2' size='1' onClick={editNameClickHandler}>Edit Name</Button>
-                            <Button type='3' size='1' onClick={deleteClickHandler}>Delete</Button>
-                        </div>
-                    ) : null}
-                </div>
+            <div className='content'>
+                {generateContentHeader()}
                 <CardsContainer>
                     {getFlashcards(quiz.flashcards)}
                 </CardsContainer>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import Title from '@/components/Title/Title.jsx'
+import Title from '@/components/ContentHeader/ContentHeader.jsx'
 import Card from '@/components/Card/Card.jsx'
 import TextArea from '@/components/TextArea/TextArea.jsx'
 import Button from '@/components/Button/Button.jsx'

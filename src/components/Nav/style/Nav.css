@@ -6,7 +6,7 @@ header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  border: 0.9px solid #b2b2b2;
+  border: 1px solid #b2b2b2;
 }
 header .left-header, header .right-header {
   display: flex;

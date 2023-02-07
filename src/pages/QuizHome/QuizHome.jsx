@@ -1,5 +1,5 @@
 import React from 'react'
-import Title from '@/components/Title/Title.jsx'
+import Title from '@/components/ContentHeader/ContentHeader.jsx'
 import Button from '@/components/Button/Button.jsx'
 import cardDeck from '../../assets/card-deck.svg'
 import './style/QuizHome.css'

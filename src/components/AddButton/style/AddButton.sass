@@ -1,36 +1,18 @@
 @use '../../../styles/_var'
 @use '../../../styles/_mixin'
 
-.add-button-container
+.add-card
     display: flex
     flex-direction: column
     align-items: center
     justify-content: center
-    min-height: 11rem
+    width: 7.5rem
 
-    .add-subject-button
-        display: flex
-        border-radius: 50%
-        width: 6rem
-        padding-bottom: 6rem
-        justify-content: center
-        align-items: center
-        overflow: hidden
-        background-image: url('../../../assets/add-button.svg')
+    .text
+        @include mixin.text-4
+        font-size: 0.8rem
+        margin-bottom: 1.5rem
 
-.add-card
-    .card
-        display: flex
-        flex-direction: column
-        align-items: center
-        justify-content: center
-        width: 10rem
-
-        .text
-            @include mixin.text-4
-            font-size: 0.9rem
-            margin-bottom: 1.5rem
-
-        img
-            width: 4.5rem
-            margin: 1.3rem 0 0.4rem
+    img
+        width: 3.5rem
+        margin: 1.3rem 0 0.3rem

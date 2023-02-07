@@ -10,27 +10,27 @@
   align-self: flex-start;
   margin: 1.5rem 2rem;
 }
-.edit-quiz .outer-content-wrapper {
+.edit-quiz .content {
   padding: 1.5rem;
   width: 100%;
   max-width: 55rem;
   box-sizing: border-box;
 }
-.edit-quiz .outer-content-wrapper .top-wrapper {
+.edit-quiz .content .top-wrapper {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   width: 100%;
 }
-.edit-quiz .outer-content-wrapper .top-wrapper .title {
+.edit-quiz .content .top-wrapper .title {
   margin-bottom: 2rem;
 }
-.edit-quiz .outer-content-wrapper .top-wrapper .button-wrapper {
+.edit-quiz .content .top-wrapper .button-wrapper {
   display: flex;
   flex-direction: row;
 }
-.edit-quiz .outer-content-wrapper .title {
+.edit-quiz .content .title {
   margin-bottom: 2rem;
 }
 

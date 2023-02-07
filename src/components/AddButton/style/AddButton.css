@@ -1,37 +1,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Poppins:wght@300;400;500&family=Prompt:wght@300;400;500;600&family=Roboto:wght@300;400;500;700&family=Unbounded:wght@300;400;500&display=swap");
-.add-button-container {
+.add-card {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 11rem;
+  width: 7.5rem;
 }
-.add-button-container .add-subject-button {
-  display: flex;
-  border-radius: 50%;
-  width: 6rem;
-  padding-bottom: 6rem;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  background-image: url("../../../assets/add-button.svg");
-}
-
-.add-card .card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 10rem;
-}
-.add-card .card .text {
+.add-card .text {
   font-family: "Roboto", "Arial", sans-serif;
   font-weight: 500;
   color: #5B5B5B;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   margin-bottom: 1.5rem;
 }
-.add-card .card img {
-  width: 4.5rem;
-  margin: 1.3rem 0 0.4rem;
+.add-card img {
+  width: 3.5rem;
+  margin: 1.3rem 0 0.3rem;
 }/*# sourceMappingURL=AddButton.css.map */

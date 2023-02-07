@@ -3,7 +3,7 @@ import { useLocation, useParams } from 'react-router-dom'
 import CardsContainer from '@/components/CardsContainer/CardsContainer.jsx'
 import FlashcardResult from '@/components/FlashcardResult/FlashcardResult.jsx'
 import './style/QuizResult.css'
-import Title from '@/components/Title/Title.jsx'
+import Title from '@/components/ContentHeader/ContentHeader.jsx'
 import BackButton from '@/components/BackButton/BackButton.jsx'
 
 const QuizResult = () => {

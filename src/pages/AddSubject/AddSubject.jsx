@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Card from '@/components/Card/Card.jsx'
-import Title from '@/components/Title/Title.jsx'
+import Title from '@/components/ContentHeader/ContentHeader.jsx'
 import TextArea from '@/components/TextArea/TextArea.jsx'
 import Button from '@/components/Button/Button.jsx'
 import './style/AddSubject.css'

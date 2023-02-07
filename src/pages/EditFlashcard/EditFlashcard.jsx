@@ -1,6 +1,6 @@
 import React from 'react'
 import './style/EditFlashcard.css'
-import Title from '@/components/Title/Title.jsx'
+import Title from '@/components/ContentHeader/ContentHeader.jsx'
 import BackButton from '@/components/BackButton/BackButton.jsx'
 import { useOutletContext, useParams } from 'react-router-dom'
 import EditFlashcardForm from '@/components/EditFlashcardForm/EditFlashcardForm.jsx'

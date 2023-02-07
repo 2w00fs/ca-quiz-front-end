@@ -1,0 +1,57 @@
+@use '../../../styles/_var'
+@use '../../../styles/_mixin'
+
+.content-header
+    display: flex
+    flex-direction: column
+    margin-top: 1.2rem
+    margin-bottom: 3rem
+    width: 100%
+    box-sizing: border-box
+
+    .content-header-wrapper
+        display: flex
+        flex-direction: row
+        justify-content: space-between
+        align-items: flex-end
+        margin-top: 1.2rem
+        margin-bottom: 1rem
+
+        .content-header-left
+            display: flex
+            flex-direction: column
+            align-items: flex-start
+
+            h3
+                margin: 0
+                font-family: 'Roboto', sans-serif
+                font-weight: 700
+                font-size: 1.1rem
+                color: var.$c-brand-primary
+            
+            h1
+                margin: 0.4rem 0 0
+                @include mixin.text-2
+
+            .links-wrapper
+                font-family: 'Roboto', sans-serif
+                font-weight: 500
+                color: var.$c-text-secondary
+                font-size: 0.92rem
+                margin-top: 0.8rem
+
+                a
+                    color: var.$c-text-secondary
+
+            .links-wrapper
+                display: flex
+                flex-direction: row
+                gap: 0.6rem
+        
+        .content-header-right
+            display: flex
+            flex-direction: row
+            gap: 1.2rem
+    
+    .line
+        margin-top: 1.1rem

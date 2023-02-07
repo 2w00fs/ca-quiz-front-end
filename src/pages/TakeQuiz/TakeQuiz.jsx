@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { redirect, useOutletContext, useParams } from 'react-router-dom'
 import MultipleChoiceFlashcard from '@/components/MultipleChoiceFlashcard/MultipleChoiceFlashcard.jsx'
-import Title from '@/components/Title/Title.jsx'
+import Title from '@/components/ContentHeader/ContentHeader.jsx'
 import Card from '@/components/Card/Card.jsx'
 import './style/TakeQuiz.css'
 import SingleAnswerHonestyFlashcard from '@/components/SingleAnswerHonestyFlashcard/SingleAnswerHonestyFlashcard.jsx'

@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { useLocation, useNavigate, useParams } from 'react-router-dom'
-import Title from '@/components/Title/Title.jsx'
+import Title from '@/components/ContentHeader/ContentHeader.jsx'
 import CardsContainer from '@/components/CardsContainer/CardsContainer.jsx'
 import AddButton from '@/components/AddButton/AddButton.jsx'
 import PreviewCard from '@/components/PreviewCard/PreviewCard.jsx'
 import cardsLogo from '../../assets/cards.svg'
-import BackButton from '@/components/BackButton/BackButton.jsx'
+import ContentHeader from '@/components/ContentHeader/ContentHeader.jsx'
 import './style/Subject.css'
 import Button from '@/components/Button/Button.jsx'
 
@@ -64,18 +64,20 @@ const Subject = () => {
     }
 
     const getQuizList = quizzes => {
-        let quizList = quizzes.map(quiz => {
-            if (!quiz) {
-                return
-            }
-            let heading = quiz.name
-            let text = `${quiz.flashcardCount} ${quiz.flashcardCount > 1 ? 'flashcards' : 'flashcard'}`
-            let logo = cardsLogo
-            let tag = 'Quiz'
-            return <PreviewCard path={`../quiz/${quiz._id}`} key={quiz._id} heading={heading} text={text} logo={logo} tag={tag} />
-        })
-        quizList.push(<AddButton onClick={addQuiz} key={'quiz-add-button'} isEmpty={!Boolean(quizList.length)} text='Add Quiz' />)
-        return quizList
+        if (!quizzes) {
+            return <AddButton onClick={addQuiz} text='Add Quiz' />
+        } else {
+            return quizzes.map(quiz => {
+                if (!quiz) {
+                    return
+                }
+                let heading = quiz.name
+                let text = `${quiz.flashcardCount} ${quiz.flashcardCount > 1 ? 'flashcards' : 'flashcard'}`
+                let logo = cardsLogo
+                let tag = 'Quiz'
+                return <PreviewCard path={`../quiz/${quiz._id}`} key={quiz._id} heading={heading} text={text} logo={logo} tag={tag} />
+            })
+        }
     }
 
     const updateName = async (name) => {
@@ -100,12 +102,7 @@ const Subject = () => {
         }
     }
 
-    const editNameClickHandler = (event) => {
-        event.preventDefault()
-        setInEditMode(true)
-    }
-
-    const deleteClickHandler = async (event) => {
+    const deleteHandler = async (event) => {
         event.preventDefault()
         let token = localStorage.getItem('jwtToken')
         let res = await fetch(import.meta.env.VITE_API_URL + `subject/${subjectId}`, {
@@ -126,19 +123,22 @@ const Subject = () => {
         }
     }
 
+    const getContentHeader = () => {
+        let resource = subject
+        let heading = subject.name && subject.name.toUpperCase()
+        let subheading = 'Quizzes'
+        let links = [
+            { text: 'Home', path: '/' }
+        ]
+        let addChildHandler = addQuiz
+        let childResourceType = 'Quiz'
+        return <ContentHeader {...{resource, heading, subheading, links, updateName, deleteHandler, addChildHandler, childResourceType}} />
+    }
+
     return (
         <main className='subject'>
-            <BackButton path='/'>Subject List</BackButton>
-            <div className='outer-content-wrapper'>
-                <div className='top-wrapper'>
-                    <Title subheading='Quizzes' initial={subject.name ? subject.name : ''} heading={subject.name ? subject.name.toUpperCase() : ''} inEditMode={inEditMode} setInEditMode={setInEditMode} updateName={updateName} formLabel={'Subject Name'} />
-                    {!inEditMode ? (
-                        <div className='button-wrapper'>
-                            <Button type='2' size='1' onClick={editNameClickHandler}>Edit Name</Button>
-                            <Button type='3' size='1' onClick={deleteClickHandler}>Delete</Button>
-                        </div>
-                    ) : null}
-                </div>
+            <div className='content'>
+                {getContentHeader()}
                 <CardsContainer>
                     {getQuizList(subject.quizzes || [])}
                 </CardsContainer>
