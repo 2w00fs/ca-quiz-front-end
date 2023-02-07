@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import './style/ContentHeader.css'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import Line from '@/components/Line/Line.jsx'
 import ActionButton from '@/components/ActionButton/ActionButton.jsx'
 
@@ -9,13 +9,17 @@ const Title = ({ resource, heading, subheading, links, updateName, deleteHandler
     const [ inEditMode, setInEditMode ] = useState(false)
     const inputElement = useRef(null)
 
-    // Subjects, HOME
-    // Quiz List, GERMAN, Home, Subject
-    // Quiz, QUIZ ONE, Subject, German
+    let location = useLocation()
 
     useEffect(() => {
         if (resource) setValue(resource.name)
     }, [resource])
+
+    useEffect(() => {
+        if (location.state && location.state.inEditMode) {
+            setInEditMode(true)
+        }
+    }, [])
 
     useEffect(() => {
         if (inputElement.current) {

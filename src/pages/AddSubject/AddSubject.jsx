@@ -33,7 +33,7 @@ const AddSubject = () => {
         })
         let json = await res.json()
         if (res.status === 201) {
-            nav(`/subject/${json._id}`, { state: { inEditMode: true } })
+            nav(`/subject/${json._id}`)
         } else if (res.status === 401) {
             localStorage.clear()
             nav('/auth/login')

@@ -8,10 +8,10 @@ import ErrorMessage from '@/components/ErrorMessage/ErrorMessage.jsx'
 import ActionButton from '@/components/ActionButton/ActionButton.jsx'
 
 
-const EditFlashcardForm = ({ flashcard, setQuiz }) => {
-    const [ question, setQuestion ] = useState(flashcard.question)
-    const [ answerOptions, setAnswerOptions ] = useState([...flashcard.answerOptions])
-    const [ takesTextInput, setTakesTextInput ] = useState(flashcard.takesTextInput)
+const EditFlashcardForm = ({ flashcard, setQuiz, action }) => {
+    const [ question, setQuestion ] = useState(action === 'edit' ? flashcard.question : '')
+    const [ answerOptions, setAnswerOptions ] = useState(action === 'edit' ? [...flashcard.answerOptions] : [{ text: '', isCorrectOption: true }])
+    const [ takesTextInput, setTakesTextInput ] = useState(action === 'edit' ? flashcard.takesTextInput : true)
     const [ errorMessage, setErrorMessage ] = useState(null)
 
     const { quizId, flashcardId } = useParams()
@@ -94,18 +94,21 @@ const EditFlashcardForm = ({ flashcard, setQuiz }) => {
         }
     }
 
-
-    const submitHandler = async (event) => {
+    const validationCheck = () => {
         if (!question || answerOptions.find(answerOption => answerOption.text === '')) {
             setErrorMessage('Question and answers cannot be blank')
-            return
+            return false
         }
 
         if (!answerOptions.find(answerOption => answerOption.isCorrectOption === true)) {
             setErrorMessage('A correct answer needs to be selected')
-            return
+            return false
         }
+        return true
+    }
 
+    const editSubmitHandler = async (event) => {
+        if (!validationCheck()) return
         event.preventDefault()
         let token = localStorage.getItem('jwtToken')
         let res = await fetch(import.meta.env.VITE_API_URL + `quiz/${quizId}/flashcard/${flashcardId}`, {
@@ -131,6 +134,30 @@ const EditFlashcardForm = ({ flashcard, setQuiz }) => {
             nav('/auth/login')
         } else if (res.status === 404) {
             setErrorMessage('Quiz or flashcard not found')
+        }
+    }
+
+    const addSubmitHandler = async (event) => {
+        if (!validationCheck()) return
+        event.preventDefault()
+        let token = localStorage.getItem('jwtToken')
+        let res = await fetch(import.meta.env.VITE_API_URL + `quiz/${quizId}/flashcard`, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify({ question: question, answerOptions: answerOptions, takesTextInput: takesTextInput })
+        })
+        let json = await res.json()
+        if (res.status === 201) {
+            setQuiz(json)
+            nav(`/quiz/${quizId}/edit`)
+        } else if (res.status === 500) {
+            setErrorMessage('Unable to update flashcard')
+        } else if (res.status === 401) {
+            nav('/auth/login')
         }
     }
 
@@ -164,7 +191,7 @@ const EditFlashcardForm = ({ flashcard, setQuiz }) => {
                 )
             }
             <ErrorMessage message={errorMessage} />
-            <ActionButton onClick={submitHandler} className='edit-flashcard-submit' type='1' size='1'>Submit</ActionButton>
+            <ActionButton onClick={action === 'edit' ? editSubmitHandler : addSubmitHandler} className='edit-flashcard-submit' type='1' size='1'>Submit</ActionButton>
         </Card>
     )
 }
