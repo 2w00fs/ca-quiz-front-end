@@ -109,6 +109,7 @@ const Subject = () => {
     const deleteClickHandler = async (event) => {
         event.preventDefault()
         let token = localStorage.getItem('jwtToken')
+        
         let res = await fetch(apiurl + `subject/${subjectId}`, {
             method: 'DELETE',
             headers: {

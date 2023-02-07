@@ -7,6 +7,7 @@ import LinkCard from '@/components/LinkCard/LinkCard.jsx'
 import { useNavigate, useParams } from 'react-router-dom'
 import {apiurl} from "../../../config.jsx";
 
+
 const FlashcardDetails = ({ quiz, setQuiz, flashcard }) => {
     const letters = ['a', 'b', 'c', 'd']
 
