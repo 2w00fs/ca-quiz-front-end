@@ -5,6 +5,7 @@ import Card from '@/components/Card/Card.jsx'
 import './style/FlashcardDetails.css'
 import LinkCard from '@/components/LinkCard/LinkCard.jsx'
 import { useNavigate, useParams } from 'react-router-dom'
+import {apiurl} from "../../../config.jsx";
 
 const FlashcardDetails = ({ quiz, setQuiz, flashcard }) => {
     const letters = ['a', 'b', 'c', 'd']
@@ -17,7 +18,7 @@ const FlashcardDetails = ({ quiz, setQuiz, flashcard }) => {
         const deleteHandler = async (event) => {
             event.preventDefault()
             let token = localStorage.getItem('jwtToken')
-            let res = await fetch(import.meta.env.VITE_API_URL + `quiz/${quizId}/flashcard/${flashcardId}`, {
+            let res = await fetch(apiurl + `quiz/${quizId}/flashcard/${flashcardId}`, {
                 method: 'DELETE',
                 headers: {
                     'Accept': 'application/json',

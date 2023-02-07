@@ -3,6 +3,7 @@ import { Routes, Route, Outlet, useNavigate } from 'react-router-dom'
 import SubjectList from '@/pages/SubjectList/SubjectList.jsx'
 import AddSubject from '@/pages/AddSubject/AddSubject.jsx'
 import Subject from '@/pages/Subject/Subject'
+import {apiurl} from "../../config.jsx";
 
 const Home = () => {
     const [subjects, setSubjects] = useState([])
@@ -12,7 +13,7 @@ const Home = () => {
     useEffect(() => {
         const getSubjects = async () => {
             let token = localStorage.getItem('jwtToken')
-            let res = await fetch(import.meta.env.VITE_API_URL + `subject`, {
+            let res = await fetch(apiurl + `subject`, {
                 method: 'GET',
                 headers: {
                     'Accept': 'application/json',

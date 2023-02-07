@@ -6,6 +6,7 @@ import Button from '@/components/Button/Button.jsx'
 import './style/Login.css'
 import { useNavigate } from 'react-router-dom'
 import ErrorMessage from '@/components/ErrorMessage/ErrorMessage.jsx'
+import {apiurl} from "../../../config.jsx";
 
 const Login = () => {
     const [ username, setUsername ] = useState('')
@@ -23,7 +24,7 @@ const Login = () => {
     }
 
     const loginHandler = async () => {
-        let res = await fetch(import.meta.env.VITE_API_URL + `auth/login`, {
+        let res = await fetch(apiurl + `auth/login`, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',

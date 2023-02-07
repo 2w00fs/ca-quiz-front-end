@@ -6,6 +6,7 @@ import Button from '@/components/Button/Button.jsx'
 import './style/AddSubject.css'
 import ErrorMessage from '@/components/ErrorMessage/ErrorMessage.jsx'
 import { useNavigate, useOutletContext } from 'react-router-dom'
+import {apiurl} from "../../../config.jsx";
 
 const AddSubject = () => {
     const [ subjectName, setSubjectName ] = useState('')
@@ -22,7 +23,7 @@ const AddSubject = () => {
 
         event.preventDefault()
         let token = localStorage.getItem('jwtToken')
-        let res = await fetch(import.meta.env.VITE_API_URL + `subject/`, {
+        let res = await fetch(apiurl + `subject/`, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
