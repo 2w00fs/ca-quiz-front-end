@@ -64,7 +64,7 @@ const Subject = () => {
     }
 
     const getQuizList = quizzes => {
-        if (!quizzes) {
+        if (quizzes.length === 0) {
             return <AddButton onClick={addQuiz} text='Add Quiz' />
         } else {
             return quizzes.map(quiz => {
@@ -133,6 +133,10 @@ const Subject = () => {
         let addChildHandler = addQuiz
         let childResourceType = 'Quiz'
         return <ContentHeader {...{resource, heading, subheading, links, updateName, deleteHandler, addChildHandler, childResourceType}} />
+    }
+
+    if (!subject.name || !subject.quizzes) {
+        return <div></div>
     }
 
     return (

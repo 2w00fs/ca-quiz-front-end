@@ -51,9 +51,9 @@ const QuizHome = () => {
                     {quiz.flashcards.length !== 0 ? (
                         <>
                             <NavButton path='./take' type='1' size='1'>Take Quiz</NavButton>
-                            <NavButton path='./edit' type='2' size='1'>Update</NavButton>
+                            <NavButton path='./edit' type='2' size='1'>Edit Quiz</NavButton>
                         </>
-                    ) : <NavButton path='./edit' size='1' type='1'>Add Cards</NavButton>}
+                    ) : <NavButton path='./edit' size='1' type='1'>Edit Quiz</NavButton>}
                 </div>
             </div>
         </main>
