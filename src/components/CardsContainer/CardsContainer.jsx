@@ -3,7 +3,7 @@ import './style/CardsContainer.css'
 
 const CardsContainer = ({ maxColumns, children }) => {
   return (
-    <div className={'cards-container' + `${maxColumns ? ' max-columns-' + maxColumns : ' max-columns-3'}`}>
+    <div className={'cards-container'}>
         {children}
     </div>
   )

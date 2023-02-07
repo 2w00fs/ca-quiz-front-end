@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import Title from '@/components/ContentHeader/ContentHeader.jsx'
+import ContentHeader from '@/components/ContentHeader/ContentHeader.jsx'
 import Card from '@/components/Card/Card.jsx'
-import TextArea from '@/components/TextArea/TextArea.jsx'
 import Button from '@/components/Button/Button.jsx'
 import './style/SignUp.css'
 import { redirect, useNavigate } from 'react-router-dom'
@@ -49,7 +48,7 @@ const SignUp = () => {
     return (
         <main className='sign-up'>
             <div className='outer-content-wrapper'>
-                <Title subheading='New User' heading='SIGN UP' />
+                <ContentHeader subheading='New User' heading='SIGN UP' />
                 <Card className='create-user-form'>
                     <h3 className='username-label'>Username</h3>
                     <input type='text' value={username} onChange={usernameChangeHandler} />

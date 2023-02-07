@@ -1,13 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react'
 import './style/ContentHeader.css'
-import Button from '@/components/Button/Button.jsx'
 import { Link } from 'react-router-dom'
 import Line from '@/components/Line/Line.jsx'
+import ActionButton from '@/components/ActionButton/ActionButton.jsx'
 
 const Title = ({ resource, heading, subheading, links, updateName, deleteHandler, addChildHandler, childResourceType }) => {
     const [ value, setValue ] = useState('')
     const [ inEditMode, setInEditMode ] = useState(false)
-    const inputRef = useRef(null)
+    const inputElement = useRef(null)
 
     // Subjects, HOME
     // Quiz List, GERMAN, Home, Subject
@@ -18,10 +18,11 @@ const Title = ({ resource, heading, subheading, links, updateName, deleteHandler
     }, [resource])
 
     useEffect(() => {
-        if (inEditMode && !inputRef) {
-            inputRef.current.focus()
+        if (inputElement.current) {
+          inputElement.current.focus()
+          inputElement.current.select()
         }
-    }, [inEditMode])
+      }, [inEditMode])
 
     const onChangeHandler = (event) => {
         setValue(event.target.value)
@@ -39,6 +40,7 @@ const Title = ({ resource, heading, subheading, links, updateName, deleteHandler
     }
 
     const headingClickHandler = (event) => {
+        if (!updateName) return
         event.preventDefault()
         setInEditMode(true)
     }
@@ -62,17 +64,22 @@ const Title = ({ resource, heading, subheading, links, updateName, deleteHandler
         }
     }
 
+    const inputLoadHandler = (event) => {
+        console.log('here')
+        event.target.select()
+    }
+
     return (
         <div className='content-header'>
             <div className='content-header-wrapper'>
                 <div className='content-header-left'>
                     <h3>{subheading}</h3>
-                    {!inEditMode ? <h1 onClick={headingClickHandler}>{heading}</h1> : <form onSubmit={submitHandler}><input ref={inputRef} onBlur={submitHandler} onChange={onChangeHandler} type="text" value={value} /></form>}
+                    {!inEditMode ? <h1 className={updateName ? 'editable-heading' : 'non-editable-heading'} onClick={headingClickHandler}>{heading}</h1> : <form onSubmit={submitHandler}><input ref={inputElement} onLoad={inputLoadHandler} onBlur={submitHandler} onChange={onChangeHandler} type="text" value={value} /></form>}
                     {getLinks()}
                 </div>
                 <div className='content-header-right'>
-                    {deleteHandler ? <Button onClick={deleteHandler} size="1" type="2">Delete</Button> : null}
-                    {addChildHandler ? <Button onClick={addChildHandler} size="1" type="1">Add {childResourceType}</Button> : null}
+                    {deleteHandler ? <ActionButton onClick={deleteHandler} size="1" type="2">Delete</ActionButton> : null}
+                    {addChildHandler ? <ActionButton onClick={addChildHandler} size="1" type="1">Add {childResourceType}</ActionButton> : null}
                 </div>
             </div>
             <Line />

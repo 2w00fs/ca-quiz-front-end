@@ -3,7 +3,6 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 1rem 1.8rem 2rem;
   width: 100%;
   box-sizing: border-box;
 }
@@ -28,4 +27,15 @@
   font-weight: 300;
   color: #282828;
   font-size: 0.9rem;
+}
+
+@media screen and (min-width: 550px) {
+  .edit-flashcard-card-content {
+    padding: 1rem 1.8rem 2rem;
+  }
+}
+@media screen and (max-width: 550px) {
+  .edit-flashcard-card-content {
+    padding: 0.6rem 1.3rem 1.5rem;
+  }
 }/*# sourceMappingURL=FlashcardDetails.css.map */

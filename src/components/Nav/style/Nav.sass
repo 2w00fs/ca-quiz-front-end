@@ -37,17 +37,31 @@ header
         margin-right: 1.5rem
 
 
-@media screen and (max-width: 550px)
+
+
+
+@media screen and (min-width: 420px) and (max-width: 550px)
     header
         .logo
             margin-right: 1rem
+            font-size: 1.3rem
+        
+        a
+            font-size: 0.9rem
+        
+        ul
+            padding-left: 1.5rem
+
+@media screen and (max-width: 420px)
+    header
+        .logo
+            margin-right: 0.7rem
+            font-size: 1.1rem
+            margin-left: 1.2rem
         
         a
             margin-right: 0.5rem
-            font-size: 0.8rem
-        
-        .auth-button
-            font-size: 0.8rem
+            font-size: 0.9rem
         
         ul
             padding-left: 1.5rem

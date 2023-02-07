@@ -77,11 +77,6 @@ const EditQuiz = () => {
         }
     }
 
-    const editNameClickHandler = (event) => {
-        event.preventDefault()
-        setInEditMode(true)
-    }
-
     const deleteHandler = async (event) => {
         let subjectId = quiz.subjectId
         event.preventDefault()
@@ -104,7 +99,7 @@ const EditQuiz = () => {
         }
     }
 
-    const generateContentHeader = () => {
+    const getContentHeader = () => {
         if (!quiz.name) return null
         let resource = quiz
         let heading = quiz.name.toUpperCase()
@@ -118,10 +113,14 @@ const EditQuiz = () => {
         return <ContentHeader {...{resource, heading, subheading, links, childResourceType, addChildHandler, updateName, deleteHandler}} />
     }
 
+    if (!quiz.name || !quiz.flashcards) {
+        return <div></div>
+    }
+
     return (
         <main className='edit-quiz'>
             <div className='content'>
-                {generateContentHeader()}
+                {getContentHeader()}
                 <CardsContainer>
                     {getFlashcards(quiz.flashcards)}
                 </CardsContainer>

@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { Link, redirect, useNavigate } from 'react-router-dom'
-import Button from '../Button/Button.jsx'
+import ActionButton from '@/components/ActionButton/ActionButton.jsx'
+import './style/AuthButton.css'
 
 const AuthButton = () => {
     let nav = useNavigate()
@@ -24,11 +25,11 @@ const AuthButton = () => {
     const generateAuthButton = () => {
         let url = window.location.href
         if (url.includes('login')) {
-            return <Button className='auth-button' onClick={signup} type={2} size={1}>Sign Up</Button>
+            return <ActionButton className='auth-button' onClick={signup} type={2} size={1}>Sign Up</ActionButton>
         } else if (url.includes('signup')) {
-            return <Button className='auth-button' onClick={login} type={2} size={1}>Login</Button>
+            return <ActionButton className='auth-button' onClick={login} type={2} size={1}>Login</ActionButton>
         } else {
-            return <Button className='auth-button' onClick={logout} type={2} size={1}>Logout</Button>
+            return <ActionButton className='auth-button' onClick={logout} type={2} size={1}>Logout</ActionButton>
         }
     }
 

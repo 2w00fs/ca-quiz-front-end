@@ -1,5 +1,5 @@
 import React from 'react'
-import Button from '@/components/Button/Button.jsx'
+import ActionButton from '@/components/ActionButton/ActionButton.jsx'
 import Line from '@/components/Line/Line.jsx'
 import Card from '@/components/Card/Card.jsx'
 import './style/FlashcardDetails.css'
@@ -53,7 +53,7 @@ const FlashcardDetails = ({ quiz, setQuiz, flashcard }) => {
                 <div className={'answers'}>
                     {flashcard.answerOptions.map((answer, index) => <p key={answer._id}>{`${flashcard.answerOptions.length > 1 ? letters[index] + '. ' : ''}${answer.text}`}</p>)}
                 </div>
-                <Button onClick={createDeleteHandler(flashcard._id)} type='2' size='2'>Delete</Button>
+                <ActionButton onClick={createDeleteHandler(flashcard._id)} type='2' size='2'>Delete</ActionButton>
             </div>
         </LinkCard>
     )

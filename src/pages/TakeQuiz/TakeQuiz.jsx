@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { redirect, useOutletContext, useParams } from 'react-router-dom'
 import MultipleChoiceFlashcard from '@/components/MultipleChoiceFlashcard/MultipleChoiceFlashcard.jsx'
-import Title from '@/components/ContentHeader/ContentHeader.jsx'
+import ContentHeader from '@/components/ContentHeader/ContentHeader.jsx'
 import Card from '@/components/Card/Card.jsx'
 import './style/TakeQuiz.css'
 import SingleAnswerHonestyFlashcard from '@/components/SingleAnswerHonestyFlashcard/SingleAnswerHonestyFlashcard.jsx'
@@ -59,17 +59,35 @@ const TakeQuiz = () => {
         setCount(count - 1)
     }
 
+    const getContentHeader = () => {
+        if (!quiz.name) return null
+        let heading = quiz.name && quiz.name.toUpperCase()
+        let subheading = 'Take Quiz'
+        let links = [
+            { text: 'Home', path: '/'},
+            { text: 'Subject', path: `/subject/${quiz.subjectId}`}
+        ]
+        return <ContentHeader {...{ heading, subheading, links }} />
+    }
+
     return (
         <main className='take-quiz'>
-            <BackButton path={`/quiz/${quizId}`}>Quiz Home</BackButton>
-            <div className='outer-content-wrapper'>
-                <Title heading={quiz.name} subheading={'Take Quiz'} />
+            <div className='content'>
+                {getContentHeader()}
                 <div className='inner-content-wrapper'>
-                    <Card onClick={leftArrowClickHandler} className='left-arrow arrow'>
+                    <Card onClick={leftArrowClickHandler} className='left-arrow arrow arrow-wide-screen'>
                         <div>{'<'}</div>
                     </Card>
                     {generateFlashcard()}
-                    <Card onClick={rightArrowClickHandler} className='right-arrow arrow'>
+                    <Card onClick={rightArrowClickHandler} className='right-arrow arrow arrow-wide-screen'>
+                        <div>{'>'}</div>
+                    </Card>
+                </div>
+                <div className='arrows-wrapper'>
+                    <Card onClick={leftArrowClickHandler} className='left-arrow arrow arrow-small-screen'>
+                        <div>{'<'}</div>
+                    </Card>
+                    <Card onClick={rightArrowClickHandler} className='right-arrow arrow arrow-small-screen'>
                         <div>{'>'}</div>
                     </Card>
                 </div>

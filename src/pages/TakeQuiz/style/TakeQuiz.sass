@@ -7,57 +7,72 @@
     flex-direction: column
     align-items: center
 
-    .back-button
-        position: absolute
-        align-self: flex-start
-        margin: 1.5rem 2rem
-
-    .outer-content-wrapper
+    .content
         display: flex
         flex-direction: column
         align-items: flex-start
         width: 100%
-        max-width: 33rem
         padding: 1rem
+        box-sizing: border-box
     
-        .title
-            margin-bottom: 2.5rem
-            margin-left: 5.8rem
-
         .inner-content-wrapper
             width: 100%
             display: flex
             flex-direction: row
             align-items: center
             gap: 2rem
-
             
-            .arrow
-                font-family: 'Poppins'
-                font-size: 2.6rem
-                font-weight: 300
-                color: var.$c-text-secondary
-                width: 3.9rem
-                height: 3.3rem
-                display: flex
-                justify-content: center
-                align-items: center
-                flex: 0 0 auto
-            
-            .arrow:hover
-                cursor: pointer
+        .arrow:hover
+            cursor: pointer
             
         .submit-button
             align-self: center
             margin-top: 2rem
         
-    
 
-@media screen and (max-width: 600px)
-    .take-quiz
-        .back-button
-            position: relative
-            margin-bottom: 0
-            margin-left: 1rem
-        .title
-            margin-top: 0
+@media screen and (min-width: 550px)
+    .arrow-wide-screen
+        font-family: 'Poppins'
+        font-size: 2.6rem
+        font-weight: 300
+        color: var.$c-text-secondary
+        width: 3.9rem
+        height: 3.3rem
+        display: flex
+        justify-content: center
+        align-items: center
+        flex: 0 0 auto
+
+    .arrow-small-screen
+        display: none
+    
+    .content
+        max-width: 35rem
+
+
+@media screen and (max-width: 800px)
+    .arrow-small-screen
+        font-family: 'Poppins'
+        font-size: 2.6rem
+        font-weight: 300
+        color: var.$c-text-secondary
+        width: 3.9rem
+        height: 3.3rem
+        display: flex
+        justify-content: center
+        align-items: center
+        flex: 1
+    
+    .arrows-wrapper
+        display: flex
+        flex-direction: row
+        width: 100%
+        box-sizing: border-box
+        padding: 1rem 0
+        gap: 1rem
+        
+    .arrow-wide-screen
+        display: none
+    
+    .content
+        max-width: 28rem

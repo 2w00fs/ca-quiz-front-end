@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import Card from '@/components/Card/Card.jsx'
 import './style/EditFlashcardForm.css'
-import Button from '@/components/Button/Button.jsx'
 import TextArea from '@/components/TextArea/TextArea.jsx'
 import Line from '@/components/Line/Line.jsx'
 import { useNavigate, useParams } from 'react-router-dom'
 import ErrorMessage from '@/components/ErrorMessage/ErrorMessage.jsx'
+import ActionButton from '@/components/ActionButton/ActionButton.jsx'
 
 
 const EditFlashcardForm = ({ flashcard, setQuiz }) => {
@@ -164,7 +164,7 @@ const EditFlashcardForm = ({ flashcard, setQuiz }) => {
                 )
             }
             <ErrorMessage message={errorMessage} />
-            <Button onClick={submitHandler} className='edit-flashcard-submit' type='1' size='1'>Submit</Button>
+            <ActionButton onClick={submitHandler} className='edit-flashcard-submit' type='1' size='1'>Submit</ActionButton>
         </Card>
     )
 }

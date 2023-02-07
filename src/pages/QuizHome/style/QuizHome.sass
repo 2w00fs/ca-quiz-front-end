@@ -7,11 +7,6 @@
     flex-direction: column
     align-items: center
 
-    .back-button
-        position: absolute
-        align-self: flex-start
-        margin: 1.5rem 2rem
-
     .outer-content-wrapper
         padding: var.$content-container-padding-top var.$content-container-padding-side
         box-sizing: border-box
@@ -24,14 +19,12 @@
         .card-deck
             display: flex
             position: relative
-            margin-top: 3.3rem
-            height: 280px
-            margin-bottom: 3rem
+            margin-top: 0.8rem
+            margin-bottom: 2.5rem
+            margin-left: 1rem
 
         .card-in-deck
             position: absolute
-            width: 385px
-            height: 270px
             background: var.$c-shade-primary
             box-shadow: var.$drop-shadow
             border-radius: var.$round-corners
@@ -82,11 +75,21 @@
             gap: 1rem
 
 
-@media screen and (max-width: 750px)
-    .quiz-home
-        .back-button
-            position: relative
-            margin-bottom: 0
-            margin-left: 1rem
-        .title
-            margin-top: 0
+@media screen and (min-width: 500px)
+    .card-in-deck
+        position: absolute
+        width: 385px
+        height: 270px
+    
+    .card-deck
+        height: 280px
+
+
+@media screen and (max-width: 500px)
+    .card-in-deck
+        position: absolute
+        width: 290px
+        height: 192px
+    
+    .card-deck
+        height: 210px

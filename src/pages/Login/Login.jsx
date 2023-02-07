@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import Title from '@/components/ContentHeader/ContentHeader.jsx'
+import ContentHeader from '@/components/ContentHeader/ContentHeader.jsx'
 import Card from '@/components/Card/Card.jsx'
-import TextArea from '@/components/TextArea/TextArea.jsx'
-import Button from '@/components/Button/Button.jsx'
+import ActionButton from '@/components/ActionButton/ActionButton.jsx'
 import './style/Login.css'
 import { useNavigate } from 'react-router-dom'
 import ErrorMessage from '@/components/ErrorMessage/ErrorMessage.jsx'
@@ -48,14 +47,14 @@ const Login = () => {
     return (
         <main className='login'>
             <div className='outer-content-wrapper'>
-                <Title subheading='User' heading='LOGIN' />
+                <ContentHeader subheading='Current User' heading='LOGIN' />
                 <Card className='login-form'>
                     <h3 className='username-label'>Username</h3>
                     <input className='username-input' type='text' value={username} onChange={usernameChangeHandler} />
                     <h3 className='password-label'>Password</h3>
                     <input className='password-input' type='password' value={password} onChange={passwordChangeHandler} />
                     <ErrorMessage message={error} />
-                    <Button className='login-submit-button' onClick={loginHandler} type='1' size='1'>Login</Button>
+                    <ActionButton className='login-submit-button' onClick={loginHandler} type='1' size='1'>Login</ActionButton>
                 </Card>
             </div>
         </main>

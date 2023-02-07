@@ -14,19 +14,30 @@
         flex-direction: row
         justify-content: space-between
         align-items: flex-end
-        margin-top: 1.2rem
-        margin-bottom: 1rem
 
         .content-header-left
             display: flex
             flex-direction: column
             align-items: flex-start
 
+            form
+                input
+                    margin-top: 0.4rem
+                    @include mixin.text-2
+                    font-size: 1.7rem
+                
+            .editable-heading:hover
+                cursor: text
+                color: var.$c-text-secondary
+            
+            .non-editable-heading:hover
+                cursor: default
+
+
             h3
                 margin: 0
                 font-family: 'Roboto', sans-serif
                 font-weight: 700
-                font-size: 1.1rem
                 color: var.$c-brand-primary
             
             h1
@@ -37,7 +48,6 @@
                 font-family: 'Roboto', sans-serif
                 font-weight: 500
                 color: var.$c-text-secondary
-                font-size: 0.92rem
                 margin-top: 0.8rem
 
                 a
@@ -54,4 +64,68 @@
             gap: 1.2rem
     
     .line
-        margin-top: 1.1rem
+        margin-top: 2rem
+
+
+
+@media screen and (min-width: 550px)
+    .content-header
+        margin-top: 1.5rem
+        margin-bottom: 3rem
+
+        .content-header-wrapper
+
+            input
+                width: 25rem
+
+            h3
+                font-size: 1.1rem
+            
+            h1
+                margin: 0.4rem 0 0
+                @include mixin.text-2
+                font-size: 2rem
+
+            .links-wrapper
+                font-size: 0.92rem
+                margin-top: 0.8rem
+
+            .links-wrapper
+                gap: 0.6rem
+            
+            .content-header-right
+                display: flex
+                flex-direction: row
+                gap: 1.2rem
+
+
+
+@media screen and (max-width: 550px)
+    .content-header
+        margin-top: 0.8rem
+        margin-bottom: 2.5rem
+
+        .content-header-wrapper
+
+            input
+                width: 13rem
+
+            h3
+                font-size: 1rem
+            
+            h1
+                margin: 0.4rem 0 0
+                @include mixin.text-2
+                font-size: 1.7rem
+
+            .links-wrapper
+                font-size: 0.8rem
+                margin-top: 0.8rem
+
+            .links-wrapper
+                gap: 0.5rem
+            
+            .content-header-right
+                display: flex
+                flex-direction: column
+                gap: 0.6rem

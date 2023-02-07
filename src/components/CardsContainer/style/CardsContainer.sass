@@ -3,25 +3,19 @@
 .cards-container
     display: grid
     grid-gap: var.$grid-gap
-
-.max-columns-3
     grid-template-columns: repeat(3, minmax(100px, 1fr))
 
-.max-columns-2
-    grid-template-columns: repeat(2, minmax(130px, 1fr))
 
-
-@media screen and (min-width: 480px) and (max-width: 700px) 
+@media screen and (min-width: 480px) and (max-width: 760px) 
     .cards-container
-        display: grid
-
-    .max-columns-3
         grid-template-columns: repeat(2, minmax(100px, 1fr))
 
-@media screen and (max-width: 480px)
+@media screen and (min-width: 450px) and (max-width: 480px)
     .cards-container
-        display: grid
         grid-gap: 0.8rem
-
-    .max-columns-3
         grid-template-columns: repeat(2, minmax(100px, 1fr))
+
+@media screen and (max-width: 450px)
+    .cards-container
+        grid-gap: 0.8rem
+        grid-template-columns: repeat(1, minmax(100px, 1fr))

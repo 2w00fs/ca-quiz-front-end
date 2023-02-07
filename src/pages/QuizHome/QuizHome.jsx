@@ -1,10 +1,8 @@
 import React from 'react'
-import Title from '@/components/ContentHeader/ContentHeader.jsx'
-import Button from '@/components/Button/Button.jsx'
-import cardDeck from '../../assets/card-deck.svg'
 import './style/QuizHome.css'
 import { useOutletContext, useParams } from 'react-router-dom'
-import BackButton from '@/components/BackButton/BackButton.jsx'
+import NavButton from '@/components/NavButton/NavButton.jsx'
+import ContentHeader from '@/components/ContentHeader/ContentHeader.jsx'
 
 const QuizHome = () => {
     const { quiz, setQuiz } = useOutletContext()
@@ -32,21 +30,30 @@ const QuizHome = () => {
         return <div></div>
     }
 
+    const getContentHeader = () => {
+        let heading = quiz.name && quiz.name.toUpperCase()
+        let subheading = 'Home'
+        let links = [
+            { text: 'Home', path: '/'},
+            { text: 'Subject', path: `/subject/${quiz.subjectId}`}
+        ]
+        return <ContentHeader {...{heading, subheading, links}} />
+    }
+
     return (
         <main className='quiz-home'>
-            <BackButton path={`/subject/${quiz.subjectId}`} >Subject</BackButton>
             <div className='outer-content-wrapper'>
-                <Title subheading='Home' heading={quiz.name ? quiz.name.toUpperCase() : ''} />
+                {getContentHeader()}
                 <div className={'card-deck'}>
                     {generateCardDeck()}
                 </div>
                 <div className='bottom-content-wrapper'>
                     {quiz.flashcards.length !== 0 ? (
                         <>
-                            <Button path='./take' type='1' size='1'>Take Quiz</Button>
-                            <Button path='./edit' type='2' size='1'>Update</Button>
+                            <NavButton path='./take' type='1' size='1'>Take Quiz</NavButton>
+                            <NavButton path='./edit' type='2' size='1'>Update</NavButton>
                         </>
-                    ) : <Button path='./edit' size='1' type='1'>Add Cards</Button>}
+                    ) : <NavButton path='./edit' size='1' type='1'>Add Cards</NavButton>}
                 </div>
             </div>
         </main>
