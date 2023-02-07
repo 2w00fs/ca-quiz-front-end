@@ -22,29 +22,7 @@ const EditQuiz = () => {
     }, [])
 
     const addFlashcard = async (event) => {
-        event.preventDefault()
-        let token = localStorage.getItem('jwtToken')
-        let res = await fetch(import.meta.env.VITE_API_URL + `quiz/${quizId}/flashcard/`, {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
-            },
-            body: JSON.stringify({ question: '', answerOptions: [{ text: '', isCorrectOption: true }], takesTextInput: false })
-        })
-        let json = await res.json()
-        if (res.status === 201) {
-            setQuiz(json)
-            console.log(json.flashcards[json.flashcards.length - 1]._id)
-            nav(`/quiz/${quizId}/flashcard/${json.flashcards[json.flashcards.length - 1]._id}/edit`)
-        } else if (res.status === 500) {
-            console.log('Unable to delete flashcard')
-        } else if (res.status === 401) {
-            nav('/auth/login')
-        } else if (res.status === 404) {
-            console.log('Quiz or flashcard not found')
-        }
+        nav(`/quiz/${quizId}/flashcard/add`)
     }
 
     const getFlashcards = flashcards => {
@@ -108,7 +86,7 @@ const EditQuiz = () => {
             { text: 'Subject', path: `/subject/${quiz.subjectId}` },
             { text: 'Quiz Home', path: `/quiz/${quizId}` }
         ]
-        let childResourceType = 'quiz'
+        let childResourceType = 'Flashcard'
         let addChildHandler = addFlashcard
         return <ContentHeader {...{resource, heading, subheading, links, childResourceType, addChildHandler, updateName, deleteHandler}} />
     }

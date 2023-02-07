@@ -13,30 +13,12 @@ const SubjectList = () => {
     const nav = useNavigate()
 
     const addSubject = async (event) => {
-        event.preventDefault()
-        let token = localStorage.getItem('jwtToken')
-        let res = await fetch(import.meta.env.VITE_API_URL + `subject/`, {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
-            },
-            body: JSON.stringify({ name: 'Default' })
-        })
-        let json = await res.json()
-        if (res.status === 201) {
-            nav(`/subject/${json._id}`, { state: { inEditMode: true } })
-        } else if (res.status === 401) {
-            localStorage.clear()
-            nav('/auth/login')
-        } else if (res.status === 500) {
-            console.log('Internal server error')
-        }
+        nav('/subject/add')
     }
 
+    
     const getSubjectList = subjects => {
-        if (!subjects) {
+        if (subjects.length === 0) {
             return <AddButton onClick={addSubject} text='Add Subject' />
         } else {
             return subjects.map(subject => {
@@ -47,6 +29,10 @@ const SubjectList = () => {
                 return <PreviewCard path={`subject/${subject._id}`} key={subject._id} heading={heading} text={text} logo={logo} tag={tag} />
             })
         }
+    }
+
+    if (!subjects) {
+        return <div></div>
     }
 
     return (

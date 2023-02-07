@@ -17,8 +17,8 @@ const QuizResult = () => {
         let heading = quiz.name && quiz.name.toUpperCase()
         let subheading = 'Quiz Result'
         let links = [
-            { text: 'Home', path: '/'},
-            { text: 'Subject', path: `/subject/${quiz.subjectId}`}
+            { text: 'Subject', path: `/subject/${quiz.subjectId}`},
+            { text: 'Quiz Home', path: `/quiz/${quizId}`}
         ]
         return <ContentHeader {...{ heading, subheading, links }} />
     }

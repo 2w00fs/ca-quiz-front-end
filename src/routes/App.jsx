@@ -13,15 +13,10 @@ import SignUp from '@/pages/SignUp/SignUp.jsx'
 import SubjectList from '@/pages/SubjectList/SubjectList.jsx'
 import AddSubject from '@/pages/AddSubject/AddSubject.jsx'
 import QuizResult from "@/pages/QuizResult/QuizResult.jsx"
+import AddFlashcard from '@/pages/AddFlashcard/AddFlashcard.jsx'
 
 
 function App() {
-    // const updateFlashcardLoader = async (category, content) => {
-    //     // fetch from api
-    //     redirect(flashcard/:flashcardId/update)
-    //   }
-
-
     return (
         <>
             <Nav />
@@ -41,6 +36,7 @@ function App() {
                     <Route path='result' element={<QuizResult />} />
                     <Route path='edit' element={<EditQuiz />} />
                     <Route path='flashcard/:flashcardId/edit' element={<EditFlashcard />} />
+                    <Route path='flashcard/add' element={<AddFlashcard />} />
                 </Route>
             </Routes>
         </>
